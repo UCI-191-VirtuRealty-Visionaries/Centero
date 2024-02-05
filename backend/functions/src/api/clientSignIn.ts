@@ -6,6 +6,7 @@ import { authenticateClient } from "../controllers/authentication/authentication
 import { storeToken } from "../controllers/token/storetoken";
 
 /**
+ * (IMPORTED)
  * Sign in a client and generate a token.
  */
 export const clientSignIn = onRequest((req, res) => {
