@@ -4,5 +4,5 @@ echo =========================
 echo Starting Back-end Locally
 echo =========================
 
-cd functions
+cd ../backend/functions
 npm run serve
