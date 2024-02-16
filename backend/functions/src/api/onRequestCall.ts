@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, logger, onCallable } from "../environment";
 
 import { alertmanager } from "../controllers/messaging/alertmanager";
 import { getmanager } from "../controllers/callrouting/callrouting";
@@ -15,7 +13,7 @@ import { addcallsession } from "../controllers/session/sessionupdate";
  * @session will be use to add (manager,resident) pair to call session
  * @alertmanager manager be alerted by user's request
  */
-export const onRequestCall = onRequest(async (req, res) => {
+export const onRequestCall = onCallable(async (req, res) => {
   cors(req, res, async () => {
     // initializeApp();
     try {

@@ -18,3 +18,11 @@ export { cors } from "./config/cors-config";
 
 // Logger
 export { logger } from "firebase-functions";
+
+// Endpoint Builder
+import { onRequest, HttpsFunction, Request } from "firebase-functions/v2/https";
+import { Response } from "express";
+function onCallable(handler: (request: Request, response: Response) => void | Promise<void>): HttpsFunction {
+	return onRequest(handler);
+}
+export { onCallable }

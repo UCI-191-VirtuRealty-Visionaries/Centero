@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, onCallable } from "../environment";
 
 import { deleteToken } from "../controllers/token/deletetoken";
 
@@ -8,7 +6,7 @@ import { deleteToken } from "../controllers/token/deletetoken";
  * (IMPORTED)
  * delete resident devicetoken from sessionstore when log out
  */
-export const onResidentLogout = onRequest(async (req, res) => {
+export const onResidentLogout = onCallable(async (req, res) => {
   cors(req, res, async () => {
     try {
       const conn = getFirestore();
