@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, logger, onCallable } from "../environment";
 
 import { authenticateClient } from "../controllers/authentication/authentication";
 import { storeToken } from "../controllers/token/storetoken";
@@ -9,7 +7,7 @@ import { storeToken } from "../controllers/token/storetoken";
  * (IMPORTED)
  * Sign in a client and generate a token.
  */
-export const clientSignIn = onRequest((req, res) => {
+export const clientSignIn = onCallable((req, res) => {
 	cors(req, res, async () => {
 		try {
 			const { propertyName, unitNumber, social, deviceToken } = req.body;

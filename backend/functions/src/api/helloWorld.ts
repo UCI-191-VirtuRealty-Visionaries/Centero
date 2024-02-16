@@ -1,11 +1,9 @@
-import { logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { logger, onCallable } from "../environment";
 
 /**
  * Respond with "hello world" from specified endpoint.
  */
-export const helloWorld = onRequest((req, res) => {
+export const helloWorld = onCallable((req, res) => {
   logger.info("Hello, logs!");
   res.send("Hello from Centero! (This endpoint is for testing purposes only 🙏)");
 });

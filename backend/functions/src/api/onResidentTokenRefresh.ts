@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, logger, onCallable } from "../environment";
 
 import { refreshToken } from "../controllers/token/refreshtoken";
 
@@ -8,7 +6,7 @@ import { refreshToken } from "../controllers/token/refreshtoken";
  * (IMPORTED)
  * refresh resident token
  */
-export const onResidentTokenRefresh = onRequest(async (req, res) => {
+export const onResidentTokenRefresh = onCallable(async (req, res) => {
   cors(req, res, async () => {
     try {
       const {newToken} = req.body;

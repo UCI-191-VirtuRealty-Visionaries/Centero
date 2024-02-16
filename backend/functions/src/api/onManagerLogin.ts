@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, onCallable } from "../environment";
 
 import { storeToken } from "../controllers/token/storetoken";
 
@@ -9,7 +7,7 @@ import { storeToken } from "../controllers/token/storetoken";
  * Called after manager authenticates with firebase auth
  * add manager device token to managerstore
  */
-export const onManagerLogin = onRequest(async (req, res) => {
+export const onManagerLogin = onCallable(async (req, res) => {
 	cors(req, res, async () => {
 		try {
 			const { deviceToken } = req.body;

@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, onCallable } from "../environment";
 
 import { deleteToken } from "../controllers/token/deletetoken";
 
@@ -9,7 +7,7 @@ import { deleteToken } from "../controllers/token/deletetoken";
  * manager logout
  * delete manager device token from session
  */
-export const onManagerLogout = onRequest(async (req, res) => {
+export const onManagerLogout = onCallable(async (req, res) => {
 	cors(req, res, async () => {
 		try {
 			const conn = getFirestore();

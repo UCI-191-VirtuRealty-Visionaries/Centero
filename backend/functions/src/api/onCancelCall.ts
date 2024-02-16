@@ -1,6 +1,4 @@
-import { cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { cors, getFirestore, logger, onCallable } from "../environment";
 
 import { searchcallsessionfromclient } from "../controllers/session/sessionsearch";
 import { alertmanager } from "../controllers/messaging/alertmanager";
@@ -17,7 +15,7 @@ import { removecallsession } from "../controllers/session/sessionupdate";
  * the popup message box
  * cancelling call during the call will lead manager back to the homepage
  */
-export const onCancelCall = onRequest(async (req, res) => {
+export const onCancelCall = onCallable(async (req, res) => {
 	cors(req, res, async () => {
 		try {
 			const { deviceToken } = req.body;

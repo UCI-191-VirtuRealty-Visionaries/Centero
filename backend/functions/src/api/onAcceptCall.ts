@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, logger, onCallable } from "../environment";
 
 import { searchcallsession } from "../controllers/session/sessionsearch";
 import { alertclient } from "../controllers/messaging/alertclient";
@@ -14,7 +12,7 @@ import { alertclient } from "../controllers/messaging/alertclient";
  * FUTURE PLAN: we will also initiate a actual video session
  * from this endpoint
  */
-export const onAcceptCall = onRequest(async (req, res) => {
+export const onAcceptCall = onCallable(async (req, res) => {
 	cors(req, res, async () => {
 		try {
 			const { deviceToken } = req.body;

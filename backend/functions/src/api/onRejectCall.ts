@@ -1,6 +1,4 @@
-import { admin, cors, getFirestore, logger } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, getFirestore, logger, onCallable } from "../environment";
 
 import { searchcallsession } from "../controllers/session/sessionsearch";
 import { alertclient } from "../controllers/messaging/alertclient";
@@ -20,7 +18,7 @@ import { removecallsession } from "../controllers/session/sessionupdate";
  * a cool down of let's say 10 seconds sending the cached manager ids
  * so that we can filter out mannger that just rejected
  */
-export const onRejectCall = onRequest(async (req, res) => {
+export const onRejectCall = onCallable(async (req, res) => {
 	cors(req, res, async () => {
 		try {
 			const { deviceToken } = req.body;
