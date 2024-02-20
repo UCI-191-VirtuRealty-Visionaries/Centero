@@ -1,11 +1,9 @@
-import { admin, cors } from "../environment";
-
-import { onRequest } from "firebase-functions/v2/https";
+import { admin, cors, onCallable } from "../environment";
 
 /**
  * (IMPORTED)
  */
-export const getResident = onRequest(async (req, res) => {
+export const getResident = onCallable(async (req, res) => {
   cors(req, res, async () => {
     try {
       const {uid} = req.body;
