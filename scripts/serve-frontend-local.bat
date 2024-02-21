@@ -1,8 +1,8 @@
 @echo off
 
-echo =========================
+echo ==========================
 echo Starting Front-end Locally
-echo =========================
+echo ==========================
 
 cd ../frontend/centero
 flutter run -d chrome
