@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'face_id_notice.dart';
+import 'resident_call_options.dart';
 
-class RoleSelectionPage extends StatelessWidget {
+class FaceIDScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Role Selection Page'), 
+        title: Text('Face ID Scan Page'), 
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Go to face id notice page'),
+          child: Text('Go to resident call options page'),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => FaceIDNoticePage()),
+              MaterialPageRoute(builder: (context) => ResidentCallOptionsPage()),
             );
           },
         ),

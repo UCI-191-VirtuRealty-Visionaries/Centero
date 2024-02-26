@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'face_id_notice.dart';
+import 'home.dart';
 
-class RoleSelectionPage extends StatelessWidget {
+class EndContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Role Selection Page'), 
+        title: Text('End Contact Page'), 
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Go to face id notice page'),
+          child: Text('Return to home page'),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => FaceIDNoticePage()),
+              MaterialPageRoute(builder: (context) => HomePage()),
             );
           },
         ),
