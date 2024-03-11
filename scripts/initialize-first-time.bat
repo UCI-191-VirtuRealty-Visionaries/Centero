@@ -1,14 +1,15 @@
 @echo off
-cd ..
+pushd "%~dp0/.."
 
 echo Installing backend resources...
-cd ./backend/functions
+pushd "backend/functions"
 call npm install
-cd ../..
+popd
 
 echo Installing frontend resources...
-cd ./frontend/centero
+pushd "frontend/centero"
 call dart pub get
-cd ../..
+popd
 
 echo Done.
+popd
