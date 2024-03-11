@@ -1,7 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
 import 'home.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  if (const String.fromEnvironment('mode') == 'dev') {
+    // TODO: Set Firebase to use local emulator ports
+  }
   runApp(const MyApp());
 }
 
