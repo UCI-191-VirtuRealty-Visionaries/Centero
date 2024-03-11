@@ -1,5 +1,5 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'age.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,25 +8,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void showPopup(text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(text)),
+    );
+  }
+
   // This is the asynchronous method that fetches data from your server
   Future<void> fetchHelloWorld() async {
-    final uri = Uri.parse('http://127.0.0.1:5001/centerobackend-14820/us-central1/helloWorld');
     try {
-      final response = await http.get(uri);
-      if (response.statusCode == 200) {
-        // If server returns an OK response, show the response body in a Snackbar
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Response: ${response.body}')),
-        );
-      } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data from the server');
-      }
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      HttpsCallable func = FirebaseFunctions.instance.httpsCallable('helloWorld');
+      final result = await func.call();
+      final msg = result.data['message'];
+      showPopup(msg);
+    } on FirebaseFunctionsException catch (ferr) {
+      showPopup('Firebase Functions Error: [${ferr.code}] ${ferr.message}');
+    } catch (error) {
+      showPopup('Generic Error: $error');
     }
   }
 
