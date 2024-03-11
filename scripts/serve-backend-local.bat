@@ -1,8 +1,12 @@
 @echo off
+pushd "%~dp0/.."
 
 echo =========================
 echo Starting Back-end Locally
 echo =========================
 
-cd ../backend/functions
-npm run serve
+pushd "backend/functions"
+call npm run serve
+popd
+
+popd
