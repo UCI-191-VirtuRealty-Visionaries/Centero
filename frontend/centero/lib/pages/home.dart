@@ -1,5 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'age.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   // This is the asynchronous method that fetches data from your server
   Future<void> fetchHelloWorld() async {
     try {
-      HttpsCallable func = FirebaseFunctions.instance.httpsCallable('helloWorld');
+      HttpsCallable func =
+          FirebaseFunctions.instance.httpsCallable('helloWorld');
       final result = await func.call();
       final msg = result.data['message'];
       showPopup(msg);
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'), 
+        title: Text('Home Page'),
       ),
       body: Center(
         child: Column(
@@ -51,6 +53,10 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               child: Text('Go to age page'),
+            ),
+            ElevatedButton(
+              onPressed: () => GoRouter.of(context).go('/admin'),
+              child: Text('Exit to Admin Dashboard (test only)'),
             ),
           ],
         ),
