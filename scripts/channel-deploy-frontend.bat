@@ -10,7 +10,7 @@ echo ==================================================
 
 echo ===== Build Flutter for Web =====
 pushd "frontend/centero"
-call flutter build web --dart-define=mode=dev
+call flutter build web
 popd
 
 echo ===== Deploy to Firebase =====
