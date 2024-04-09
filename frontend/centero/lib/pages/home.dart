@@ -58,6 +58,10 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => GoRouter.of(context).go('/admin'),
               child: Text('Exit to Admin Dashboard (test only)'),
             ),
+            ElevatedButton(
+              onPressed: () => GoRouter.of(context).go('/widgets'),
+              child: Text('Show Preview Widgets'),
+            ),
           ],
         ),
       ),
