@@ -33,38 +33,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min, // center the buttons vertically
-          children: [
-            ElevatedButton(
-              onPressed: fetchHelloWorld,
-              child: Text('Fetch Hello World'),
-            ),
-            SizedBox(height: 20), // Spacing between buttons
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AgePage()),
-                );
-              },
-              child: Text('Go to age page'),
-            ),
-            ElevatedButton(
-              onPressed: () => GoRouter.of(context).go('/admin'),
-              child: Text('Exit to Admin Dashboard (test only)'),
-            ),
-            ElevatedButton(
-              onPressed: () => GoRouter.of(context).go('/widgets'),
-              child: Text('Show Preview Widgets'),
-            ),
-          ],
-        ),
-      ),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/apartmentBuilding.jpg',
+            fit: BoxFit.cover, // cover whole screen
+            width: double.infinity, // image take up whole width
+            height: double.infinity, // image take up whole height
+          ),
+          Center(
+            child: Column (
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/centero_logo.png',
+                  width: 150, // logcial pixels
+                  height: 150 // logical pixels
+                ),
+                Text("Centero"),
+                Text("Would you like to chat?"),
+                Text("Touch screen to start")
+              ]
+            )
+          ),
+        ]
+      )
     );
   }
 }
