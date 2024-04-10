@@ -43,12 +43,15 @@ class _HomePageState extends State<HomePage> {
           ),
           Center(
             child: Column (
-              mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(
-                  'assets/centero_logo.png',
-                  width: 150, // logcial pixels
-                  height: 150 // logical pixels
+                Container(
+                  padding: EdgeInsets.only(top: 150.0), 
+                  child: 
+                    Image.asset(
+                    'assets/centero_logo.png',
+                    width: 150, // logcial pixels
+                    height: 150 // logical pixels
+                  ),
                 ),
                 Text("Centero"),
                 Text("Would you like to chat?"),
