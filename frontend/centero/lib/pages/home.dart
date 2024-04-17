@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Image.asset(
-            'assets/apartmentBuilding.jpg',
+            'assets/apt_building_bg.jpg', // background image of apartment buildings
             fit: BoxFit.cover, // cover whole screen
             width: double.infinity, // image take up whole width
             height: double.infinity, // image take up whole height
@@ -44,18 +44,31 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: Column (
               children: [
-                Container(
-                  padding: EdgeInsets.only(top: 150.0), 
-                  child: 
-                    Image.asset(
-                    'assets/centero_logo.png',
-                    width: 150, // logcial pixels
-                    height: 150 // logical pixels
+                Padding(
+                  padding: EdgeInsets.only(top: 1000), // add padding above the Opacity widget
+                  child: Container(
+                    width: double.infinity, // card take up whole width
+                    height: 2000,
+                    color: Colors.white.withOpacity(0.6),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/centero_logo.png',
+                          width: 500, // logical pixels
+                          height: 500 // logical pixels
+                        ),
+                        Text("CENTERO",
+                          style: TextStyle(fontSize: 300)),
+                        Text("WOULD YOU LIKE TO CHAT?",
+                          style: TextStyle(fontSize: 160)),
+                        SizedBox(height: 90),
+                        Text("Touch screen to start", 
+                          style: TextStyle(fontSize: 85))
+                      ]
+                    )
                   ),
                 ),
-                Text("Centero"),
-                Text("Would you like to chat?"),
-                Text("Touch screen to start")
               ]
             )
           ),
