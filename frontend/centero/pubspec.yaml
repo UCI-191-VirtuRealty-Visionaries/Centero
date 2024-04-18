@@ -75,7 +75,9 @@ flutter:
   assets:
     - assets/centero_logo.png
     - assets/centero_logo.svg
+    - assets/centero_logo_white.svg
     - assets/face_scan_reticle.svg
+    - assets/profile_austin.png
     - assets/video_call_placeholder.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

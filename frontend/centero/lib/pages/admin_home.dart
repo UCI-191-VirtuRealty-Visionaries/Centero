@@ -1,3 +1,4 @@
+import 'package:centero/widgets/admin_appbar.dart';
 import 'package:flutter/material.dart';
 
 class AdminHomePage extends StatelessWidget {
@@ -5,10 +6,19 @@ class AdminHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ----- App Bar -----
+
+    final appBar = PreferredSize(
+      preferredSize: Size.fromHeight(50),
+      child: AdminAppBar(),
+    );
+
+    // ----- Widgets -----
+
+    // ----- Structure -----
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Admin Dashboard'),
-      ),
+      appBar: appBar,
       body: Center(
         child: const Text('Admin Dashboard Contents'),
       ),
