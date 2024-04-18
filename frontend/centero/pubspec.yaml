@@ -103,3 +103,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-VariableFont_wght.ttf
+        - asset: fonts/Montserrat-Italic-VariableFont_wght.ttf
+          style: italic
+    - family: Josefin
+      fonts:
+        - asset: fonts/JosefinSans-VariableFont_wght.ttf
+        - asset: fonts/JosefinSans-Italic-VariableFont_wght.ttf
+          style: italic
+
