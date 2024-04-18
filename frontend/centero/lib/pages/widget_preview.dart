@@ -3,6 +3,7 @@ import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/face_scan.dart';
+import 'package:centero/widgets/logo_footer.dart';
 import 'package:centero/widgets/logo_minimal.dart';
 import 'package:centero/widgets/video_call.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,8 @@ class WidgetPreviewPage extends StatelessWidget {
 
     final logoMinimal = LogoMinimal();
 
+    final logoFooter = LogoFooter();
+
     final faceScan = FaceScanWidget(
       onValidated: () => logger.info('Received validated callback.'),
     );
@@ -48,6 +51,7 @@ class WidgetPreviewPage extends StatelessWidget {
     // ----- Builder -----
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 240, 240, 240),
       appBar: AppBar(
         title: const Text('Widget Preview (Dev Only)'),
       ),
@@ -61,6 +65,7 @@ class WidgetPreviewPage extends StatelessWidget {
                 btnSecondary,
                 btnAlternate,
                 logoMinimal,
+                logoFooter,
               ],
             ),
             Column(children: [faceScan]),
