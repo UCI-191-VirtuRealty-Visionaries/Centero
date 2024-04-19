@@ -1,4 +1,5 @@
 import 'package:centero/pages/admin_home.dart';
+import 'package:centero/pages/superuser_home.dart';
 import 'package:centero/pages/widget_preview.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
@@ -24,7 +25,8 @@ void main() async {
   Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((LogRecord record) {
     final timeStr = DateFormat('kk:mm:ss').format(record.time);
-    print('[$timeStr] [${record.level.name}] [${record.loggerName}] ${record.message}');
+    print(
+        '[$timeStr] [${record.level.name}] [${record.loggerName}] ${record.message}');
   });
 
   setPathUrlStrategy();
@@ -51,6 +53,13 @@ class MyApp extends StatelessWidget {
         GoRoute(
           path: '/widgets',
           builder: (context, state) => WidgetPreviewPage(),
+        ),
+      );
+
+      routes.add(
+        GoRoute(
+          path: '/sudo',
+          builder: (context, state) => SuperUserHomePage(),
         ),
       );
     }
