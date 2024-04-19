@@ -1,3 +1,4 @@
+import 'package:centero/services/backend.dart';
 import 'package:centero/widgets/admin_appbar.dart';
 import 'package:centero/widgets/admin_call_queue.dart';
 import 'package:flutter/material.dart';
@@ -18,17 +19,29 @@ class AdminHomePage extends StatelessWidget {
 
     final callQueue = AdminCallQueue();
 
+    final loginButton = Column(
+      children: [
+        Text('Login Tools'),
+        TextButton(
+            onPressed: () {
+              Backend.authManager(
+                  company: 'UC Irvine', username: 'mvp_user', password: '1234');
+            },
+            child: Text('Log in as mvp_user')),
+      ],
+    );
+
     // ----- Columns -----
 
     final col1 = Column(
       children: [
-        callQueue,
+        loginButton,
       ],
     );
 
     final col2 = Column(
       children: [
-        Text('...'),
+        callQueue,
       ],
     );
 
@@ -52,4 +65,3 @@ class AdminHomePage extends StatelessWidget {
     );
   }
 }
-

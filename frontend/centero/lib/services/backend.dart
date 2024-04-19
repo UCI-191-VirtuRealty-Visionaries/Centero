@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:crypto/crypto.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logging/logging.dart';
 
 class QueuedUserInfo {
@@ -12,12 +16,17 @@ class Backend {
     return Logger('Backend.$name');
   }
 
-  static Future<List<QueuedUserInfo>?> getCallQueue({bool silent = false}) async {
+  static HttpsCallable getEndpoint(String name) {
+    return FirebaseFunctions.instance.httpsCallable(name);
+  }
+
+  static Future<List<QueuedUserInfo>?> getCallQueue({
+    bool silent = false,
+  }) async {
     final logger = createLogger('CallQueue');
 
     try {
-      HttpsCallable func = FirebaseFunctions.instance.httpsCallable('getQueue');
-      final response = await func.call();
+      final response = await getEndpoint('getQueue').call();
       final docs = response.data['docs'];
       if (!silent) {
         logger.info('Fetched call queue ${docs.toString()}');
@@ -39,9 +48,38 @@ class Backend {
     }
   }
 
-  static Future<void> authManager() async {
+  static Future<void> authManager({
+    required String company,
+    required String username,
+    required String password,
+  }) async {
     final logger = createLogger('AuthManager');
 
-    logger.warning('Not implemented yeT');
+    final digest = sha256.convert(utf8.encode(password));
+    logger.info('Logging in with `$company : $username : $digest`');
+
+    try {
+      final response = await getEndpoint('authManager').call(
+        {
+          'company': company,
+          'id': username,
+          'hash': digest.toString(),
+        },
+      );
+
+      bool success = response.data['success'];
+
+      if (success) {
+        String token = response.data['token'];
+        final credential =
+            await FirebaseAuth.instance.signInWithCustomToken(token);
+
+        logger.info('Successful login. ${credential.user}');
+      } else {
+        logger.severe('Failed to log in as $username, credentials refused.');
+      }
+    } catch (error) {
+      logger.severe(error);
+    }
   }
 }

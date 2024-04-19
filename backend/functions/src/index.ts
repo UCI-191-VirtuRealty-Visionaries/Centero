@@ -6,6 +6,7 @@ initializeApp();
 // Exports (Keep Alphabetized)
 export { authManager } from "./api/authManager";
 export { getQueue } from "./api/getQueue";
+export { getUserInfo } from "./api/getUserInfo";
 export { helloWorld } from "./api/helloWorld";
 
 // Legacy
