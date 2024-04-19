@@ -19,11 +19,9 @@ class _SuperUserHomePageState extends State<SuperUserHomePage> {
   Widget build(BuildContext context) {
     // ----- App Bar -----
 
-    const appBarName =
-        '👕 Super User Super Duper Control Panel Supreme (name pending)';
     final appBar = AppBar(
-      title: Text(appBarName),
-      backgroundColor: Colors.amber[800],
+      title: Text('/sudo'),
+      backgroundColor: Color.fromARGB(255, 214, 136, 34),
       foregroundColor: Colors.white,
     );
 
