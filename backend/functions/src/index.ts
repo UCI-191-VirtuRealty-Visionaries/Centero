@@ -4,6 +4,8 @@ import { initializeApp } from "firebase-admin/app";
 initializeApp();
 
 // Exports (Keep Alphabetized)
+export { authManager } from "./api/authManager";
+export { getQueue } from "./api/getQueue";
 export { helloWorld } from "./api/helloWorld";
 
 // Legacy

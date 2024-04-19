@@ -1,4 +1,5 @@
 import 'package:centero/widgets/admin_appbar.dart';
+import 'package:centero/widgets/admin_call_queue.dart';
 import 'package:flutter/material.dart';
 
 class AdminHomePage extends StatelessWidget {
@@ -15,13 +16,40 @@ class AdminHomePage extends StatelessWidget {
 
     // ----- Widgets -----
 
+    final callQueue = AdminCallQueue();
+
+    // ----- Columns -----
+
+    final col1 = Column(
+      children: [
+        callQueue,
+      ],
+    );
+
+    final col2 = Column(
+      children: [
+        Text('...'),
+      ],
+    );
+
+    final col3 = Column(
+      children: [
+        Text('...'),
+      ],
+    );
+
     // ----- Structure -----
 
     return Scaffold(
       appBar: appBar,
-      body: Center(
-        child: const Text('Admin Dashboard Contents'),
+      body: Container(
+        padding: EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [col1, col2, col3],
+        ),
       ),
     );
   }
 }
+
