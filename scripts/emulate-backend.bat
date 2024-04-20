@@ -7,7 +7,6 @@ echo ==================================
 
 pushd "backend/functions"
 call npm run emulate
-start cmd /k npm run build:watch
 popd
 
 popd
