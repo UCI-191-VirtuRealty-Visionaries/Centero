@@ -6,7 +6,7 @@ echo Emulating Back-end as Local Server
 echo ==================================
 
 pushd "backend/functions"
-call npm run serve
+call npm run emulate
 popd
 
 popd

@@ -1,4 +1,4 @@
-import { admin, functions } from "../environment";
+import { admin, functions } from "../../environment";
 
 // TODO Possibly using v1 Cloud Functions API with `onCreate()`.
 
