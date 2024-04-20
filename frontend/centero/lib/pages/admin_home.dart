@@ -1,7 +1,10 @@
 import 'package:centero/services/backend.dart';
+import 'package:centero/services/devutil.dart';
 import 'package:centero/widgets/admin_appbar.dart';
 import 'package:centero/widgets/admin_call_queue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 
 class AdminHomePage extends StatelessWidget {
   const AdminHomePage({super.key});
@@ -19,16 +22,22 @@ class AdminHomePage extends StatelessWidget {
 
     final callQueue = AdminCallQueue();
 
-    final loginButton = Column(
-      children: [
-        Text('Login Tools'),
-        TextButton(
-            onPressed: () {
-              Backend.authManager(
-                  company: 'UC Irvine', username: 'mvp_user', password: '1234');
-            },
-            child: Text('Log in as mvp_user')),
-      ],
+    final logoutButton = DevUtil.buildButtonStack(
+      'Logout Tools',
+      'Log out',
+      () {
+        Logger('AdminHome').info('Signed out');
+        FirebaseAuth.instance.signOut();
+      },
+    );
+
+    final loginButton = DevUtil.buildButtonStack(
+      'Logout Tools',
+      'Log in as mvp_user',
+      () {
+        Backend.authManager(
+            company: 'UC Irvine', username: 'mvp_user', password: '1234');
+      },
     );
 
     // ----- Columns -----
@@ -36,6 +45,7 @@ class AdminHomePage extends StatelessWidget {
     final col1 = Column(
       children: [
         loginButton,
+        logoutButton,
       ],
     );
 

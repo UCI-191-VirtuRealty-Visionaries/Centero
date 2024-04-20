@@ -80,6 +80,8 @@ flutter:
     - assets/face_scan_reticle.svg
     - assets/profile_austin.png
     - assets/video_call_placeholder.png
+    - assets/avatar_admin_generic.png
+    - assets/avatar_resident_generic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

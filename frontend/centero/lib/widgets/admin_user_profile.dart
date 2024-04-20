@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +10,7 @@ class AdminUserProfile extends StatefulWidget {
 }
 
 class _AdminUserProfileState extends State<AdminUserProfile> {
-  String username = 'Unknown';
+  String? username;
   StreamSubscription? authListener;
 
   @override
@@ -29,8 +27,6 @@ class _AdminUserProfileState extends State<AdminUserProfile> {
   }
 
   void onAuthStateChanged(User? user) async {
-    var newUsername = '(hidden)';
-
     // if (user != null) {
     //   final info = await FirebaseFirestore.instance
     //       .collection('Users')
@@ -41,28 +37,59 @@ class _AdminUserProfileState extends State<AdminUserProfile> {
 
     setState(() {
       if (user == null) {
-        username = 'Unknown';
+        username = null;
       } else {
-        username = newUsername;
+        username = 'First Last';
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final name = Text(username);
-    final status = Text('Online');
+    if (FirebaseAuth.instance.currentUser == null) {
+      return _SubwidgetLoggedOut();
+    }
 
-    final profile = CircleAvatar(
+    return _SubwidgetActive(userName: username ?? 'Manager', userStatus: 'Online');
+  }
+}
+
+// ==================================================
+// Subwidgets
+// ==================================================
+
+class _SubwidgetActive extends StatelessWidget {
+  const _SubwidgetActive({
+    required this.userName,
+    required this.userStatus,
+  });
+
+  final String userName;
+  final String userStatus;
+
+  @override
+  Widget build(BuildContext context) {
+    final name = Text(userName);
+    final status = Text(userStatus);
+
+    final avatar = CircleAvatar(
       radius: 50,
-      // foregroundImage: Image.asset('profile_austin.png'),
+      backgroundImage: AssetImage('avatar_admin_generic.png'),
+      child: Text(userName.characters.firstOrNull ?? ''),
     );
 
     return Row(
       children: [
         Column(children: [name, status]),
-        profile,
+        avatar,
       ],
     );
+  }
+}
+
+class _SubwidgetLoggedOut extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text('(Logged Out)');
   }
 }
