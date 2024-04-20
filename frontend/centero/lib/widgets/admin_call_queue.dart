@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:centero/services/backend.dart';
+import 'package:centero/services/devutil.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
@@ -50,8 +51,8 @@ class _AdminCallQueueState extends State<AdminCallQueue> {
     return Column(
       children: [
         Text('Call Queue'),
-        TextButton(onPressed: fetchLatestQueue, child: Text('Fetch')),
-        Text(queue.map((x) => x.userid).join('\n'), maxLines: 40),
+        DevUtil.buildButton('Fetch', fetchLatestQueue),
+        DevUtil.buildTextBlob(queue.map((e) => e.userid)),
       ],
     );
   }
