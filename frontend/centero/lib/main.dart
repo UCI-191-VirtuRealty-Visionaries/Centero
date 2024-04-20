@@ -1,6 +1,4 @@
-import 'package:centero/pages/admin_home.dart';
-import 'package:centero/pages/superuser_home.dart';
-import 'package:centero/pages/widget_preview.dart';
+import 'package:centero/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,7 +9,6 @@ import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'firebase_options.dart';
-import 'pages/home.dart';
 
 void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -37,31 +34,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   static GoRouter _createRouter() {
-    final routes = <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (context, state) => HomePage(),
-      ),
-      GoRoute(
-        path: '/admin',
-        builder: (context, state) => AdminHomePage(),
-      ),
-    ];
+    final routes = <RouteBase>[];
+
+    routes.addAll(PublicRouteConfig.routes);
+    routes.addAll(PublicRouteConfig.redirects);
 
     if (const String.fromEnvironment('mode') == 'dev') {
-      routes.add(
-        GoRoute(
-          path: '/widgets',
-          builder: (context, state) => WidgetPreviewPage(),
-        ),
-      );
-
-      routes.add(
-        GoRoute(
-          path: '/sudo',
-          builder: (context, state) => SuperUserHomePage(),
-        ),
-      );
+      routes.addAll(DevRouteConfig.routes);
+      routes.addAll(DevRouteConfig.redirects);
     }
 
     return GoRouter(
@@ -77,7 +57,7 @@ class MyApp extends StatelessWidget {
       routerConfig: _createRouter(),
       title: 'Centero',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 71, 169, 44)),
         useMaterial3: true,
       ),
     );
