@@ -24,8 +24,14 @@ class _AdminCallQueueState extends State<AdminCallQueue> {
   @override
   void initState() {
     super.initState();
-    refreshTimer = Timer.periodic(refreshDelay, (timer) => fetchLatestQueue());
+    // refreshTimer = Timer.periodic(refreshDelay, (timer) => fetchLatestQueue());
     fetchLatestQueue();
+  }
+
+  @override
+  void dispose() {
+    refreshTimer.cancel();
+    super.dispose();
   }
 
   void showPopup(text) {

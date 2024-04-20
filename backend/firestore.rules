@@ -2,8 +2,18 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     // Allow access to ManagerProfiles if authenticated as matching user
-    match /ManagerProfiles/{uid} {
-      allow read: if request.auth != null && request.auth.uid == uid;
+    // match /ManagerProfiles/{uid} {
+    //   allow read: if request.auth != null && request.auth.uid == uid;
+    // }
+
+    match /ManagerProfiles/{document=**} {
+      allow read;
+    }
+
+    // Allow access to ActiveManagers if authenticated.
+    match /ActiveManagers/{docId} {
+      allow read, list;
+      allow read, write, create, delete: if request.auth == docId;
     }
   }
 }

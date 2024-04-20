@@ -1,6 +1,7 @@
 import 'package:centero/services/backend.dart';
 import 'package:centero/services/devutil.dart';
 import 'package:centero/widgets/admin_appbar.dart';
+import 'package:centero/widgets/admin_available_staff.dart';
 import 'package:centero/widgets/admin_call_queue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,26 +21,33 @@ class AdminHomePage extends StatelessWidget {
 
     // ----- Widgets -----
 
-    final callQueue = AdminCallQueue();
-
     final logoutButton = DevUtil.buildButtonStack(
       'Logout Tools',
       'Log out',
-      () {
+      () async {
+        final user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          await Backend.removeManagerFromAvailableStaff(user.uid);
+        }
+        await FirebaseAuth.instance.signOut();
         Logger('AdminHome').info('Signed out');
-        FirebaseAuth.instance.signOut();
       },
     );
 
     final loginButton = DevUtil.buildButtonStack(
       'Login Tools',
       'Log in as mvp_user',
-      () {
-        Backend.authenticateManager(
+      () async {
+        await Backend.authenticateManager(
           company: 'UC Irvine',
           username: 'mvp_user',
           password: '1234',
         );
+
+        final user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          await Backend.addManagerToAvailableStaff(user.uid);
+        }
       },
     );
 
@@ -55,6 +63,10 @@ class AdminHomePage extends StatelessWidget {
       },
     );
 
+    final callQueue = AdminCallQueue();
+
+    final availableStaff = AdminAvailableStaff();
+
     // ----- Columns -----
 
     final col1 = Column(
@@ -68,6 +80,7 @@ class AdminHomePage extends StatelessWidget {
     final col2 = Column(
       children: [
         callQueue,
+        availableStaff,
       ],
     );
 

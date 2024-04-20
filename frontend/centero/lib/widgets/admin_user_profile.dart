@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:centero/services/backend.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class AdminUserProfile extends StatefulWidget {
 }
 
 class _AdminUserProfileState extends State<AdminUserProfile> {
-  String username = '';
+  ManagerInfo? info;
   StreamSubscription? authListener;
 
   @override
@@ -30,22 +30,16 @@ class _AdminUserProfileState extends State<AdminUserProfile> {
   void onAuthStateChanged(User? user) async {
     if (user == null) {
       setState(() {
-        username = '';
+        info = null;
       });
+      return;
     }
 
-    if (user != null) {
-      final info = await FirebaseFirestore.instance
-          .collection('ManagerProfiles')
-          .doc(user.uid)
-          .get();
+    final newProfile = await Backend.getManagerProfile(user.uid);
 
-      final newUsername = info.data()?['name'];
-
-      setState(() {
-        username = newUsername;
-      });
-    }
+    setState(() {
+      info = newProfile;
+    });
   }
 
   @override
@@ -55,7 +49,7 @@ class _AdminUserProfileState extends State<AdminUserProfile> {
     }
 
     return _SubwidgetActive(
-      userName: username,
+      userName: info?.name ?? 'Unknown',
       userStatus: 'Online',
     );
   }
