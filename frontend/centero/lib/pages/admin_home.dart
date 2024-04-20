@@ -14,7 +14,7 @@ class AdminHomePage extends StatelessWidget {
     // ----- App Bar -----
 
     final appBar = PreferredSize(
-      preferredSize: Size.fromHeight(50),
+      preferredSize: Size.fromHeight(51),
       child: AdminAppBar(),
     );
 
@@ -32,11 +32,26 @@ class AdminHomePage extends StatelessWidget {
     );
 
     final loginButton = DevUtil.buildButtonStack(
-      'Logout Tools',
+      'Login Tools',
       'Log in as mvp_user',
       () {
-        Backend.authManager(
-            company: 'UC Irvine', username: 'mvp_user', password: '1234');
+        Backend.authenticateManager(
+          company: 'UC Irvine',
+          username: 'mvp_user',
+          password: '1234',
+        );
+      },
+    );
+
+    final badLoginButton = DevUtil.buildButtonStack(
+      'Error Check Tools Tools',
+      'Try log in as mvp_user',
+      () {
+        Backend.authenticateManager(
+          company: 'UC Irvine',
+          username: 'mvp_user',
+          password: '12345',
+        );
       },
     );
 
@@ -46,6 +61,7 @@ class AdminHomePage extends StatelessWidget {
       children: [
         loginButton,
         logoutButton,
+        badLoginButton,
       ],
     );
 

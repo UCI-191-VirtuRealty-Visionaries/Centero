@@ -48,7 +48,7 @@ class Backend {
     }
   }
 
-  static Future<void> authManager({
+  static Future<void> authenticateManager({
     required String company,
     required String username,
     required String password,

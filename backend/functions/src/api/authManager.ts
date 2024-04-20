@@ -3,12 +3,12 @@ import { getFirestore, logger } from "../environment";
 import { onCall } from "firebase-functions/v2/https";
 import { Filter } from "firebase-admin/firestore";
 
-async function getMatchingDoc(company: string, id: string, hash: string) {
+async function getMatchingDoc(company: string, username: string, hash: string) {
   const db = getFirestore();
 
   const matchExactly = Filter.and(
     Filter.where('company', '==', company),
-    Filter.where('id', '==', id),
+    Filter.where('username', '==', username),
     Filter.where('passwordHash', '==', hash),
   );
 
@@ -22,16 +22,15 @@ async function getMatchingDoc(company: string, id: string, hash: string) {
   }
 }
 
-async function createToken(company: string, id: string): Promise<string | null> {
-  const uid = `${company} : ${id}`;
+async function createToken(id: string): Promise<string | null> {
   const claims = {
     role: ["manager"],
   };
 
   try {
-    return await getAuth().createCustomToken(uid, claims);
+    return await getAuth().createCustomToken(id, claims);
   } catch (error) {
-    logger.error(`Token generation failed for '${uid}'`, error);
+    logger.error(`Token generation failed for '${id}'`, error);
     return null;
   }
 }
@@ -46,7 +45,7 @@ export const authManager = onCall(async (req) => {
   const id = req.data['id'];
   const hash = req.data['hash'];
 
-  const doc = getMatchingDoc(company, id, hash)
+  const doc = await getMatchingDoc(company, id, hash)
 
   if (doc == null) {
     logger.error(`Cannot log in as ${id}, credentials are invalid / user is not registered.`);
@@ -55,7 +54,7 @@ export const authManager = onCall(async (req) => {
     }
   }
 
-  const token = await createToken(company, id);
+  const token = await createToken(doc.data()['id']);
 
   if (token == null) {
     return {
