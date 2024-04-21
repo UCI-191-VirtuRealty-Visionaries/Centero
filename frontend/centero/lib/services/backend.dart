@@ -30,31 +30,24 @@ class Backend {
   }
 
   static Future<List<QueuedUserInfo>?> getCallQueue({
-    bool silent = false,
+    bool logInfo = true,
   }) async {
     final logger = createLogger('CallQueue');
 
-    try {
-      final response = await getEndpoint('getQueue').call();
-      final docs = response.data['docs'];
-      if (!silent) {
-        logger.info('Fetched call queue ${docs.toString()}');
-      }
+    final fullQueue = await firestore.collection('CallQueue').get();
+    final info = fullQueue.docs.map(
+      (e) => QueuedUserInfo(
+        userid: e.data()['userid'],
+      ),
+    );
 
-      List<QueuedUserInfo> ret = [];
-      for (var doc in docs) {
-        ret.add(QueuedUserInfo(
-          userid: doc['userid'],
-        ));
-      }
-      return ret;
-    } on FirebaseFunctionsException catch (ferr) {
-      logger.severe(ferr);
-      return null;
-    } catch (error) {
-      logger.severe(error);
-      return null;
+    if (logInfo) {
+      logger.info(
+        'Found ${fullQueue.size} in queue: $info',
+      );
     }
+
+    return List.from(info);
   }
 
   static Future<void> authenticateManager({
@@ -108,7 +101,8 @@ class Backend {
 
     final activeCollection = await firestore
         .collection('ActiveManagers')
-        .where('status', isNotEqualTo: 'Offline').get();
+        .where('status', isNotEqualTo: 'Offline')
+        .get();
     final targets = activeCollection.docs.map((e) => e.id);
 
     logger.info(

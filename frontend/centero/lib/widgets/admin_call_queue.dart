@@ -41,7 +41,7 @@ class _AdminCallQueueState extends State<AdminCallQueue> {
   }
 
   void fetchLatestQueue() async {
-    final newQueue = await Backend.getCallQueue(silent: true);
+    final newQueue = await Backend.getCallQueue(logInfo: false);
 
     setState(() {
       if (newQueue == null) {
