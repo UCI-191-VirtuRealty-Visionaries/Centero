@@ -5,6 +5,6 @@ initializeApp();
 
 // Exports (Keep Alphabetized)
 export { authManager } from "./api/authManager";
-export { getQueue } from "./api/getQueue";
+export { authResidentFace } from "./api/authResidentFace";
 export { helloWorld } from "./api/helloWorld";
 export { setManagerStatus } from "./api/setManagerStatus";
