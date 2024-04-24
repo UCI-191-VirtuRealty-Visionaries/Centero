@@ -7,15 +7,19 @@ import { onCall } from "firebase-functions/v2/https";
 export const setManagerStatus = onCall(async (req) => {
 	const db = getFirestore();
 
-	const id = req.data["id"];
-	const status = req.data["status"];
-	const doc = db.collection("ActiveManagers").doc(id);
-	
-	await doc.set({ status });
+	const id: string = req.data["id"];
+	const status: string = req.data["status"];
 
-	logger.info(`Set status of ${id} to ${status}`);
+	switch (status) {
+		case 'Offline':
+			await db.collection('ActiveManagers').doc(id).delete();
+			logger.info(`Removed ${id} from active list`);
+			return { success: true, };
 
-	return {
-		result: "Success",
-	};
+		default:
+			const doc = db.collection("ActiveManagers").doc(id);
+			await doc.set({ status: status });
+			logger.info(`Set status of ${id} to ${status}`);
+			return { success: true, };
+	}
 });

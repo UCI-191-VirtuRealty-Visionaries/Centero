@@ -168,8 +168,8 @@ class Backend {
     try {
       final response = await getEndpoint('authResidentManual').call(
         {
-          'id': username,
-          'hash': digest.toString(),
+          'username': username,
+          'passwordHash': digest.toString(),
         },
       );
 
@@ -203,8 +203,8 @@ class Backend {
       final response = await getEndpoint('authManager').call(
         {
           'company': company,
-          'id': username,
-          'hash': digest.toString(),
+          'username': username,
+          'passwordHash': digest.toString(),
         },
       );
 
