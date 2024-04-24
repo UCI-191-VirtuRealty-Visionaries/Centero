@@ -14,11 +14,14 @@ export const authManager = onCall(async (req) => {
   const username = req.data['username'];
   const passwordHash = req.data['passwordHash'];
 
-  const doc = await getMatchingFirestoreDoc(new Map([
-    ['company', company],
-    ['username', username],
-    ['passwordHash', passwordHash],
-  ]));
+  const doc = await getMatchingFirestoreDoc(
+    'ManagerCredentials',
+    new Map([
+      ['company', company],
+      ['username', username],
+      ['passwordHash', passwordHash],
+    ]),
+  );
 
   if (doc == null) {
     logger.error(`Cannot log in as ${username}, credentials are invalid / user is not registered.`);

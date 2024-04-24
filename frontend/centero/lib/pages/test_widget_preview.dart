@@ -5,6 +5,8 @@ import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/face_scan.dart';
 import 'package:centero/widgets/logo_footer.dart';
 import 'package:centero/widgets/logo_minimal.dart';
+import 'package:centero/widgets/mock_face_scan.dart';
+import 'package:centero/widgets/test_logout.dart';
 import 'package:centero/widgets/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
@@ -40,9 +42,13 @@ class TestWidgetPreviewPage extends StatelessWidget {
 
     final logoFooter = LogoFooter();
 
+    final testLogOut = TestLogOut();
+
     final faceScan = FaceScanWidget(
       onValidated: () => logger.info('Received validated callback.'),
     );
+
+    final mockFaceScan = MockFaceScanWidget();
 
     final videoCall = VideoCallWidget(
       onHangup: () => logger.info('Received hang-up callback.'),
@@ -66,9 +72,10 @@ class TestWidgetPreviewPage extends StatelessWidget {
                 btnAlternate,
                 logoMinimal,
                 logoFooter,
+                testLogOut,
               ],
             ),
-            Column(children: [faceScan]),
+            Column(children: [faceScan, mockFaceScan]),
             Column(children: [videoCall]),
           ],
         ),

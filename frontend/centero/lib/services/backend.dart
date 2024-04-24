@@ -185,7 +185,7 @@ class Backend {
         logger.severe('Failed to log in as $username, credentials refused.');
       }
     } catch (error) {
-      logger.severe(error);
+      logger.severe('Generic error $error');
     }
   }
 
@@ -220,7 +220,7 @@ class Backend {
         logger.severe('Failed to log in as $company : $username, credentials refused.');
       }
     } catch (error) {
-      logger.severe(error);
+      logger.severe('Generic error $error');
     }
   }
 
