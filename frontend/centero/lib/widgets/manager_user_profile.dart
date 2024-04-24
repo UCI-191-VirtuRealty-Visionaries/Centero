@@ -49,11 +49,13 @@ class _ManagerUserProfileState extends State<ManagerUserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final subwidget = ManagerUserProfileSubwidgets(context: context);
+
     if (FirebaseAuth.instance.currentUser == null) {
-      return ManagerSubwidgets.buildUserProfileLoggedOut();
+      return subwidget.buildUserProfileLoggedOut();
     }
 
-    return ManagerSubwidgets.buildUserProfileActive(
+    return subwidget.buildUserProfileActive(
       username: info?.name ?? 'Unknown',
       userStatus: 'Online',
     );

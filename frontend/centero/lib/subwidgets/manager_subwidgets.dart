@@ -1,11 +1,18 @@
+import 'package:centero/subwidgets/subwidget_factory_base.dart';
+import 'package:centero/widgets/manager_user_profile.dart';
 import 'package:flutter/material.dart';
 
-class ManagerSubwidgets {
-  // ==================================================
-  // Manager - User Profile
-  // ==================================================
+// ==================================================
+// Manager - User Profile
+// ==================================================
 
-  static buildUserProfileActive({
+class ManagerUserProfileSubwidgets
+    extends SubwidgetFactory<ManagerUserProfile> {
+  ManagerUserProfileSubwidgets({
+    required super.context,
+  });
+
+  Widget buildUserProfileActive({
     required String username,
     required String userStatus,
   }) {
@@ -26,7 +33,7 @@ class ManagerSubwidgets {
     );
   }
 
-  static buildUserProfileLoggedOut() {
+  Widget buildUserProfileLoggedOut() {
     return Text('(Logged Out)');
   }
 }

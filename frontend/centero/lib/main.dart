@@ -1,5 +1,5 @@
 import 'package:centero/routes.dart';
-import 'package:centero/services/global_config.dart';
+import 'package:centero/global_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
