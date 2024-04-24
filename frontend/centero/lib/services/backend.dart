@@ -57,7 +57,7 @@ class Backend {
     Logger logger = createLogger('ResidentProfile');
 
     final doc = await firestore.collection('ResidentProfiles').doc(id).get();
-    logger.info('Retrieved profile ${doc.id} ${doc.data()}');
+    logger.fine('Retrieved profile ${doc.id} ${doc.data()}');
 
     final data = doc.data();
 
@@ -72,7 +72,7 @@ class Backend {
     Logger logger = createLogger('ManagerProfile');
 
     final doc = await firestore.collection('ManagerProfiles').doc(id).get();
-    logger.info('Retrieved profile ${doc.id} ${doc.data()}');
+    logger.fine('Retrieved profile ${doc.id} ${doc.data()}');
 
     return ManagerInfo(
       name: doc.data()?['name'],
@@ -96,7 +96,7 @@ class Backend {
     );
 
     if (logInfo) {
-      logger.info(
+      logger.fine(
         'Found ${fullQueue.size} in queue: $info',
       );
     }
@@ -117,7 +117,7 @@ class Backend {
         .get();
     final targets = activeCollection.docs.map((e) => e.id);
 
-    logger.info(
+    logger.fine(
       'Found ${activeCollection.size} available: $targets',
     );
 
@@ -127,7 +127,7 @@ class Backend {
         .get();
 
     for (final doc in results.docs) {
-      logger.info('Fetched: ${doc.id} ${doc.data()}');
+      logger.fine('Fetched: ${doc.id} ${doc.data()}');
     }
 
     final info = results.docs.map(
@@ -147,7 +147,7 @@ class Backend {
         .where('status', isNotEqualTo: 'Offline')
         .get();
     
-    logger.info('Retrieved collection $activeCollection');
+    logger.fine('Retrieved collection $activeCollection');
 
     return activeCollection.size;
   }
@@ -236,7 +236,7 @@ class Backend {
       'status': 'Online',
     });
 
-    logger.info('Set $uid to Online, result $response');
+    logger.fine('Set $uid to Online, result $response');
   }
 
   static Future<void> removeManagerFromAvailableStaff(String uid) async {
@@ -247,6 +247,6 @@ class Backend {
       'status': 'Offline',
     });
 
-    logger.info('Set $uid to Offline, result $response');
+    logger.fine('Set $uid to Offline, result $response');
   }
 }

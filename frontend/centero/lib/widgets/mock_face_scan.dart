@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:centero/services/backend.dart';
 import 'package:centero/widgets/button_primary.dart';
+import 'package:centero/widgets/debug_logout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,10 +87,12 @@ class _MockFaceScanSubwidgets {
 
     final info = Text(userInfo);
 
-    final loginButton = ButtonPrimary(
+    final btnLogin = ButtonPrimary(
       onPressed: onLoginButton,
       child: Text(loginTip),
     );
+
+    final btnLogout = DebugLogOut();
 
     // ----- Styling -----
 
@@ -109,7 +112,8 @@ class _MockFaceScanSubwidgets {
           image,
           authStatusTooltip,
           info,
-          loginButton,
+          btnLogin,
+          btnLogout,
         ],
       ),
     );

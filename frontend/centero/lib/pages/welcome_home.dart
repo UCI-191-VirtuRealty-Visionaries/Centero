@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 class PageWelcomeHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PageFrame(content: MockFaceScanWidget());
+    return PageFrame(
+      maxIdleTimeBeforeLogout: Duration(seconds: 10),
+      child: MockFaceScanWidget(),
+    );
   }
 }
