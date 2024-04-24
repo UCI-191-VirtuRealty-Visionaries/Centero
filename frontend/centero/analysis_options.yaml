@@ -18,6 +18,7 @@ linter:
     prefer_final_fields: false
     unnecessary_breaks: true
     use_key_in_widget_constructors: false
+    avoid_classes_with_only_static_members: false
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

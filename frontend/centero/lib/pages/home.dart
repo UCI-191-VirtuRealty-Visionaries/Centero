@@ -5,7 +5,7 @@ import 'age.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               child: Text('Go to age page'),
             ),
             ElevatedButton(
-              onPressed: () => GoRouter.of(context).go('/admin'),
+              onPressed: () => GoRouter.of(context).go('/manager'),
               child: Text('Exit to Admin Dashboard (test only)'),
             ),
             ElevatedButton(

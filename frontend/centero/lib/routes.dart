@@ -1,7 +1,8 @@
-import 'package:centero/pages/admin_home.dart';
+import 'package:centero/pages/manager_home.dart';
 import 'package:centero/pages/home.dart';
 import 'package:centero/pages/superuser_home.dart';
-import 'package:centero/pages/widget_preview.dart';
+import 'package:centero/pages/debug_widget_preview.dart';
+import 'package:centero/pages/welcome_home.dart';
 import 'package:go_router/go_router.dart';
 
 // ==================================================
@@ -15,23 +16,15 @@ class PublicRouteConfig {
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
-      path: '/admin',
-      builder: (context, state) => AdminHomePage(),
+      path: '/manager',
+      builder: (context, state) => ManagerHomePage(),
     ),
   ];
 
   static final redirects = <RouteBase>[
     GoRoute(
-      path: '/a',
-      redirect: (context, state) => '/admin',
-    ),
-    GoRoute(
-      path: '/pm',
-      redirect: (context, state) => '/admin',
-    ),
-    GoRoute(
-      path: '/manager',
-      redirect: (context, state) => '/admin',
+      path: '/m',
+      redirect: (context, state) => '/manager',
     ),
   ];
 }
@@ -44,11 +37,15 @@ class DevRouteConfig {
   static final routes = <RouteBase>[
     GoRoute(
       path: '/widgets',
-      builder: (context, state) => WidgetPreviewPage(),
+      builder: (context, state) => DebugWidgetPreviewPage(),
     ),
     GoRoute(
       path: '/sudo',
       builder: (context, state) => SuperUserHomePage(),
+    ),
+    GoRoute(
+      path: '/newhome',
+      builder: (context, state) => PageWelcomeHome(),
     ),
   ];
 

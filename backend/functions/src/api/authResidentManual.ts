@@ -5,19 +5,17 @@ import { getMatchingFirestoreDoc } from "../controllers/getMatchingFirestoreDoc"
 import { buildAuthResponse } from "../controllers/buildAuthResponse";
 
 /**
- * Authenticate a manager using their company, username, and password hash.
+ * Authenticate a resident using a face scan.
  */
-export const authManager = onCall(async (req) => {
-  logger.info(`Receiving manager auth request`, req.data);
+export const authResidentManual = onCall(async (req) => {
+  logger.info(`Receiving resident auth request`, req.data);
 
-  const company = req.data['company'];
   const username = req.data['username'];
   const passwordHash = req.data['passwordHash'];
 
   const doc = await getMatchingFirestoreDoc(
-    'ManagerCredentials',
+    'ResidentCredentials',
     new Map([
-      ['company', company],
       ['username', username],
       ['passwordHash', passwordHash],
     ]),
@@ -28,6 +26,6 @@ export const authManager = onCall(async (req) => {
     return buildAuthResponse(null);
   }
 
-  const token = await generateAuthToken(doc.data()['id'], ['manager']);
+  const token = await generateAuthToken(doc.data()['id'], ['resident']);
   return buildAuthResponse(token);
 });

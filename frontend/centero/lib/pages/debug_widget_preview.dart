@@ -5,11 +5,13 @@ import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/face_scan.dart';
 import 'package:centero/widgets/logo_footer.dart';
 import 'package:centero/widgets/logo_minimal.dart';
+import 'package:centero/widgets/mock_face_scan.dart';
+import 'package:centero/widgets/debug_logout.dart';
 import 'package:centero/widgets/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class WidgetPreviewPage extends StatelessWidget {
+class DebugWidgetPreviewPage extends StatelessWidget {
   final logger = Logger('WidgetPreview');
 
   @override
@@ -40,9 +42,13 @@ class WidgetPreviewPage extends StatelessWidget {
 
     final logoFooter = LogoFooter();
 
+    final testLogOut = DebugLogOut();
+
     final faceScan = FaceScanWidget(
       onValidated: () => logger.info('Received validated callback.'),
     );
+
+    final mockFaceScan = MockFaceScanWidget();
 
     final videoCall = VideoCallWidget(
       onHangup: () => logger.info('Received hang-up callback.'),
@@ -66,9 +72,10 @@ class WidgetPreviewPage extends StatelessWidget {
                 btnAlternate,
                 logoMinimal,
                 logoFooter,
+                testLogOut,
               ],
             ),
-            Column(children: [faceScan]),
+            Column(children: [faceScan, mockFaceScan]),
             Column(children: [videoCall]),
           ],
         ),

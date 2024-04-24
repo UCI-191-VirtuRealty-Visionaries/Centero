@@ -9,10 +9,10 @@ class SuperUserHomePage extends StatefulWidget {
 }
 
 class _SuperUserHomePageState extends State<SuperUserHomePage> {
-  Logger logger = Logger('👕 SuperUser');
+  Logger logger = Logger('SuperUser');
 
   void resetDatabase() {
-    logger.warning('🚮 Resetting the database');
+    logger.warning('!!! Resetting the database !!!');
   }
 
   @override

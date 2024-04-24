@@ -1,17 +1,17 @@
-import 'package:centero/widgets/admin_user_profile.dart';
+import 'package:centero/widgets/manager_user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:logging/logging.dart';
 
-class AdminAppBar extends StatefulWidget {
-  AdminAppBar({super.key});
+class ManagerAppBar extends StatefulWidget {
+  ManagerAppBar({super.key});
 
   @override
-  State<AdminAppBar> createState() => _AdminAppBarState();
+  State<ManagerAppBar> createState() => _ManagerAppBarState();
 }
 
-class _AdminAppBarState extends State<AdminAppBar> {
-  Logger logger = Logger('AdminAppBar');
+class _ManagerAppBarState extends State<ManagerAppBar> {
+  Logger logger = Logger('Manager.AppBar');
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class _AdminAppBarState extends State<AdminAppBar> {
 
     // ----- User -----
 
-    final user = AdminUserProfile();
+    final user = ManagerUserProfile();
 
     // ----- Scaffold -----
 

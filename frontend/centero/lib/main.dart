@@ -1,4 +1,6 @@
 import 'package:centero/routes.dart';
+import 'package:centero/global_config.dart';
+import 'package:centero/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -13,7 +15,7 @@ import 'firebase_options.dart';
 void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  if (const String.fromEnvironment('mode') == 'dev') {
+  if (GlobalConfig.isDevMode) {
     FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
     FirebaseFunctions.instance.useFunctionsEmulator('localhost', 5001);
     await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
@@ -28,6 +30,7 @@ void main() async {
 
   setPathUrlStrategy();
   runApp(const MyApp());
+  Services.initialize();
 }
 
 class MyApp extends StatelessWidget {
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
     routes.addAll(PublicRouteConfig.routes);
     routes.addAll(PublicRouteConfig.redirects);
 
-    if (const String.fromEnvironment('mode') == 'dev') {
+    if (GlobalConfig.isDevMode) {
       routes.addAll(DevRouteConfig.routes);
       routes.addAll(DevRouteConfig.redirects);
     }
@@ -57,7 +60,7 @@ class MyApp extends StatelessWidget {
       routerConfig: _createRouter(),
       title: 'Centero',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 71, 169, 44)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF47A92C)),
         useMaterial3: true,
       ),
     );
