@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class TestLogOut extends StatefulWidget {
+class DebugLogOut extends StatefulWidget {
   @override
-  State<TestLogOut> createState() => _TestLogOutState();
+  State<DebugLogOut> createState() => _DebugLogOutState();
 }
 
-class _TestLogOutState extends State<TestLogOut> {
+class _DebugLogOutState extends State<DebugLogOut> {
   late StreamSubscription<User?> authSubscription;
 
   @override

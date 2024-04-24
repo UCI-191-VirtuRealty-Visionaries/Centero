@@ -6,9 +6,7 @@ abstract class ServiceBase {
 
   ServiceBase({
     required this.name,
-  });
-
-  void initialize() {
+  }) {
     logger = Logger(name);
   }
 }

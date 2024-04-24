@@ -6,12 +6,12 @@ import 'package:centero/widgets/face_scan.dart';
 import 'package:centero/widgets/logo_footer.dart';
 import 'package:centero/widgets/logo_minimal.dart';
 import 'package:centero/widgets/mock_face_scan.dart';
-import 'package:centero/widgets/test_logout.dart';
+import 'package:centero/widgets/debug_logout.dart';
 import 'package:centero/widgets/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class TestWidgetPreviewPage extends StatelessWidget {
+class DebugWidgetPreviewPage extends StatelessWidget {
   final logger = Logger('WidgetPreview');
 
   @override
@@ -42,7 +42,7 @@ class TestWidgetPreviewPage extends StatelessWidget {
 
     final logoFooter = LogoFooter();
 
-    final testLogOut = TestLogOut();
+    final testLogOut = DebugLogOut();
 
     final faceScan = FaceScanWidget(
       onValidated: () => logger.info('Received validated callback.'),
