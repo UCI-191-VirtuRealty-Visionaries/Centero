@@ -8,7 +8,7 @@ class BackgroundRedBuildings extends StatelessWidget {
    @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/red_apt_buildings_bg.jpg', // background image of white apartment buildings
+      'assets/red_apt_buildings_bg.png', // background image of white apartment buildings
       fit: BoxFit.cover, // cover whole screen
       width: double.infinity, // image take up whole width
       height: double.infinity, // image take up whole height
