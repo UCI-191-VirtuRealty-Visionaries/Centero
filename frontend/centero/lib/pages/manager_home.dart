@@ -1,14 +1,14 @@
 import 'package:centero/services/backend.dart';
 import 'package:centero/services/devutil.dart';
-import 'package:centero/widgets/admin_appbar.dart';
-import 'package:centero/widgets/admin_available_staff.dart';
-import 'package:centero/widgets/admin_call_queue.dart';
+import 'package:centero/widgets/manager_appbar.dart';
+import 'package:centero/widgets/manager_available_staff.dart';
+import 'package:centero/widgets/manager_call_queue.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class AdminHomePage extends StatelessWidget {
-  const AdminHomePage({super.key});
+class ManagerHomePage extends StatelessWidget {
+  const ManagerHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class AdminHomePage extends StatelessWidget {
 
     final appBar = PreferredSize(
       preferredSize: Size.fromHeight(51),
-      child: AdminAppBar(),
+      child: ManagerAppBar(),
     );
 
     // ----- Widgets -----
@@ -30,7 +30,7 @@ class AdminHomePage extends StatelessWidget {
           await Backend.removeManagerFromAvailableStaff(user.uid);
         }
         await FirebaseAuth.instance.signOut();
-        Logger('AdminHome').info('Signed out');
+        Logger('ManagerHome').info('Signed out');
       },
     );
 
@@ -63,9 +63,9 @@ class AdminHomePage extends StatelessWidget {
       },
     );
 
-    final callQueue = AdminCallQueue();
+    final callQueue = ManagerCallQueue();
 
-    final availableStaff = AdminAvailableStaff();
+    final availableStaff = ManagerAvailableStaff();
 
     // ----- Columns -----
 

@@ -4,19 +4,19 @@ import 'package:centero/services/devutil.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class AdminAvailableStaff extends StatefulWidget {
-  const AdminAvailableStaff({
+class ManagerAvailableStaff extends StatefulWidget {
+  const ManagerAvailableStaff({
     super.key,
   });
 
   @override
-  State<AdminAvailableStaff> createState() => _AdminAvailableStaffState();
+  State<ManagerAvailableStaff> createState() => _ManagerAvailableStaffState();
 }
 
-class _AdminAvailableStaffState extends State<AdminAvailableStaff> {
+class _ManagerAvailableStaffState extends State<ManagerAvailableStaff> {
   static const refreshDelay = Duration(seconds: 30);
 
-  final Logger logger = Logger('AdminAvailableStaff');
+  final Logger logger = Logger('Manager.AvailableStaff');
 
   List<ManagerInfo> managers = [];
   Timer refreshTimer = Timer(refreshDelay, () {});

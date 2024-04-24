@@ -4,19 +4,19 @@ import 'package:centero/services/devutil.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class AdminCallQueue extends StatefulWidget {
-  const AdminCallQueue({
+class ManagerCallQueue extends StatefulWidget {
+  const ManagerCallQueue({
     super.key,
   });
 
   @override
-  State<AdminCallQueue> createState() => _AdminCallQueueState();
+  State<ManagerCallQueue> createState() => _ManagerCallQueueState();
 }
 
-class _AdminCallQueueState extends State<AdminCallQueue> {
+class _ManagerCallQueueState extends State<ManagerCallQueue> {
   static const refreshDelay = Duration(seconds: 30);
 
-  final Logger logger = Logger('AdminCallQueue');
+  final Logger logger = Logger('Manager.CallQueue');
 
   List<QueuedUserInfo> queue = [];
   Timer refreshTimer = Timer(refreshDelay, () {});
