@@ -1,12 +1,10 @@
-import 'package:centero/services/service_base.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 
-class NavUtil extends ServiceBase {
-  NavUtil({
-    super.name = 'NavUtil',
-  });
+class NavService {
+  final logger = Logger('Service.Nav');
 
   void resetToWelcome(BuildContext context) {
     logger.info('Returning to welcome screen.');

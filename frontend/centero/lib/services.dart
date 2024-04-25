@@ -1,9 +1,12 @@
-import 'package:centero/services/navutil.dart';
+import 'package:centero/services/backend_service.dart';
+import 'package:centero/services/nav_service.dart';
 
 class Services {
-  static late final NavUtil nav;
+  static late final NavService nav;
+  static late final BackendService backend;
 
   static void initialize() {
-    nav = NavUtil();
+    nav = NavService();
+    backend = BackendService();
   }
 }

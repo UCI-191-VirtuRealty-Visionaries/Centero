@@ -1,10 +1,11 @@
 import 'dart:async';
-import 'package:centero/services/service_base.dart';
+import 'package:logging/logging.dart';
 
-class WatchdogTimer extends ServiceBase {
+class WatchdogTimer {
   _WatchdogInstance? _instance;
+  final Logger logger;
 
-  WatchdogTimer({required super.name});
+  WatchdogTimer({required this.logger});
 
   void start(Duration duration, void Function() onElapsed) {
     _instance?.cancel();
