@@ -1,11 +1,10 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'age.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -42,47 +41,36 @@ class _HomePageState extends State<HomePage> {
 
   // Build Centero logo
   Widget CenteroLogo() {
-    return Image.asset(
-      'assets/centero_logo.png',
-      width: 500, // logical pixels
-      height: 500 // logical pixels
-    );
+    return Image.asset('assets/centero_logo.png',
+        width: 500, // logical pixels
+        height: 500 // logical pixels
+        );
   }
 
   // Build Centero card content
   Widget CenteroCardContent() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CenteroLogo(),
-        Text("CENTERO",
-          style: TextStyle(fontSize: 300)),
-        Text("WOULD YOU LIKE TO CHAT?",
-          style: TextStyle(fontSize: 160)),
-        SizedBox(height: 90),
-        Text("Touch screen to start", 
-          style: TextStyle(fontSize: 85))
-      ]
-    );
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      CenteroLogo(),
+      Text("CENTERO", style: TextStyle(fontSize: 300)),
+      Text("WOULD YOU LIKE TO CHAT?", style: TextStyle(fontSize: 160)),
+      SizedBox(height: 90),
+      Text("Touch screen to start", style: TextStyle(fontSize: 85))
+    ]);
   }
 
   // Build Centero card
   Widget CenteroCard() {
-    return Column (
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 1000), // add padding above the Opacity widget
+    return Column(children: [
+      Padding(
+          padding: EdgeInsets.only(
+              top: 1000), // add padding above the Opacity widget
           child: Container(
-            width: double.infinity, // card take up whole width
-            height: 2000,
-            color: Colors.white.withOpacity(0.6),
-            child: CenteroCardContent()
-          )
-        )
-      ]
-    );  
+              width: double.infinity, // card take up whole width
+              height: 2000,
+              color: Colors.white.withOpacity(0.6),
+              child: CenteroCardContent()))
+    ]);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -94,16 +82,13 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => AgePage()),
           );
         },
-        child:
-        Stack(
+        child: Stack(
           children: [
             buildBackground(),
-            Center(
-              child: CenteroCard()
-            ),
-          ]
-        )
-      )
+            Center(child: CenteroCard()),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -4,17 +4,8 @@ import { initializeApp } from "firebase-admin/app";
 initializeApp();
 
 // Exports (Keep Alphabetized)
-export { adminDeleteRecord } from "./api/adminDeleteRecord";
-export { clientSignIn } from "./api/clientSignIn";
-export { createManagerProfile } from "./api/createManagerProfile";
-export { getResident } from "./api/getResident";
+export { authManager } from "./api/authManager";
+export { authResidentFace } from "./api/authResidentFace";
+export { authResidentManual } from "./api/authResidentManual";
 export { helloWorld } from "./api/helloWorld";
-export { onAcceptCall } from "./api/onAcceptCall";
-export { onCancelCall } from "./api/onCancelCall";
-export { onManagerLogin } from "./api/onManagerLogin";
-export { onManagerLogout } from "./api/onManagerLogout";
-export { onManagerTokenRefresh } from "./api/onManagerTokenRefresh";
-export { onRejectCall } from "./api/onRejectCall";
-export { onRequestCall } from "./api/onRequestCall";
-export { onResidentLogout } from "./api/onResidentLogout";
-export { onResidentTokenRefresh } from "./api/onResidentTokenRefresh";
+export { setManagerStatus } from "./api/setManagerStatus";
