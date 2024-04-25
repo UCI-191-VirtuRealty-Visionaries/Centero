@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
-class MyTextStyles {
+class MyTextStyle {
   static const TextStyle heading = TextStyle(
-    fontSize: 24,
+    fontFamily: 'Montserrat',
+    fontSize: 200,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: Colors.white,
   );
 
   static const TextStyle body = TextStyle(
     fontSize: 16,
     color: Colors.grey,
+  );
+
+  static const TextStyle btnTxt = TextStyle(
+    fontSize: 200,
+    color: Colors.white,
   );
 
   // Add more text styles as needed

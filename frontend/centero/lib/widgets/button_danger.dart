@@ -12,6 +12,7 @@ class ButtonDanger extends ElevatedButton {
     return ElevatedButton.styleFrom(
       foregroundColor: Colors.white,
       backgroundColor: Colors.red,
+      
     );
   }
 }
