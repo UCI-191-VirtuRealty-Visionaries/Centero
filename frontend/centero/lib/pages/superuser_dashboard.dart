@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class SuperUserHomePage extends StatefulWidget {
-  SuperUserHomePage({super.key});
+class PageSuperuserDashboard extends StatefulWidget {
+  PageSuperuserDashboard({super.key});
 
   @override
-  State<SuperUserHomePage> createState() => _SuperUserHomePageState();
+  State<PageSuperuserDashboard> createState() => _PageSuperuserDashboardState();
 }
 
-class _SuperUserHomePageState extends State<SuperUserHomePage> {
+class _PageSuperuserDashboardState extends State<PageSuperuserDashboard> {
   Logger logger = Logger('SuperUser');
 
   void resetDatabase() {

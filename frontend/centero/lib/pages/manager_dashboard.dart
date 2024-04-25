@@ -7,8 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class ManagerHomePage extends StatelessWidget {
-  const ManagerHomePage({super.key});
+class PageManagerDashboard extends StatelessWidget {
+  const PageManagerDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {

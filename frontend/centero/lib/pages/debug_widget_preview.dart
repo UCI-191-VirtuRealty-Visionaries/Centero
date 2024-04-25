@@ -11,7 +11,7 @@ import 'package:centero/widgets/video_call.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class DebugWidgetPreviewPage extends StatelessWidget {
+class PageDebugWidgetPreviewPage extends StatelessWidget {
   final logger = Logger('WidgetPreview');
 
   @override
