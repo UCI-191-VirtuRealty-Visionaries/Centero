@@ -27,9 +27,14 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
       child: Image.asset('debug_person_overlay.png'),
     );
 
+    final content = Opacity(
+      opacity: 0.5,
+      child: debugFigure,
+    );
+
     return Positioned.fill(
       bottom: 0,
-      child: debugFigure,
+      child: content,
     );
   }
 
@@ -43,10 +48,16 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
       child: Text('Toggle Overlay'),
     );
 
-    return Positioned.fill(
-      bottom: 20,
-      left: 20,
+    final content = Opacity(
+      opacity: 0.5,
       child: btnToggle,
+    );
+
+    return Positioned(
+      bottom: 10,
+      left: 0,
+      height: 30,
+      child: content,
     );
   }
 
@@ -58,8 +69,9 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
       child: LogoFooter(),
     );
 
-    return Container(
-      alignment: AlignmentDirectional.bottomCenter,
+    return Positioned(
+      bottom: 20,
+      height: 70,
       child: footer,
     );
   }
