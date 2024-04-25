@@ -1,7 +1,7 @@
 import 'package:centero/global_config.dart';
 import 'package:centero/services.dart';
-import 'package:centero/services/watchdog_timer.dart';
-import 'package:centero/services/widget_util.dart';
+import 'package:centero/util/watchdog_timer.dart';
+import 'package:centero/util/widget_util.dart';
 import 'package:centero/subwidgets/resident_subwidgets.dart';
 import 'package:centero/widgets/logo_footer.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class _PageFrameState extends State<PageFrame> {
   @override
   void initState() {
     super.initState();
-    watchdogTimer = WatchdogTimer(name: 'PageFrame.WatchdogTimer');
+    watchdogTimer = WatchdogTimer(logger: Logger('PageFrame.WatchdogTimer'));
 
     watchdogTimer.start(widget.maxIdleTimeBeforeLogout, () {
       if (GlobalConfig.enableIdleLogout) {

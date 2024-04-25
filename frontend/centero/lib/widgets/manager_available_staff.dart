@@ -1,6 +1,7 @@
 import 'dart:async';
-import 'package:centero/services/backend.dart';
-import 'package:centero/services/devutil.dart';
+import 'package:centero/services.dart';
+import 'package:centero/services/backend_service.dart';
+import 'package:centero/util/dev_util.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
@@ -35,7 +36,7 @@ class _ManagerAvailableStaffState extends State<ManagerAvailableStaff> {
   }
 
   void fetchLatestData() async {
-    final cur = await Backend.getAvailableManagers();
+    final cur = await Services.backend.getAvailableManagers();
     logger.info('New data $cur');
 
     setState(() {
