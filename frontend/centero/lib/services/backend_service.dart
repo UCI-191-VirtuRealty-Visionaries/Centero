@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:centero/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:crypto/crypto.dart';
@@ -53,6 +54,12 @@ class BackendService {
 
   HttpsCallable _getEndpoint(String name) {
     return FirebaseFunctions.instance.httpsCallable(name);
+  }
+
+  String hashPassword(String password) {
+    final hasher = Hmac(sha256, Services.secrets.hmacKey);
+    final digest = hasher.convert(utf8.encode(password));
+    return digest.toString();
   }
 
   // ==================================================
@@ -168,14 +175,14 @@ class BackendService {
   }) async {
     final logger = _createLogger('AuthResident.Manual');
 
-    final digest = sha256.convert(utf8.encode(password));
-    logger.info('Logging in with `$username : $digest`');
+    final passwordHash = hashPassword(password);
+    logger.info('Logging in with `$username : $passwordHash`');
 
     try {
       final response = await _getEndpoint('authResidentManual').call(
         {
           'username': username,
-          'passwordHash': digest.toString(),
+          'passwordHash': passwordHash,
         },
       );
 
@@ -202,15 +209,15 @@ class BackendService {
   }) async {
     final logger = _createLogger('AuthManager');
 
-    final digest = sha256.convert(utf8.encode(password));
-    logger.info('Logging in with `$company : $username : $digest`');
+    final passwordHash = hashPassword(password);
+    logger.info('Logging in with `$company : $username : $passwordHash`');
 
     try {
       final response = await _getEndpoint('authManager').call(
         {
           'company': company,
           'username': username,
-          'passwordHash': digest.toString(),
+          'passwordHash': passwordHash,
         },
       );
 
