@@ -1,9 +1,10 @@
 import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
+import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
-import 'role_selection.dart';
+import 'info_role_selection.dart';
 
-class AgePage extends StatelessWidget {
+class PageInfoAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ----- Widgets -----
@@ -30,15 +31,15 @@ class AgePage extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => RoleSelectionPage()),
+          MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
         );
       },
     );
 
     // ----- Structure -----
 
-    return Scaffold(
-      body: Center(
+    return PageFrame(
+      child: Center(
         child: Column(
           children: [
             headerText,

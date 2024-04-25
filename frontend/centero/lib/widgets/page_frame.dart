@@ -79,8 +79,8 @@ class _PageFrameState extends State<PageFrame> {
       background: true,
       content: true,
       safeArea: overlayVisible,
-      btnToggleSafeArea: true,
-      footer: true,
+      btnToggleSafeArea: false,
+      footer: false,
     };
 
     return Scaffold(
