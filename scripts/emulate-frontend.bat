@@ -6,7 +6,7 @@ echo Emulating Front-end for use with Local Server
 echo =============================================
 
 pushd "frontend/centero"
-call flutter run -d chrome --dart-define=mode=dev
+call flutter run -d chrome --dart-define=mode=dev --dart-define=idleLogout=false
 popd
 
 popd
