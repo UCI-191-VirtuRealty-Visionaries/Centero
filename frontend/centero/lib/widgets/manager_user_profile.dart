@@ -36,7 +36,7 @@ class _ManagerUserProfileState extends State<ManagerUserProfile> {
       setState(() {
         info = null;
       });
-      logger.info('Cleared user profile info');
+      logger.fine('Cleared user profile info');
       return;
     }
 
@@ -45,7 +45,7 @@ class _ManagerUserProfileState extends State<ManagerUserProfile> {
     setState(() {
       info = newProfile;
     });
-    logger.info('Added new user profile data');
+    logger.fine('Added new user profile data');
   }
 
   @override
