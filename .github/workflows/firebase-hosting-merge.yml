@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Set up Dart SDK
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v
+        with: 
+            sdk: 3.2.6
 
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v3
