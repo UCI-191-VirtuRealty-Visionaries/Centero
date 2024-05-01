@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+      - run: dart pub get
 
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v3
