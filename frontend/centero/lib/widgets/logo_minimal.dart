@@ -12,7 +12,7 @@ class LogoMinimal extends StatelessWidget {
       child: SizedBox(
         width: 120,
         height: 120,
-        child: SvgPicture.asset('centero_logo.svg'),
+        child: SvgPicture.asset('assets/centero_logo.svg'),
       ),
     );
   }
