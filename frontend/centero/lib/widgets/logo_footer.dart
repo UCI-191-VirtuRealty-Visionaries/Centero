@@ -11,7 +11,7 @@ class LogoFooter extends StatelessWidget {
     final logo = SizedBox(
       width: 64,
       height: 64,
-      child: SvgPicture.asset('centero_logo.svg'),
+      child: SvgPicture.asset('assets/centero_logo.svg'),
     );
 
     const topTextStyle = TextStyle(
