@@ -33,6 +33,19 @@ jobs:
       - run: npm ci
       - run: flutter pub get
       - run: flutter config --enable-web
+
+      - name: Generate prod_hashkey secret
+        run: |
+          mkdir -p secrets
+          echo "$PROD_HASHKEY_VALUE" > secrets/prod_hashkey
+        env:
+          PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
+        
+      - run: |
+          ls
+          cd secrets
+          ls
+
       - run: flutter build web
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
