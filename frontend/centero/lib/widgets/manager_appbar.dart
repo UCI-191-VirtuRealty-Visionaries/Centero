@@ -29,7 +29,7 @@ class _ManagerAppBarState extends State<ManagerAppBar> {
     final logo = SizedBox(
       height: 40,
       width: 40,
-      child: SvgPicture.asset('centero_logo_white.svg'),
+      child: SvgPicture.asset('assets/centero_logo_white.svg'),
     );
 
     // ----- Links -----

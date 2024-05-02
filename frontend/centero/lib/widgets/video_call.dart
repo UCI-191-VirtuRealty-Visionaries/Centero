@@ -32,7 +32,7 @@ class VideoCallWidgetState extends State<VideoCallWidget> {
         SizedBox(
           width: 200,
           height: 260,
-          child: Image.asset('video_call_placeholder.png'),
+          child: Image.asset('assets/video_call_placeholder.png'),
         ),
         completed ? const Text('<Completed>') : const Text('<In Progress>'),
         ElevatedButton(
