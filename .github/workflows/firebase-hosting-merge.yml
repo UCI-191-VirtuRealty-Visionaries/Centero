@@ -25,6 +25,9 @@ jobs:
             version: 3.16.9
 
       - run: npm ci
+      - run: pwd
+      - run: cd frontend/centero
+      - run: ls
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
