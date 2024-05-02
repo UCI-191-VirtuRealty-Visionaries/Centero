@@ -46,6 +46,14 @@ jobs:
           cd assets/secrets
           ls
 
+      - name: Replace secrets.dart With Production Secrets
+        run: |
+          cd lib
+          rm secrets.dart
+          echo "const centeroSecretsFileWasPopulated = true; const centeroProdHashKey = '$PROD_HASHKEY_VALUE';" > secrets.dart
+        env:
+          PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
+
       - run: flutter build web
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
