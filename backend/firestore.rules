@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+	match /databases/{database}/documents {
+		// ----- Profiles ----
+
+		match /ManagerProfiles/{document=**} {
+			allow read;
+		}
+
+		match /ResidentProfiles/{document=**} {
+			allow read;
+		}
+
+		// ----- Call Queue -----
+
+		match /CallQueue/{document=**} {
+			allow read;
+		}
+
+		// ----- Manager Status ----
+
+		// Allow access to ActiveManagers if authenticated.
+		match /ActiveManagers/{docId} {
+			allow read, list;
+		}
+	}
+}

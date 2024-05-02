@@ -28,10 +28,11 @@ jobs:
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
-
+      
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CENTEROBACKEND_14820 }}'
           channelId: live
           projectId: centerobackend-14820
+
