@@ -33,7 +33,7 @@ class PageInfoAge extends StatelessWidget {
       child: Text('I am NOT 18+',
       style: TextStyle(
         fontSize: 200,
-        color: Colors.white,
+        color: const Color.fromARGB(255, 132, 0, 0),
       ),
       ),
     );
