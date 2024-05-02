@@ -9,9 +9,15 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    defaults: 
+      run:
+        working-directory: ./frontend/centero
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - run: pwd
+      - run: ls
       
       - name: Set up Dart SDK
         uses: dart-lang/setup-dart@v1
@@ -25,14 +31,6 @@ jobs:
             version: 3.16.9
 
       - run: npm ci
-      - run: pwd
-      - run: ls
-      - run: cd frontend/centero
-      - run: ls
-      - run: cd frontend
-      - run: ls
-      - run: cd centero
-      - run: ls
       - run: flutter pub get
       - run: flutter config --enable-web
       - run: flutter build web
