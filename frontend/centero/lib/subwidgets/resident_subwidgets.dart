@@ -24,7 +24,7 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
     final debugFigure = SizedBox(
       height: 150,
       width: 400,
-      child: Image.asset('debug_person_overlay.png'),
+      child: Image.asset('assets/debug_person_overlay.png'),
     );
 
     final content = Opacity(

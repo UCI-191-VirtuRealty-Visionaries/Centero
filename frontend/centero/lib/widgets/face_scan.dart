@@ -33,7 +33,7 @@ class FaceScanWidgetState extends State<FaceScanWidget> {
         SizedBox(
           width: 200,
           height: 200,
-          child: SvgPicture.asset('face_scan_reticle.svg'),
+          child: SvgPicture.asset('assets/face_scan_reticle.svg'),
         ),
         validated ? const Text('<Validated>') : const Text('<Pending>'),
         ElevatedButton(
