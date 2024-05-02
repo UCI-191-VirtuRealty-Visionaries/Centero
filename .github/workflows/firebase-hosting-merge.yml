@@ -41,8 +41,8 @@ jobs:
         env:
           PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
         
-      - run: |
-          ls
+      - name: Verify Contents of Frontend secrets/ Folder
+        run: |
           cd secrets
           ls
 

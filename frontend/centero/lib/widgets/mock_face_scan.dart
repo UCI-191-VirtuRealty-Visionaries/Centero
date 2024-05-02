@@ -79,7 +79,7 @@ class _MockFaceScanSubwidgets {
     final image = SizedBox(
       width: 200,
       height: 200,
-      child: SvgPicture.asset('face_scan_reticle.svg'),
+      child: SvgPicture.asset('assets/face_scan_reticle.svg'),
     );
 
     final authStatusTooltip = authenticationSuccessful
