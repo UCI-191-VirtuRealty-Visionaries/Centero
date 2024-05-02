@@ -14,12 +14,12 @@ class PageInfoAge extends StatelessWidget {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("You must be at least 18",
             style: TextStyle(
-              fontSize: 300,
+              fontSize: 120,
               color: Colors.white,
             )),
         Text("to proceed.",
             style: TextStyle(
-              fontSize: 300,
+              fontSize: 120,
               color: Colors.white,
             )),
       ]);
@@ -28,7 +28,12 @@ class PageInfoAge extends StatelessWidget {
     Widget btnProceed() {
       return ButtonPrimary(
         width: 1200,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
+          );
+        },
         child: Text(
           'I am 18+',
           style: MyTextStyle.btnTxt,
@@ -48,10 +53,13 @@ class PageInfoAge extends StatelessWidget {
         ),
       );
     }
-
+/*
     Widget navigateToNextPage() {
       return ElevatedButton(
-        child: Text('Go to role selection page'),
+        child: Text('Go to role selection page',
+            style: TextStyle(
+              fontSize: 120,
+            )),
         onPressed: () {
           Navigator.push(
             context,
@@ -60,7 +68,8 @@ class PageInfoAge extends StatelessWidget {
         },
       );
     }
-
+    Don't need this button to move to next page anymore
+*/
     // ----- Structure -----
 
     return PageFrame(
@@ -74,7 +83,6 @@ class PageInfoAge extends StatelessWidget {
             headerText(),
             btnProceed(),
             btnReturn(),
-            navigateToNextPage(),
           ],
         ),
       ),

@@ -14,7 +14,7 @@ class MyTextStyle {
   );
 
   static const TextStyle btnTxt = TextStyle(
-    fontSize: 200,
+    fontSize: 100,
     color: Colors.white,
   );
 
