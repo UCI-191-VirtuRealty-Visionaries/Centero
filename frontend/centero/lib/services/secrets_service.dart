@@ -15,7 +15,7 @@ class SecretsService {
   Future<void> _initProdMode() async {
     try {
       final inStr =
-          await rootBundle.loadString('assets/secrets/prod_hashkey', cache: false);
+          await rootBundle.loadString('secrets/prod_hashkey', cache: false);
       _hmacKey = utf8.encode(inStr);
     } catch (err) {
       _logger.shout(
