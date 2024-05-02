@@ -30,14 +30,14 @@ jobs:
 
       - name: Generate prod_hashkey secret
         run: |
-          mkdir -p secrets
-          echo "$PROD_HASHKEY_VALUE" > secrets/prod_hashkey
+          mkdir -p assets/secrets
+          echo "$PROD_HASHKEY_VALUE" > assets/secrets/prod_hashkey
         env:
           PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
         
       - name: Verify Contents of Frontend secrets/ Folder
         run: |
-          cd secrets
+          cd assets/secrets
           ls
 
       - run: flutter build web
