@@ -26,7 +26,12 @@ jobs:
 
       - run: npm ci
       - run: pwd
+      - run: ls
       - run: cd frontend/centero
+      - run: ls
+      - run: cd frontend
+      - run: ls
+      - run: cd centero
       - run: ls
       - run: flutter pub get
       - run: flutter config --enable-web
