@@ -15,9 +15,9 @@ class FaceIDNotice extends StatelessWidget {
 
   Widget headerText() {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text("You must be at least 18",
+      Text("Please look at the top of the device while we verify identity.",
           style: TextStyle(
-            fontSize: 300,
+            fontSize: 100,
             color: Colors.white,
           )),
     ]);
