@@ -30,6 +30,7 @@ void main() async {
 
   setPathUrlStrategy();
   runApp(const MyApp());
+  Services.initialize();
 }
 
 class MyApp extends StatelessWidget {
@@ -55,7 +56,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Services.initialize();
     return MaterialApp.router(
       routerConfig: _createRouter(),
       title: 'Centero',
