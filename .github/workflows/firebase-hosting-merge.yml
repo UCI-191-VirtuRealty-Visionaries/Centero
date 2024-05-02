@@ -12,10 +12,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+        with: 
+            sdk: 3.2.6
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v3
+        with:
+            channel: stable
+            version: 3.16.9
+
+      - run: npm ci
+      - run: flutter pub get
+      - run: flutter config --enable-web
+      - run: flutter build web
+      
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CENTEROBACKEND_14820 }}'
           channelId: live
           projectId: centerobackend-14820
+
