@@ -15,7 +15,7 @@ export const authResidentFace = onCall(async (req) => {
 
   logger.info(`Sending request to Rasberry Pi`, endpoint);
   try {
-    const response = await fetch(`http://${endpoint.ip}:${endpoint.port}`);
+    const response = await fetch(`http://${endpoint.ip}:${endpoint.port}/scan`);
     logger.info(`Ok ${response.ok}, status ${response.status} ${response.statusText}`);
 
     const info = await response.json();
