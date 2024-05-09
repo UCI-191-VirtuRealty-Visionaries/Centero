@@ -10,10 +10,10 @@ import { onCall } from "firebase-functions/v2/https";
 export const authResidentFace = onCall(async (req) => {
   const endpoint = await getRasberryPiAddress();
   if (endpoint === null) {
-    return buildAuthResponse(null);
+    return buildErrorResponse();
   }
 
-  logger.info(`Sending request to`, endpoint);
+  logger.info(`Sending request to Rasberry Pi`, endpoint);
   try {
     const response = await fetch(`http://${endpoint.ip}:${endpoint.port}`);
     logger.info(`Ok ${response.ok}, status ${response.status} ${response.statusText}`);
@@ -23,32 +23,28 @@ export const authResidentFace = onCall(async (req) => {
 
     if (!info.success) {
       logger.warn('Error response from Rasberry Pi');
-      return buildAuthResponse(null);
+      return buildErrorResponse();
     }
 
     const username = info.userid;
 
     if (!username) {
       logger.warn('Username (userid) was not set in Rasberry Pi response');
-      return buildAuthResponse(null);
+      return buildErrorResponse();
     }
 
-    const doc = await getMatchingFirestoreDoc(
-      'ResidentCredentials',
-      new Map([
-        ['username', username],
-      ]));
+    const doc = await getFirestoreCredentialsDoc(username);
 
     if (doc == null) {
       logger.error(`Cannot log in as ${username}, credentials are invalid / user is not registered.`);
-      return buildAuthResponse(null);
+      return buildErrorResponse();
     }
 
     const token = await generateAuthToken(doc.data()['id'], ['resident']);
     return buildAuthResponse(token);
   } catch (err) {
     logger.error(err);
-    return buildAuthResponse(null);
+    return buildErrorResponse();
   }
 });
 
@@ -65,6 +61,19 @@ async function getRasberryPiAddress(): Promise<Endpoint | null> {
     return null;
   }
   const ip = config.data()!['ip'];
-  const port = Number.parseInt(config.data()!['port']);
+  const port = config.data()!['port'];
   return { ip, port };
+}
+
+async function getFirestoreCredentialsDoc(username: string) {
+  return await getMatchingFirestoreDoc(
+    'ResidentCredentials',
+    new Map([
+      ['username', username],
+    ])
+  );
+}
+
+function buildErrorResponse() {
+  return buildAuthResponse(null);
 }
