@@ -239,6 +239,23 @@ class BackendService {
   }
 
   // ==================================================
+  // Face Scan
+  // ==================================================
+
+  Future<void> authenticateResidentFaceScan() async {
+    final logger = _createLogger('AuthResidentFaceScan');
+
+    try {
+      final response = await _getEndpoint('authResidentFace').call();
+
+      logger.info(response.data);
+    } catch (error) {
+      logger.severe('Generic error $error');
+    }
+  }
+
+
+  // ==================================================
   // Manager Status
   // ==================================================
 
