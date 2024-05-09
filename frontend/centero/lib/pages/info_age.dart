@@ -4,6 +4,7 @@ import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'info_role_selection.dart';
+import 'welcome_home.dart';
 
 class PageInfoAge extends StatelessWidget {
   @override
@@ -43,33 +44,20 @@ class PageInfoAge extends StatelessWidget {
 
     Widget btnReturn() {
       return ButtonDanger(
-        onPressed: () {},
-        child: Text(
-          'I am NOT 18+',
-          style: TextStyle(
-            fontSize: 80,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-        ),
-      );
-    }
-/*
-    Widget navigateToNextPage() {
-      return ElevatedButton(
-        child: Text('Go to role selection page',
-            style: TextStyle(
-              fontSize: 120,
-            )),
+        width: 1200,
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
+        child: Text(
+          'I am NOT 18+',
+          style: MyTextStyle.btnTxt,
+        ),
       );
     }
-    Don't need this button to move to next page anymore
-*/
+
     // ----- Structure -----
 
     return PageFrame(
@@ -79,9 +67,23 @@ class PageInfoAge extends StatelessWidget {
             Padding(
                 padding: EdgeInsets.only(
               top: 1000,
-            )),
+            )
+            ),
+            // padding above header text
             headerText(),
+            Padding(
+                padding: EdgeInsets.only(
+              top: 100,
+            )
+            ),
+            // padding above first button
             btnProceed(),
+            Padding(
+                padding: EdgeInsets.only(
+              top: 75,
+            )
+            ),
+            // padding above second button
             btnReturn(),
           ],
         ),

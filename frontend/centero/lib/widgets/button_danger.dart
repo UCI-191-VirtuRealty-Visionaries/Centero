@@ -5,6 +5,7 @@ class ButtonDanger extends ElevatedButton {
     super.key,
     required super.onPressed,
     required super.child,
+    double width = double.infinity, // Default width to infinity
   });
 
   @override

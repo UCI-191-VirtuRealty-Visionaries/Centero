@@ -11,7 +11,7 @@ class ButtonPrimary extends ElevatedButton {
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: Colors.green,
-            maximumSize: Size(width, 100), // Set the width
+            //maximumSize: Size(width, 100), // Set the width
             textStyle: TextStyle(
               fontSize: 250, // Text size 
               
