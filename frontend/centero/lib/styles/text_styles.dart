@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyTextStyle {
   static const TextStyle heading = TextStyle(
-    fontFamily: 'Montserrat',
+    fontFamily: 'Josefin',
     fontSize: 200,
     fontWeight: FontWeight.bold,
     color: Colors.white,
@@ -14,7 +14,9 @@ class MyTextStyle {
   );
 
   static const TextStyle btnTxt = TextStyle(
+    fontFamily: 'Josefin',
     fontSize: 120,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 

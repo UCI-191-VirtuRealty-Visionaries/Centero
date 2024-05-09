@@ -17,11 +17,15 @@ class PageInfoAge extends StatelessWidget {
             style: TextStyle(
               fontSize: 120,
               color: Colors.white,
+              fontFamily: 'Josefin',
+              fontWeight: FontWeight.bold,
             )),
         Text("to proceed.",
             style: TextStyle(
               fontSize: 120,
               color: Colors.white,
+              fontFamily: 'Josefin',
+              fontWeight: FontWeight.bold,
             )),
       ]);
     }
