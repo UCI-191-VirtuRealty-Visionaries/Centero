@@ -1,8 +1,11 @@
 import 'package:centero/widgets/debug_page_placeholder.dart';
 import 'package:centero/widgets/page_frame.dart';
+import 'package:centero/widgets/button_primary.dart';
+import 'package:centero/widgets/button_secondary.dart';
 import 'package:flutter/material.dart';
 import 'package:centero/styles/app_theme.dart';
 import 'call_regular_loading.dart';
+import 'welcome_home.dart';
 
 class PageInfoRoleSelection extends StatelessWidget {
   // Move to call regular loading screen
@@ -13,59 +16,52 @@ class PageInfoRoleSelection extends StatelessWidget {
     );
   }
 
+  // Move to welcome screen
+  void goToWelcomeScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PageWelcomeHome()),
+    );
+  }
+
   // Work Orders Button
   Widget WorkOrderButton(BuildContext context) {
-    return ElevatedButton(onPressed: () {nextScreen(context);}, 
-      style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(
-          Size(650.0, 150.0), // Button width and height
-        ),
-      ),
-      child: Text('Work Orders', style: TextStyle(fontSize: 90)));
+    return ButtonPrimary(
+      width: 1200,
+      onPressed: () {nextScreen(context);}, 
+      child: Text('Work Orders', style: TextStyle(fontSize: 80)));
   }
 
   // Amenity Info Button
   Widget AmenityInfoButton(BuildContext context) {
-    return ElevatedButton(onPressed: () {nextScreen(context);}, 
-    style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(
-          Size(650.0, 150.0), // Button width and height
-        ),
-      ),
-    child: Text('Amenity Info', style: TextStyle(fontSize: 90)));
+    return ButtonPrimary(
+      width: 1200,
+      onPressed: () {nextScreen(context);}, 
+      child: Text('Amenity Info', style: TextStyle(fontSize: 80)));
   }
 
   // Local Events Button
   Widget LocalEventsButton(BuildContext context) {
-    return ElevatedButton(onPressed: () {nextScreen(context);}, 
-    style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(
-          Size(650.0, 150.0), // Button width and height
-        ),
-      ),
-    child: Text('Local Events', style: TextStyle(fontSize: 90)));
+    return ButtonPrimary(
+      width: 1200,
+      onPressed: () {nextScreen(context);}, 
+      child: Text('Local Events', style: TextStyle(fontSize: 80)));
   }
 
   // Your Lease Button
   Widget YourLeaseButton(BuildContext context) {
-    return ElevatedButton(onPressed: () {nextScreen(context);}, 
-    style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(
-          Size(650.0, 150.0), // Button width and height
-        ),
-      ),
-    child: Text('Your Lease', style: TextStyle(fontSize: 90)));
+    return ButtonPrimary(
+      width: 1200,
+      onPressed: () {nextScreen(context);}, 
+      child: Text('Your Lease', style: TextStyle(fontSize: 80)));
   }
 
   // Other Button
   Widget OtherButton(BuildContext context) {
-    return ElevatedButton(onPressed: () {nextScreen(context);}, 
-    style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all<Size>(
-          Size(650.0, 150.0), // Button width and height
-        ),
-      ),
-    child: Text('Other', style: TextStyle(fontSize: 90)));
+    return ButtonPrimary(
+      width: 1200,
+      onPressed: () {nextScreen(context);}, 
+      child: Text('Other', style: TextStyle(fontSize: 80)));
   }
 
   // Exit Button
@@ -73,14 +69,13 @@ class PageInfoRoleSelection extends StatelessWidget {
     return Container(
       width: 1800,
       child: Row(
-        children: [ElevatedButton(onPressed: () {nextScreen(context);}, 
-          style: ButtonStyle(
-              fixedSize: MaterialStateProperty.all<Size>(
-                Size(260.0, 100.0), // Button width and height
-              ),
-            ),
-          child: Text('Exit', style: TextStyle(fontSize: 45))),
-        Expanded(child: Container())]
+        children: [
+          ButtonSecondary(
+            width: 1500,
+            onPressed: () {goToWelcomeScreen(context);}, 
+            child: Text('Exit', style: TextStyle(fontSize: 45))),
+          Expanded(child: Container())
+        ]
       )
     );
   }
@@ -93,7 +88,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = Column(children: [
-      SizedBox(height: 350),
+      SizedBox(height: 600),
       Text("Hello, Resident!", style: TextStyle(fontSize: 200, color: Colors.white)),
       Text("What would you like to chat about?", style: TextStyle(fontSize: 80, color: Colors.white)),
       SizedBox(height: 150),
