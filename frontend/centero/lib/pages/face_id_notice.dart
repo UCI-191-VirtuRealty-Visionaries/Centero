@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'face_id_scan.dart';
+import 'face_scan.dart';
 
 class FaceIDNoticePage extends StatelessWidget {
   @override
