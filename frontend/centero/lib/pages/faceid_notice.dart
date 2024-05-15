@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'face_scan.dart';
 
-class FaceIDNoticePage extends StatelessWidget {
+class FaceIDNotice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
