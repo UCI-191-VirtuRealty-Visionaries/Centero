@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:centero/services/backend.dart';
+import 'package:centero/services.dart';
+import 'package:centero/services/backend_service.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/debug_logout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,7 +30,7 @@ class MockFaceScanWidgetState extends State<MockFaceScanWidget> {
     authSubscription =
         FirebaseAuth.instance.authStateChanges().listen((user) async {
       if (user != null) {
-        info = await Backend.getResidentProfile(user.uid);
+        info = await Services.backend.getResidentProfile(user.uid);
       } else {
         info = null;
       }
@@ -56,7 +57,7 @@ class MockFaceScanWidgetState extends State<MockFaceScanWidget> {
   }
 
   void login() {
-    Backend.authenticateResidentManual(
+    Services.backend.authenticateResidentManual(
       username: 'austin',
       password: 'austin',
     );
@@ -78,7 +79,7 @@ class _MockFaceScanSubwidgets {
     final image = SizedBox(
       width: 200,
       height: 200,
-      child: SvgPicture.asset('face_scan_reticle.svg'),
+      child: SvgPicture.asset('assets/face_scan_reticle.svg'),
     );
 
     final authStatusTooltip = authenticationSuccessful

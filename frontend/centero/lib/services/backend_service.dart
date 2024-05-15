@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:centero/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:crypto/crypto.dart';
@@ -11,52 +11,65 @@ import 'package:logging/logging.dart';
 // ==================================================
 
 class QueuedUserInfo {
-  QueuedUserInfo({required this.userid});
   final String userid;
+  QueuedUserInfo({
+    required this.userid,
+  });
 }
 
 class ResidentInfo {
-  ResidentInfo({required this.name, required this.property, required this.unitNumber});
-
   final String name;
   final String property;
   final String unitNumber;
+  ResidentInfo({
+    required this.name,
+    required this.property,
+    required this.unitNumber,
+  });
 }
 
 class ManagerInfo {
-  ManagerInfo({required this.name});
   final String name;
+  ManagerInfo({
+    required this.name,
+  });
 }
 
 // ==================================================
 // Backend
 // ==================================================
 
-class Backend {
+class BackendService {
   // ==================================================
   // Utilities
   // ==================================================
 
-  static FirebaseFirestore get firestore {
+  FirebaseFirestore get _firestore {
     return FirebaseFirestore.instance;
   }
 
-  static Logger createLogger(String name) {
+  Logger _createLogger(String name) {
     return Logger('Backend.$name');
   }
 
-  static HttpsCallable getEndpoint(String name) {
+  HttpsCallable _getEndpoint(String name) {
     return FirebaseFunctions.instance.httpsCallable(name);
+  }
+
+  String hashPassword(String password) {
+    final hasher = Hmac(sha256, Services.secrets.hmacKey);
+    final digest = hasher.convert(utf8.encode(password));
+    return digest.toString();
   }
 
   // ==================================================
   // Profile Fetch
   // ==================================================
 
-  static Future<ResidentInfo> getResidentProfile(String id) async {
-    Logger logger = createLogger('ResidentProfile');
+  Future<ResidentInfo> getResidentProfile(String id) async {
+    Logger logger = _createLogger('ResidentProfile');
 
-    final doc = await firestore.collection('ResidentProfiles').doc(id).get();
+    final doc = await _firestore.collection('ResidentProfiles').doc(id).get();
     logger.fine('Retrieved profile ${doc.id} ${doc.data()}');
 
     final data = doc.data();
@@ -68,10 +81,10 @@ class Backend {
     );
   }
 
-  static Future<ManagerInfo> getManagerProfile(String id) async {
-    Logger logger = createLogger('ManagerProfile');
+  Future<ManagerInfo> getManagerProfile(String id) async {
+    Logger logger = _createLogger('ManagerProfile');
 
-    final doc = await firestore.collection('ManagerProfiles').doc(id).get();
+    final doc = await _firestore.collection('ManagerProfiles').doc(id).get();
     logger.fine('Retrieved profile ${doc.id} ${doc.data()}');
 
     return ManagerInfo(
@@ -83,12 +96,12 @@ class Backend {
   // Call Queue
   // ==================================================
 
-  static Future<List<QueuedUserInfo>?> getCallQueue({
+  Future<List<QueuedUserInfo>?> getCallQueue({
     bool logInfo = true,
   }) async {
-    final logger = createLogger('CallQueue');
+    final logger = _createLogger('CallQueue');
 
-    final fullQueue = await firestore.collection('CallQueue').get();
+    final fullQueue = await _firestore.collection('CallQueue').get();
     final info = fullQueue.docs.map(
       (e) => QueuedUserInfo(
         userid: e.data()['userid'],
@@ -108,10 +121,10 @@ class Backend {
   // Available Managers
   // ==================================================
 
-  static Future<List<ManagerInfo>> getAvailableManagers() async {
-    Logger logger = createLogger('AvailableManagers');
+  Future<List<ManagerInfo>> getAvailableManagers() async {
+    Logger logger = _createLogger('AvailableManagers');
 
-    final activeCollection = await firestore
+    final activeCollection = await _firestore
         .collection('ActiveManagers')
         .where('status', isNotEqualTo: 'Offline')
         .get();
@@ -121,7 +134,7 @@ class Backend {
       'Found ${activeCollection.size} available: $targets',
     );
 
-    final results = await firestore
+    final results = await _firestore
         .collection('ManagerProfiles')
         .where(FieldPath.documentId, whereIn: targets)
         .get();
@@ -139,14 +152,14 @@ class Backend {
     return List.from(info);
   }
 
-  static Future<int> getAvailableManagersCount() async {
-    Logger logger = createLogger('AvailableManagersCount');
+  Future<int> getAvailableManagersCount() async {
+    Logger logger = _createLogger('AvailableManagersCount');
 
-    final activeCollection = await firestore
+    final activeCollection = await _firestore
         .collection('ActiveManagers')
         .where('status', isNotEqualTo: 'Offline')
         .get();
-    
+
     logger.fine('Retrieved collection $activeCollection');
 
     return activeCollection.size;
@@ -156,20 +169,20 @@ class Backend {
   // Authentication
   // ==================================================
 
-  static Future<void> authenticateResidentManual({
+  Future<void> authenticateResidentManual({
     required String username,
     required String password,
   }) async {
-    final logger = createLogger('AuthResident.Manual');
+    final logger = _createLogger('AuthResident.Manual');
 
-    final digest = sha256.convert(utf8.encode(password));
-    logger.info('Logging in with `$username : $digest`');
+    final passwordHash = hashPassword(password);
+    logger.info('Logging in with `$username : $passwordHash`');
 
     try {
-      final response = await getEndpoint('authResidentManual').call(
+      final response = await _getEndpoint('authResidentManual').call(
         {
           'username': username,
-          'passwordHash': digest.toString(),
+          'passwordHash': passwordHash,
         },
       );
 
@@ -189,22 +202,22 @@ class Backend {
     }
   }
 
-  static Future<void> authenticateManager({
+  Future<void> authenticateManager({
     required String company,
     required String username,
     required String password,
   }) async {
-    final logger = createLogger('AuthManager');
+    final logger = _createLogger('AuthManager');
 
-    final digest = sha256.convert(utf8.encode(password));
-    logger.info('Logging in with `$company : $username : $digest`');
+    final passwordHash = hashPassword(password);
+    logger.info('Logging in with `$company : $username : $passwordHash`');
 
     try {
-      final response = await getEndpoint('authManager').call(
+      final response = await _getEndpoint('authManager').call(
         {
           'company': company,
           'username': username,
-          'passwordHash': digest.toString(),
+          'passwordHash': passwordHash,
         },
       );
 
@@ -217,7 +230,8 @@ class Backend {
 
         logger.info('Successful login. ${credential.user}');
       } else {
-        logger.severe('Failed to log in as $company : $username, credentials refused.');
+        logger.severe(
+            'Failed to log in as $company : $username, credentials refused.');
       }
     } catch (error) {
       logger.severe('Generic error $error');
@@ -228,10 +242,10 @@ class Backend {
   // Manager Status
   // ==================================================
 
-  static Future<void> addManagerToAvailableStaff(String uid) async {
-    Logger logger = createLogger('AddManagerToAvailable');
+  Future<void> addManagerToAvailableStaff(String uid) async {
+    Logger logger = _createLogger('AddManagerToAvailable');
 
-    final response = await getEndpoint('setManagerStatus').call({
+    final response = await _getEndpoint('setManagerStatus').call({
       'id': uid,
       'status': 'Online',
     });
@@ -239,10 +253,10 @@ class Backend {
     logger.fine('Set $uid to Online, result $response');
   }
 
-  static Future<void> removeManagerFromAvailableStaff(String uid) async {
-    Logger logger = createLogger('RemoveManagerFromAvailable');
+  Future<void> removeManagerFromAvailableStaff(String uid) async {
+    Logger logger = _createLogger('RemoveManagerFromAvailable');
 
-    final response = await getEndpoint('setManagerStatus').call({
+    final response = await _getEndpoint('setManagerStatus').call({
       'id': uid,
       'status': 'Offline',
     });

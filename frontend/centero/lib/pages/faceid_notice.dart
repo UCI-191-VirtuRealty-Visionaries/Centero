@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'face_scan.dart';
 
-class EndContactPage extends StatelessWidget {
+class FaceIDNoticePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('End Contact Page'), 
+        title: Text('Face ID Notice Page'), 
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Return to home page'),
+          child: Text('Go to face id scan page'),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => FaceIDScanPage()),
             );
           },
         ),

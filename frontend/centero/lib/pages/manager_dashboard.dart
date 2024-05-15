@@ -1,5 +1,5 @@
-import 'package:centero/services/backend.dart';
-import 'package:centero/services/devutil.dart';
+import 'package:centero/services.dart';
+import 'package:centero/util/dev_util.dart';
 import 'package:centero/widgets/manager_appbar.dart';
 import 'package:centero/widgets/manager_available_staff.dart';
 import 'package:centero/widgets/manager_call_queue.dart';
@@ -7,8 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-class ManagerHomePage extends StatelessWidget {
-  const ManagerHomePage({super.key});
+class PageManagerDashboard extends StatelessWidget {
+  const PageManagerDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ManagerHomePage extends StatelessWidget {
       () async {
         final user = FirebaseAuth.instance.currentUser;
         if (user != null) {
-          await Backend.removeManagerFromAvailableStaff(user.uid);
+          await Services.backend.removeManagerFromAvailableStaff(user.uid);
         }
         await FirebaseAuth.instance.signOut();
         Logger('ManagerHome').info('Signed out');
@@ -38,7 +38,7 @@ class ManagerHomePage extends StatelessWidget {
       'Login Tools',
       'Log in as mvp_user',
       () async {
-        await Backend.authenticateManager(
+        await Services.backend.authenticateManager(
           company: 'UC Irvine',
           username: 'mvp_user',
           password: '1234',
@@ -46,7 +46,7 @@ class ManagerHomePage extends StatelessWidget {
 
         final user = FirebaseAuth.instance.currentUser;
         if (user != null) {
-          await Backend.addManagerToAvailableStaff(user.uid);
+          await Services.backend.addManagerToAvailableStaff(user.uid);
         }
       },
     );
@@ -55,7 +55,7 @@ class ManagerHomePage extends StatelessWidget {
       'Error Check Tools Tools',
       'Try log in as mvp_user',
       () {
-        Backend.authenticateManager(
+        Services.backend.authenticateManager(
           company: 'UC Irvine',
           username: 'mvp_user',
           password: '12345',

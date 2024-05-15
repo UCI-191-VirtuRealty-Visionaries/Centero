@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:centero/services/backend.dart';
+import 'package:centero/services.dart';
+import 'package:centero/services/backend_service.dart';
 import 'package:centero/subwidgets/manager_subwidgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,16 +36,16 @@ class _ManagerUserProfileState extends State<ManagerUserProfile> {
       setState(() {
         info = null;
       });
-      logger.info('Cleared user profile info');
+      logger.fine('Cleared user profile info');
       return;
     }
 
-    final newProfile = await Backend.getManagerProfile(user.uid);
+    final newProfile = await Services.backend.getManagerProfile(user.uid);
 
     setState(() {
       info = newProfile;
     });
-    logger.info('Added new user profile data');
+    logger.fine('Added new user profile data');
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'call_interface.dart';
+//import 'call_interface.dart';
 
 class ResidentCallOptionsPage extends StatelessWidget {
   @override
@@ -12,10 +12,10 @@ class ResidentCallOptionsPage extends StatelessWidget {
         child: ElevatedButton(
           child: Text('Go to call interface page'),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => CallInterfacePage()),
-            );
+          //  Navigator.push(
+            //  context,
+              //MaterialPageRoute(builder: (context) => CallInterfacePage()),
+          //  );
           },
         ),
       ),

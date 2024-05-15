@@ -1,9 +1,8 @@
 import 'package:centero/global_config.dart';
 import 'package:centero/services.dart';
-import 'package:centero/services/watchdog_timer.dart';
-import 'package:centero/services/widget_util.dart';
+import 'package:centero/util/watchdog_timer.dart';
+import 'package:centero/util/widget_util.dart';
 import 'package:centero/subwidgets/resident_subwidgets.dart';
-import 'package:centero/widgets/logo_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
@@ -29,7 +28,7 @@ class _PageFrameState extends State<PageFrame> {
   @override
   void initState() {
     super.initState();
-    watchdogTimer = WatchdogTimer(name: 'PageFrame.WatchdogTimer');
+    watchdogTimer = WatchdogTimer(logger: Logger('PageFrame.WatchdogTimer'));
 
     watchdogTimer.start(widget.maxIdleTimeBeforeLogout, () {
       if (GlobalConfig.enableIdleLogout) {
@@ -64,14 +63,13 @@ class _PageFrameState extends State<PageFrame> {
 
     final content = widget.child;
 
-    final btnToggleSafeArea = FilledButton.tonal(
-      onPressed: toggleOverlay,
-      child: Text(overlayVisible ? 'Hide Overlay' : 'Show Overlay'),
+    final btnToggleSafeArea = subwidgets.buildToggleButtonForSafeOverlay(
+      onClick: toggleOverlay,
     );
 
     final safeArea = subwidgets.buildSafeAreaOverlay();
 
-    final footer = LogoFooter();
+    final footer = subwidgets.buildFooterLogo();
 
     // ----- Structure -----
 
@@ -85,6 +83,7 @@ class _PageFrameState extends State<PageFrame> {
 
     return Scaffold(
       body: Stack(
+        alignment: AlignmentDirectional.topCenter,
         children: WidgetUtil.fromVisibilityMap(visMap),
       ),
     );
