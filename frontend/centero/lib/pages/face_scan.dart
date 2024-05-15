@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'resident_call_options.dart';
 
-class FaceIDScanPage extends StatelessWidget {
+class FaceScan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

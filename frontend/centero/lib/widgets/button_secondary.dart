@@ -11,7 +11,7 @@ class ButtonSecondary extends ElevatedButton {
   ButtonStyle? themeStyleOf(BuildContext context) {
     return ElevatedButton.styleFrom(
       foregroundColor: Colors.white,
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: const Color.fromRGBO(57, 57, 57, 1),
     );
   }
 }
