@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static ThemeData lightTheme = ThemeData(
-    primaryColor: Colors.green,
+    primaryColor: const Color(0x43B02A),
     textTheme: TextTheme(
       displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(fontSize: 16),
     ),
-  
   );
 
 
@@ -20,7 +19,5 @@ class MyTheme {
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
         ),
       );
-
   // Add more theme data as needed
-
 }
