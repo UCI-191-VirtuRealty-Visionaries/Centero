@@ -59,7 +59,7 @@ class _PageFrameState extends State<PageFrame> {
 
     // ----- Widgets -----
 
-    final background = subwidgets.buildBackground();
+    final background = subwidgets.buildRedBackground();
 
     final content = widget.child;
 

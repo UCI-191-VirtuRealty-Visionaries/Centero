@@ -1,3 +1,4 @@
+import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/debug_page_placeholder.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:centero/widgets/button_primary.dart';

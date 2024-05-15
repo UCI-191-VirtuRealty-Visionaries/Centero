@@ -37,7 +37,7 @@ class _ManagerAvailableStaffState extends State<ManagerAvailableStaff> {
 
   void fetchLatestData() async {
     final cur = await Services.backend.getAvailableManagers();
-    logger.info('New data $cur');
+    logger.fine('New data $cur');
 
     setState(() {
       managers = cur;
