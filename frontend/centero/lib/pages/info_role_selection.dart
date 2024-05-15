@@ -89,8 +89,10 @@ class PageInfoRoleSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     final content = Column(children: [
       SizedBox(height: 600),
-      Text("Hello, Resident!", style: TextStyle(fontSize: 200, color: Colors.white)),
-      Text("What would you like to chat about?", style: TextStyle(fontSize: 80, color: Colors.white)),
+      Text("Hello, Resident!", 
+        style: TextStyle(fontSize: 200, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+      Text("What would you like to chat about?", 
+        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
       SizedBox(height: 150),
       buildButtonColumn(context)
     ]);
