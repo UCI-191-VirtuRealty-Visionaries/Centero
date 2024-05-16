@@ -2,6 +2,7 @@ import 'package:centero/widgets/button_alternate.dart';
 import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/button_secondary.dart';
+import 'package:centero/widgets/debug_face_scan_request.dart';
 import 'package:centero/widgets/face_scan.dart';
 import 'package:centero/widgets/logo_footer.dart';
 import 'package:centero/widgets/logo_minimal.dart';
@@ -44,6 +45,8 @@ class PageDebugWidgetPreviewPage extends StatelessWidget {
 
     final testLogOut = DebugLogOut();
 
+    final faceScanRequest = DebugFaceScanRequest();
+
     final faceScan = FaceScanWidget(
       onValidated: () => logger.info('Received validated callback.'),
     );
@@ -73,6 +76,7 @@ class PageDebugWidgetPreviewPage extends StatelessWidget {
                 logoMinimal,
                 logoFooter,
                 testLogOut,
+                faceScanRequest,
               ],
             ),
             Column(children: [faceScan, mockFaceScan]),

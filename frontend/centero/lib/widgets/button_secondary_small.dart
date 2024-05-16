@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ButtonSecondary extends ElevatedButton {
-  ButtonSecondary({
+class ButtonSecondarySmall extends ElevatedButton {
+  ButtonSecondarySmall({
     super.key,
     required super.onPressed,
     required super.child,
@@ -14,7 +14,7 @@ class ButtonSecondary extends ElevatedButton {
       foregroundColor: Colors.white,
       backgroundColor: Colors.grey.shade300.withOpacity(0.25),
       side: BorderSide(width: 5.0, color: Colors.white),
-      fixedSize: const Size(850, 200)
+      fixedSize: const Size(350, 120)
     );
   }
 }

@@ -34,18 +34,6 @@ jobs:
       - run: flutter pub get
       - run: flutter config --enable-web
 
-      - name: Generate prod_hashkey secret
-        run: |
-          mkdir -p assets/secrets
-          echo "$PROD_HASHKEY_VALUE" > assets/secrets/prod_hashkey
-        env:
-          PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
-        
-      - name: Verify Contents of Frontend secrets/ Folder
-        run: |
-          cd assets/secrets
-          ls
-
       - name: Replace secrets.dart With Production Secrets
         run: |
           cd lib
