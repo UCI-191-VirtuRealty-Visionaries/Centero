@@ -1,103 +1,48 @@
-import 'package:centero/pages/faceid_notice.dart';
-import 'package:centero/widgets/debug_page_placeholder.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:centero/widgets/button_primary.dart';
-import 'package:centero/widgets/button_secondary_small.dart';
 import 'package:flutter/material.dart';
-import 'package:centero/styles/app_theme.dart';
-import 'call_regular_loading.dart';
-import 'welcome_home.dart';
+import 'faceid_notice.dart';
 
 class PageInfoRoleSelection extends StatelessWidget {
-  // Move to call regular loading screen
+  // Move to face id notice screen
   void nextScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PageCallRegularLoading()),
+      MaterialPageRoute(builder: (context) => FaceIDNotice()),
     );
   }
 
-  // Move to welcome screen
-  void goToWelcomeScreen(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => PageWelcomeHome()),
-    );
-  }
-
-  // Work Orders Button
-  Widget workOrderButton(BuildContext context) {
+  // Resident Button
+  Widget residentButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Work Orders', style: TextStyle(fontSize: 80)));
+      child: Text('Resident', style: TextStyle(fontSize: 80)));
   }
 
-  // Amenity Info Button
-  Widget amenityInfoButton(BuildContext context) {
+  // Nonresident Button
+  Widget nonresidentButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Amenity Info', style: TextStyle(fontSize: 80)));
-  }
-
-  // Local Events Button
-  Widget localEventsButton(BuildContext context) {
-    return ButtonPrimary(
-      width: 1200,
-      onPressed: () {nextScreen(context);}, 
-      child: Text('Local Events', style: TextStyle(fontSize: 80)));
-  }
-
-  // Your Lease Button
-  Widget yourLeaseButton(BuildContext context) {
-    return ButtonPrimary(
-      width: 1200,
-      onPressed: () {nextScreen(context);}, 
-      child: Text('Your Lease', style: TextStyle(fontSize: 80)));
-  }
-
-  // Other Button
-  Widget otherButton(BuildContext context) {
-    return ButtonPrimary(
-      width: 1200,
-      onPressed: () {nextScreen(context);}, 
-      child: Text('Other', style: TextStyle(fontSize: 80)));
-  }
-
-  // Exit Button
-  Widget exitButton(BuildContext context) {
-    return Container(
-      width: 1800,
-      child: Row(
-        children: [
-          ButtonSecondarySmall(
-            width: 1500,
-            onPressed: () {goToWelcomeScreen(context);}, 
-            child: Text('Exit', style: TextStyle(fontSize: 45))),
-          Expanded(child: Container())
-        ]
-      )
-    );
+      child: Text('Non-Resident', style: TextStyle(fontSize: 80)));
   }
 
   // Build column of buttons
   Widget buildButtonColumn(BuildContext context) {
-    return Column(children: [workOrderButton(context), SizedBox(height: 60), amenityInfoButton(context), SizedBox(height: 60), 
-    localEventsButton(context), SizedBox(height: 60), yourLeaseButton(context), SizedBox(height: 60), 
-    otherButton(context), SizedBox(height: 60), exitButton(context)]);
+    return Column(children: [residentButton(context), SizedBox(height: 60), nonresidentButton(context)]);
   }
 
   @override
   Widget build(BuildContext context) {
     final content = Column(children: [
       SizedBox(height: 600),
-      Text("Hello, Resident!", 
+      Text("Please tell us who we are talking with?", 
         style: TextStyle(fontSize: 200, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-      Text("What would you like to chat about?", 
-        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
       SizedBox(height: 150),
-      buildButtonColumn(context)
+      buildButtonColumn(context),
+      Text("Have an emergency? Please call 911.", 
+        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
     ]);
 
     return PageFrame(
