@@ -2,7 +2,7 @@ import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/debug_page_placeholder.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:centero/widgets/button_primary.dart';
-import 'package:centero/widgets/button_secondary.dart';
+import 'package:centero/widgets/button_secondary_small.dart';
 import 'package:flutter/material.dart';
 import 'package:centero/styles/app_theme.dart';
 import 'call_regular_loading.dart';
@@ -26,7 +26,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Work Orders Button
-  Widget WorkOrderButton(BuildContext context) {
+  Widget workOrderButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
@@ -34,7 +34,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Amenity Info Button
-  Widget AmenityInfoButton(BuildContext context) {
+  Widget amenityInfoButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
@@ -42,7 +42,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Local Events Button
-  Widget LocalEventsButton(BuildContext context) {
+  Widget localEventsButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
@@ -50,7 +50,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Your Lease Button
-  Widget YourLeaseButton(BuildContext context) {
+  Widget yourLeaseButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
@@ -58,7 +58,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Other Button
-  Widget OtherButton(BuildContext context) {
+  Widget otherButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
@@ -66,12 +66,12 @@ class PageInfoRoleSelection extends StatelessWidget {
   }
 
   // Exit Button
-  Widget ExitButton(BuildContext context) {
+  Widget exitButton(BuildContext context) {
     return Container(
       width: 1800,
       child: Row(
         children: [
-          ButtonSecondary(
+          ButtonSecondarySmall(
             width: 1500,
             onPressed: () {goToWelcomeScreen(context);}, 
             child: Text('Exit', style: TextStyle(fontSize: 45))),
@@ -83,7 +83,9 @@ class PageInfoRoleSelection extends StatelessWidget {
 
   // Build column of buttons
   Widget buildButtonColumn(BuildContext context) {
-    return Column(children: [WorkOrderButton(context), SizedBox(height: 60), AmenityInfoButton(context), SizedBox(height: 60), LocalEventsButton(context), SizedBox(height: 60), YourLeaseButton(context), SizedBox(height: 60), OtherButton(context), SizedBox(height: 60), ExitButton(context)]);
+    return Column(children: [workOrderButton(context), SizedBox(height: 60), amenityInfoButton(context), SizedBox(height: 60), 
+    localEventsButton(context), SizedBox(height: 60), yourLeaseButton(context), SizedBox(height: 60), 
+    otherButton(context), SizedBox(height: 60), exitButton(context)]);
   }
 
   @override
