@@ -29,8 +29,8 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
     // Should take up full frame
 
     final debugFigure = SizedBox(
-      height: 150,
-      width: 400,
+      height: 300,
+      width: 800,
       child: Image.asset('assets/debug_person_overlay.png'),
     );
 

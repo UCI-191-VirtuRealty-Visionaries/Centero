@@ -8,8 +8,7 @@ class MyTheme {
       bodyLarge: TextStyle(fontSize: 16),
     ),
   );
-
-
+  
   ElevatedButtonThemeData _elevatedButtonTheme(ElevatedButtonThemeData base) =>
       ElevatedButtonThemeData(
         style: ButtonStyle(
