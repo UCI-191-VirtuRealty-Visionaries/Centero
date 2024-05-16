@@ -28,7 +28,7 @@ class FaceIDNotice extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Josefin',
               fontWeight: FontWeight.normal,
-              fontSize: 75,
+              fontSize: 60,
               color: Colors.white,
             )),
       ]);
@@ -88,22 +88,7 @@ class FaceIDNotice extends StatelessWidget {
       );
     }
 
-/*
-    return PageFrame(
-      child: Column(
-        children: [
-          Padding(
-              padding: EdgeInsets.only(
-            top: 580,
-          )),
-          faceScanner(),
-          headerText(),
-          btnReturn(),
-        ],
-      ),
-    );
-  }
-} */
+
     return PageFrame(
       child: Stack(
         alignment: Alignment(0, -0.6),
@@ -113,17 +98,18 @@ class FaceIDNotice extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 550, child: faceScanner()),
+          Positioned(top: 650, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 650),
+              SizedBox(height: 950),
               Container(
                 margin:
-                    EdgeInsets.only(left: 50, right: 50), // Add margin around the Text widget
+                    EdgeInsets.only(left: 750, right: 750), // Add margin around the Text widget
                 child: headerText(),
               ),
+              SizedBox(height: 100),
               btnProceed(),
-              SizedBox(height: 400),
+              SizedBox(height: 300),
               btnAlternate(),
               SizedBox(height: 100),
               btnReturn(),
