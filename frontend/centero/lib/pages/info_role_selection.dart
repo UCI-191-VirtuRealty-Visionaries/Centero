@@ -30,17 +30,18 @@ class PageInfoRoleSelection extends StatelessWidget {
 
   // Build column of buttons
   Widget buildButtonColumn(BuildContext context) {
-    return Column(children: [residentButton(context), SizedBox(height: 60), nonresidentButton(context)]);
+    return Column(children: [residentButton(context), SizedBox(height: 80), nonresidentButton(context)]);
   }
 
   @override
   Widget build(BuildContext context) {
     final content = Column(children: [
-      SizedBox(height: 600),
+      SizedBox(height: 800),
       Text("Please tell us who we are talking with?", 
-        style: TextStyle(fontSize: 200, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-      SizedBox(height: 150),
+        style: TextStyle(fontSize: 120, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+      SizedBox(height: 200),
       buildButtonColumn(context),
+      SizedBox(height: 200),
       Text("Have an emergency? Please call 911.", 
         style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
     ]);
