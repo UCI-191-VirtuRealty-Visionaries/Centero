@@ -61,7 +61,7 @@ class FaceIDNotice extends StatelessWidget {
           );
         },
         child: Text(
-          'LETS GOOOO',
+          'Get Started',
           style: TextStyle(
             fontSize: 80,
             color: Color.fromARGB(255, 255, 255, 255),

@@ -32,7 +32,7 @@ class PageInfoAge extends StatelessWidget {
 
     Widget btnProceed() {
       return ButtonPrimary(
-       // width: 1200,
+        width: 1200,
         onPressed: () {
           Navigator.push(
             context,
@@ -48,7 +48,7 @@ class PageInfoAge extends StatelessWidget {
 
     Widget btnReturn() {
       return ButtonDanger(
-       // width: 1200,
+        width: 1200,
         onPressed: () {
           Navigator.push(
             context,
