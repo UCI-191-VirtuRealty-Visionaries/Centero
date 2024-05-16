@@ -7,6 +7,7 @@ import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'face_scan.dart';
 import 'info_role_selection.dart';
+import 'welcome_home.dart';
 
 class FaceIDNotice extends StatelessWidget {
   //Stack
@@ -39,7 +40,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
         child: Text(
@@ -57,7 +58,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
+            MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
           );
         },
         child: Text(
