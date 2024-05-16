@@ -3,7 +3,7 @@ import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
-import 'faceid_notice.dart';
+import 'info_role_selection.dart';
 import 'welcome_home.dart';
 
 class PageInfoAge extends StatelessWidget {
@@ -36,7 +36,7 @@ class PageInfoAge extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceIDNotice()),
+            MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
           );
         },
         child: Text(
