@@ -35,16 +35,20 @@ class PageInfoRoleSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final content = Column(children: [
-      SizedBox(height: 800),
-      Text("Please tell us who we are talking with?", 
-        style: TextStyle(fontSize: 120, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-      SizedBox(height: 200),
-      buildButtonColumn(context),
-      SizedBox(height: 200),
-      Text("Have an emergency? Please call 911.", 
-        style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-    ]);
+    final content = Container(
+      width: 1500,
+      child: Column(children: [
+        SizedBox(height: 780),
+        Text("Please tell us who we are talking with?",
+          textAlign: TextAlign.center, 
+          style: TextStyle(fontSize: 150, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+        SizedBox(height: 170),
+        buildButtonColumn(context),
+        SizedBox(height: 170),
+        Text("Have an emergency? Please call 911.", 
+          style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+      ])
+    );
 
     return PageFrame(
       child: content,
