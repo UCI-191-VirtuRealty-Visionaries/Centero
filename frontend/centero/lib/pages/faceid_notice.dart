@@ -58,7 +58,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageResidentCallOptions()),
+            MaterialPageRoute(builder: (context) => FaceScan()),
           );
         },
         child: Text(
