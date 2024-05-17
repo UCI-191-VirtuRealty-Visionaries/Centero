@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'face_scan.dart';
-import 'info_role_selection.dart';
+import 'resident_call_options.dart';
 import 'welcome_home.dart';
 
 class FaceIDNotice extends StatelessWidget {
@@ -58,7 +58,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageInfoRoleSelection()),
+            MaterialPageRoute(builder: (context) => PageResidentCallOptions()),
           );
         },
         child: Text(

@@ -14,7 +14,7 @@ class FaceScan extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ResidentCallOptionsPage()),
+              MaterialPageRoute(builder: (context) => PageResidentCallOptions()),
             );
           },
         ),
