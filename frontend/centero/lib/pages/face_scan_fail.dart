@@ -1,3 +1,4 @@
+import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class FaceScanFail extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
+            MaterialPageRoute(builder: (context) => FaceIDNotice()),
           );
         },
         child: Text(
@@ -56,6 +57,7 @@ class FaceScanFail extends StatelessWidget {
           style: TextStyle(
             fontSize: 80,
             color: Color.fromARGB(255, 255, 255, 255),
+            fontFamily: 'Josefin',
           ),
         ),
       );
@@ -66,7 +68,7 @@ class FaceScanFail extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
         child: Text(
@@ -74,6 +76,7 @@ class FaceScanFail extends StatelessWidget {
           style: TextStyle(
             fontSize: 80,
             color: Color.fromARGB(255, 255, 255, 255),
+            fontFamily: 'Josefin',
           ),
         ),
       );

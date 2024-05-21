@@ -49,6 +49,7 @@ class FaceIDNotice extends StatelessWidget {
           style: TextStyle(
             fontSize: 80,
             color: Color.fromARGB(255, 255, 255, 255),
+            fontFamily: 'Josefin',
           ),
         ),
       );
@@ -66,6 +67,7 @@ class FaceIDNotice extends StatelessWidget {
           'Get Started',
           style: TextStyle(
             fontSize: 80,
+            fontFamily: 'Josefin',
             color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
@@ -84,6 +86,7 @@ class FaceIDNotice extends StatelessWidget {
           'Alternate Log In',
           style: TextStyle(
             fontSize: 80,
+            fontFamily: 'Josefin',
             color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),

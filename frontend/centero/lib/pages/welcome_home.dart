@@ -39,7 +39,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
       buildCenteroLogo(),
       SizedBox(height: 20),
       Text("CENTERO", style: TextStyle(fontFamily: 'Josefin', fontSize: 250, fontWeight: FontWeight.bold)),
-      Text("Would you like to chat?", style: TextStyle(fontFamily: 'Josefin', fontSize: 95, fontWeight: FontWeight.bold)),
+      Text("Would you like to chat?", style: TextStyle(fontFamily: 'Josefin', fontSize: 120, fontWeight: FontWeight.bold)),
       SizedBox(height: 70),
       Text("TOUCH SCREEN TO START", style: TextStyle(fontFamily: 'Josefin', fontSize: 75, fontWeight: FontWeight.bold))
     ]);
@@ -54,7 +54,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
         ), // add padding above the Opacity widget
         child: Container(
           width: double.infinity, // card take up whole width
-          height: 2000,
+          height: 1800,
           color: Colors.white.withOpacity(0.6),
           child: buildCenteroCardContent(),
         ),
