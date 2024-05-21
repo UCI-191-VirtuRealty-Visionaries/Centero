@@ -95,7 +95,7 @@ Widget faceScanner() {
               ),
               SizedBox(height: 50),
               scanSuccess(),
-              SizedBox(height: 250),
+              SizedBox(height: 300),
               bottomText()
             ],
           ),
