@@ -38,9 +38,10 @@ jobs:
         run: |
           cd lib
           rm secrets.dart
-          echo "const centeroSecretsFileWasPopulated = true; const centeroProdHashKey = '$PROD_HASHKEY_VALUE';" > secrets.dart
+          echo "const centeroSecretsFileWasPopulated = true; const centeroProdHashKey = '$PROD_HASHKEY'; const centeroFirebaseApiKey = '$PROD_APIKEY';" > secrets.dart
         env:
-          PROD_HASHKEY_VALUE: ${{ secrets.CENTERO_PROD_HASHKEY }}
+          PROD_HASHKEY: ${{ secrets.CENTERO_PROD_HASHKEY }}
+          PROD_APIKEY: ${{ secrets.FIREBASE_API_KEY }}
 
       - run: flutter build web
 
