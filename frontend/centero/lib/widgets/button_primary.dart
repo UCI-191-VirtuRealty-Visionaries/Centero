@@ -26,7 +26,7 @@ class ButtonPrimary extends OutlinedButton {
     return OutlinedButton.styleFrom(
       foregroundColor: Colors.white,
       backgroundColor: const Color.fromRGBO(67, 176, 42, 1),
-      fixedSize: const Size(850, 200),
+      fixedSize: const Size(750, 190),
     );
   }
 }

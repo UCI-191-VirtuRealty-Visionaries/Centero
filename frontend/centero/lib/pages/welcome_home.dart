@@ -37,10 +37,11 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
   Widget buildCenteroCardContent() {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       buildCenteroLogo(),
-      Text("CENTERO", style: TextStyle(fontSize: 300)),
-      Text("WOULD YOU LIKE TO CHAT?", style: TextStyle(fontSize: 160)),
-      SizedBox(height: 90),
-      Text("Touch screen to start", style: TextStyle(fontSize: 85))
+      SizedBox(height: 20),
+      Text("CENTERO", style: TextStyle(fontFamily: 'Josefin', fontSize: 250, fontWeight: FontWeight.bold)),
+      Text("Would you like to chat?", style: TextStyle(fontFamily: 'Josefin', fontSize: 120, fontWeight: FontWeight.bold)),
+      SizedBox(height: 70),
+      Text("TOUCH SCREEN TO START", style: TextStyle(fontFamily: 'Josefin', fontSize: 75, fontWeight: FontWeight.bold))
     ]);
   }
 
@@ -49,11 +50,11 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     return Column(children: [
       Padding(
         padding: EdgeInsets.only(
-          top: 1000,
+          top: 600,
         ), // add padding above the Opacity widget
         child: Container(
           width: double.infinity, // card take up whole width
-          height: 2000,
+          height: 1800,
           color: Colors.white.withOpacity(0.6),
           child: buildCenteroCardContent(),
         ),
