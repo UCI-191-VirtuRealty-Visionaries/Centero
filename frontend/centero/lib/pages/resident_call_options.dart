@@ -27,7 +27,7 @@ class PageResidentCallOptions extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Work Orders', style: TextStyle(fontSize: 80)));
+      child: Text('Work Orders', style: TextStyle(fontSize: 80, fontFamily: 'Josefin')));
   }
 
   // Amenity Info Button
@@ -35,7 +35,7 @@ class PageResidentCallOptions extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Amenity Info', style: TextStyle(fontSize: 80)));
+      child: Text('Amenity Info', style: TextStyle(fontSize: 80, fontFamily: 'Josefin')));
   }
 
   // Local Events Button
@@ -43,7 +43,7 @@ class PageResidentCallOptions extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Local Events', style: TextStyle(fontSize: 80)));
+      child: Text('Local Events', style: TextStyle(fontSize: 80, fontFamily: 'Josefin')));
   }
 
   // Your Lease Button
@@ -51,7 +51,7 @@ class PageResidentCallOptions extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Your Lease', style: TextStyle(fontSize: 80)));
+      child: Text('Your Lease', style: TextStyle(fontSize: 80, fontFamily: 'Josefin')));
   }
 
   // Other Button
@@ -59,7 +59,7 @@ class PageResidentCallOptions extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nextScreen(context);}, 
-      child: Text('Other', style: TextStyle(fontSize: 80)));
+      child: Text('Other', style: TextStyle(fontSize: 80, fontFamily: 'Josefin')));
   }
 
   // Exit Button
@@ -89,7 +89,7 @@ class PageResidentCallOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final content = Column(children: [
       SizedBox(height: 600),
-      Text("Hello, Resident!", 
+      Text("Hello, Thatcher James!", 
         style: TextStyle(fontSize: 200, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
       Text("What would you like to chat about?", 
         style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
