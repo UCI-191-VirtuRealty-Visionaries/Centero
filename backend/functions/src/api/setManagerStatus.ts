@@ -1,10 +1,10 @@
-import { getFirestore, logger } from "../environment";
+import { cors, getFirestore, logger } from "../environment";
 import { onCall } from "firebase-functions/v2/https";
 
 /**
  * Retrieve information about a specified user.
  */
-export const setManagerStatus = onCall(async (req) => {
+export const setManagerStatus = onCall({ cors: cors }, async (req) => {
 	const db = getFirestore();
 
 	const id: string = req.data["id"];

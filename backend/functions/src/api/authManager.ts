@@ -1,4 +1,4 @@
-import { logger } from "../environment";
+import { cors, logger } from "../environment";
 import { onCall } from "firebase-functions/v2/https";
 import { generateAuthToken } from "../controllers/generateAuthToken";
 import { getMatchingFirestoreDoc } from "../controllers/getMatchingFirestoreDoc";
@@ -7,7 +7,7 @@ import { buildAuthResponse } from "../controllers/buildAuthResponse";
 /**
  * Authenticate a manager using their company, username, and password hash.
  */
-export const authManager = onCall(async (req) => {
+export const authManager = onCall({ cors: cors }, async (req) => {
   logger.info(`Receiving manager auth request`, req.data);
 
   const company = req.data['company'];
