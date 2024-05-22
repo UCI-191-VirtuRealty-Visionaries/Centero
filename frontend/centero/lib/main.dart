@@ -13,7 +13,7 @@ import 'package:url_strategy/url_strategy.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: firebaseOptionsWeb);
 
   if (GlobalConfig.isDevMode) {
     FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
