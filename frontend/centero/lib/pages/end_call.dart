@@ -1,4 +1,3 @@
-import 'package:centero/pages/end_call.dart';
 import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
@@ -7,38 +6,43 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'welcome_home.dart';
 
-class FaceScanFail extends StatelessWidget {
+class EndCall extends StatelessWidget {
   //Stack
   @override
   Widget build(BuildContext context) {
     //Widgets
-    Widget faceScanner() {
-      return SvgPicture.asset(
-        'assets/face_scan_reticle.svg',
-        width: 1000,
-        height: 1000,
+
+    Widget scanFailure() {
+      return Image.asset(
+        'assets/propertymanagerguy.png',
+        width: 500, // logical pixels
+        height: 500, // logical pixels
       );
     }
 
     Widget headerText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Scan Unsuccessful.",
+        Text("Thanks for chatting!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Josefin',
+              fontWeight: FontWeight.bold,
+              fontSize: 100,
+              color: Color.fromARGB(255, 255, 255, 255),
+            )),
+      ]);
+    }
+    Widget subText() {
+      return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("Did Mark Smith resolve your issue?",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'Josefin',
               fontWeight: FontWeight.normal,
-              fontSize: 80,
-              color: Color.fromARGB(255, 220, 55, 71),
+              fontSize: 65,
+              color: Color.fromARGB(255, 255, 255, 255),
             )),
       ]);
-    }
-
-    Widget scanFailure() {
-      return Image.asset(
-        'assets/scanfail.png',
-        width: 500, // logical pixels
-        height: 500, // logical pixels
-      );
     }
 
     Widget btnRetry() {
@@ -78,24 +82,6 @@ class FaceScanFail extends StatelessWidget {
         ),
       );
     }
-    Widget btnEndCall() {
-      return ButtonSecondary(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EndCall()),
-          );
-        },
-        child: Text(
-          'Go to End Call Page (Delete Later)',
-          style: TextStyle(
-            fontSize: 80,
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontFamily: 'Josefin',
-          ),
-        ),
-      );
-    }
 
     return PageFrame(
       child: Stack(
@@ -106,22 +92,27 @@ class FaceScanFail extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 650, child: faceScanner()),
+
           Column(
             children: <Widget>[
-              SizedBox(height: 800),
+              SizedBox(height: 500),
+              scanFailure(),
+              SizedBox(height: 30),
               Container(
                 margin: EdgeInsets.only(
-                    left: 750, right: 750), // Add margin around the Text widget
-                child: headerText(),
+                    left: 450, right: 450), // Add margin around the Text widget
+                child: headerText(), 
               ),
-              SizedBox(height: 50),
-              scanFailure(),
+              SizedBox(height: 10),
+              Container(
+                margin: EdgeInsets.only(
+                    left: 450, right: 450), // Add margin around the Text widget
+                child: subText(), 
+              ),
               SizedBox(height: 350),
               btnRetry(),
               SizedBox(height: 100),
               btnExit(),
-              btnEndCall(),
             ],
           ),
         ],
