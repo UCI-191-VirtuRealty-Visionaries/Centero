@@ -1,10 +1,9 @@
-import 'package:centero/widgets/debug_page_placeholder.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'welcome_home.dart';
-import 'call_regular_confirmation.dart';
+import 'feedback_good.dart';
 
 class PageCallRegularLoading extends StatelessWidget {
   // Move to welcome screen
@@ -35,7 +34,7 @@ class PageCallRegularLoading extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PageCallRegularConfirmation()),
+          MaterialPageRoute(builder: (context) => PageFeedbackGood()),
         );
       }, 
       child: Column(

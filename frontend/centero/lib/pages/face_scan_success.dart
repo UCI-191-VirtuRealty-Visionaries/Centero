@@ -1,15 +1,8 @@
-import 'package:centero/pages/face_scan_fail.dart';
-import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:centero/widgets/button_danger.dart';
-import 'package:centero/widgets/button_primary.dart';
-import 'face_scan.dart';
-import 'info_age.dart';
 import 'resident_call_options.dart';
-import 'welcome_home.dart';
 
 class FaceScanSuccess extends StatefulWidget {
   //Stack
@@ -73,7 +66,7 @@ Widget faceScanner() {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FaceScanFail()),
+          MaterialPageRoute(builder: (context) => PageResidentCallOptions()),
         );
       },
       child: Stack(
