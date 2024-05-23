@@ -25,7 +25,7 @@ class ButtonDanger extends ElevatedButton {
     return ElevatedButton.styleFrom(
       foregroundColor: Colors.white,
       backgroundColor: Colors.red,
-      fixedSize: const Size(850, 200),
+      fixedSize: const Size(750, 190),
     );
   }
 }

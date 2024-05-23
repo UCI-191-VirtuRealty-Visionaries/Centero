@@ -15,7 +15,7 @@ class MyTextStyle {
 
   static const TextStyle btnTxt = TextStyle(
     fontFamily: 'Josefin',
-    fontSize: 120,
+    fontSize: 110,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );

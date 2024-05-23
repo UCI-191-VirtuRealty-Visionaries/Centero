@@ -1,13 +1,13 @@
 import { buildAuthResponse } from "../controllers/buildAuthResponse";
 import { generateAuthToken } from "../controllers/generateAuthToken";
 import { getMatchingFirestoreDoc } from "../controllers/getMatchingFirestoreDoc";
-import { getFirestore, logger } from "../environment";
+import { cors, getFirestore, logger } from "../environment";
 import { onCall } from "firebase-functions/v2/https";
 
 /**
  * Authenticate a resident using a face scan.
  */
-export const authResidentFace = onCall(async (req) => {
+export const authResidentFace = onCall({ cors: cors }, async (req) => {
   const endpoint = await getRasberryPiAddress();
   if (endpoint === null) {
     return buildErrorResponse();

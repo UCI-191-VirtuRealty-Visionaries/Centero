@@ -1,4 +1,4 @@
-import { logger } from "../environment";
+import { cors, logger } from "../environment";
 import { onCall } from "firebase-functions/v2/https";
 import { generateAuthToken } from "../controllers/generateAuthToken";
 import { getMatchingFirestoreDoc } from "../controllers/getMatchingFirestoreDoc";
@@ -7,7 +7,7 @@ import { buildAuthResponse } from "../controllers/buildAuthResponse";
 /**
  * Authenticate a resident using a face scan.
  */
-export const authResidentManual = onCall(async (req) => {
+export const authResidentManual = onCall({ cors: cors }, async (req) => {
   logger.info(`Receiving resident auth request`, req.data);
 
   const username = req.data['username'];

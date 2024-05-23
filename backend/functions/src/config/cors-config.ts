@@ -1,10 +1,11 @@
-import * as corsLib from "cors";
+// import * as corsLib from "cors";
 
 const whitelist = [
-	/^https:\/\/centerobackend\.web\.app$/,
+	/^https:\/\/centerobackend-14820\.web\.app$/,
 	/^http:\/\/localhost(:\d+)?$/,
 ];
 
+/*
 const corsOptions: corsLib.CorsOptions = {
 	origin: function (origin, callback) {
 		const isServerToServer = !origin;
@@ -17,5 +18,6 @@ const corsOptions: corsLib.CorsOptions = {
 		}
 	},
 };
+*/
 
-export const cors = corsLib(corsOptions);
+export const cors = whitelist;
