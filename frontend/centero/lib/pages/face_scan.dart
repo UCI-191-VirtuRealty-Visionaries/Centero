@@ -29,8 +29,8 @@ class FaceScan extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        SvgPicture.asset(
-          'assets/confident_woman.svg',
+        Image.asset(
+          'assets/confident_woman.png',
           width: 1400,
           height: 1850,
           fit: BoxFit.cover,
