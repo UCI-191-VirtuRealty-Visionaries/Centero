@@ -32,6 +32,7 @@ class EndCall extends StatelessWidget {
             )),
       ]);
     }
+
     Widget subText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Did Mark Smith resolve your issue?",
@@ -45,39 +46,46 @@ class EndCall extends StatelessWidget {
       ]);
     }
 
-    Widget btnRetry() {
-      return ButtonSecondary(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => FaceIDNotice()),
-          );
-        },
-        child: Text(
-          'Try Again',
-          style: TextStyle(
-            fontSize: 80,
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontFamily: 'Josefin',
-          ),
-        ),
-      );
-    }
-
-    Widget btnExit() {
-      return ButtonSecondary(
+  
+    Widget thumbsUpBtn() {
+      return ElevatedButton(
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
-        child: Text(
-          'Nevermind, Exit.',
-          style: TextStyle(
-            fontSize: 80,
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontFamily: 'Josefin',
+        child: Ink(
+          decoration: BoxDecoration(
+            image: DecorationImage( //Put image inside button 
+                image: AssetImage('assets/thumbsupbutton.png'),
+                fit: BoxFit.cover), //Make image fill button 
+          ),
+          child: Container(
+            width: 300, // Specify the width of the button
+            height: 300, // Specify the height of the button
+          ),
+        ),
+      );
+    }
+
+    Widget thumbsDownBtn() {
+      return ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
+          );
+        },
+        child: Ink(
+          decoration: BoxDecoration(
+            image: DecorationImage( //Put image inside button 
+                image: AssetImage('assets/thumbsupbutton.png'),
+                fit: BoxFit.cover), //Make image fill button 
+          ),
+          child: Container(
+            width: 300, // Specify the width of the button
+            height: 300, // Specify the height of the button
           ),
         ),
       );
@@ -95,24 +103,23 @@ class EndCall extends StatelessWidget {
 
           Column(
             children: <Widget>[
-              SizedBox(height: 500),
+              SizedBox(height: 520),
               scanFailure(),
               SizedBox(height: 30),
               Container(
                 margin: EdgeInsets.only(
                     left: 450, right: 450), // Add margin around the Text widget
-                child: headerText(), 
+                child: headerText(),
               ),
               SizedBox(height: 10),
               Container(
                 margin: EdgeInsets.only(
                     left: 450, right: 450), // Add margin around the Text widget
-                child: subText(), 
+                child: subText(),
               ),
               SizedBox(height: 350),
-              btnRetry(),
-              SizedBox(height: 100),
-              btnExit(),
+              thumbsUpBtn(),
+              thumbsDownBtn(),
             ],
           ),
         ],
