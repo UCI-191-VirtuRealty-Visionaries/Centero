@@ -40,9 +40,12 @@ class PageCallSupervisorLoading extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 600),
-          Text("Just a moment while I get someone for you!", 
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+          Padding(
+            padding: EdgeInsets.only(left: 100.0, right: 100.0),
+              child: Text("Just a moment while I get someone for you!", 
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+          ),
           SizedBox(height: 200),
           spinkit,
           SizedBox(height: 200),
