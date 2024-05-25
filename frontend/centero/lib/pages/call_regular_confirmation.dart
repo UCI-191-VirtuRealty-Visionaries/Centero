@@ -37,8 +37,16 @@ class PageCallRegularConfirmation extends StatelessWidget {
           SizedBox(height: 600),
           Text("Ready to Chat!",
             style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-          Text("Connecting you now to Mark Smith...",
-            style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+          RichText(
+            text: TextSpan(
+              text: 'Connecting you now to ',
+              style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold),
+              children: const <TextSpan>[
+                TextSpan(text: 'Mark Smith...', style: TextStyle(fontWeight: FontWeight.w800)),
+              ],
+            ),
+          ),
+          //style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
           SizedBox(height: 200),
           callConnected(),
         ],
