@@ -27,7 +27,7 @@ class EndCall extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Josefin',
               fontWeight: FontWeight.bold,
-              fontSize: 100,
+              fontSize: 130,
               color: Color.fromARGB(255, 255, 255, 255),
             )),
       ]);
@@ -46,7 +46,6 @@ class EndCall extends StatelessWidget {
       ]);
     }
 
-  
     Widget thumbsUpBtn() {
       return ElevatedButton(
         onPressed: () {
@@ -55,11 +54,16 @@ class EndCall extends StatelessWidget {
             MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+        ),
         child: Ink(
           decoration: BoxDecoration(
-            image: DecorationImage( //Put image inside button 
+            image: DecorationImage(
+                //Put image inside button
                 image: AssetImage('assets/thumbsupbutton.png'),
-                fit: BoxFit.cover), //Make image fill button 
+                fit: BoxFit.cover), //Make image fill button
           ),
           child: Container(
             width: 300, // Specify the width of the button
@@ -77,11 +81,16 @@ class EndCall extends StatelessWidget {
             MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+        ),
         child: Ink(
           decoration: BoxDecoration(
-            image: DecorationImage( //Put image inside button 
-                image: AssetImage('assets/thumbsupbutton.png'),
-                fit: BoxFit.cover), //Make image fill button 
+            image: DecorationImage(
+                //Put image inside button
+                image: AssetImage('assets/thumbsdownbutton.png'),
+                fit: BoxFit.cover), //Make image fill button
           ),
           child: Container(
             width: 300, // Specify the width of the button
@@ -117,9 +126,17 @@ class EndCall extends StatelessWidget {
                     left: 450, right: 450), // Add margin around the Text widget
                 child: subText(),
               ),
-              SizedBox(height: 350),
-              thumbsUpBtn(),
-              thumbsDownBtn(),
+              SizedBox(height: 50),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    thumbsUpBtn(),
+                    SizedBox(width: 100),
+                    thumbsDownBtn(),
+                  ],
+                ),
+              ),
             ],
           ),
         ],
