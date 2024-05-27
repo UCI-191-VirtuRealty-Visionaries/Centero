@@ -1,8 +1,8 @@
-import 'package:centero/pages/face_scan_fail.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'resident_call_options.dart';
 
 class FaceScanSuccess extends StatefulWidget {
   //Stack
@@ -66,7 +66,7 @@ Widget faceScanner() {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FaceScanFail()),
+          MaterialPageRoute(builder: (context) => PageResidentCallOptions()),
         );
       },
       child: Stack(

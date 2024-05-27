@@ -7,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:centero/widgets/button_danger.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'face_scan.dart';
-import 'face_scan_success.dart';
 import 'welcome_home.dart';
 
 class FaceIDNotice extends StatelessWidget {
@@ -60,7 +59,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScanSuccess()),
+            MaterialPageRoute(builder: (context) => FaceScan()),
           );
         },
         child: Text(
