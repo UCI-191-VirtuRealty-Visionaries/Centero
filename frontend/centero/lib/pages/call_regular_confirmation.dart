@@ -35,7 +35,7 @@ class PageCallRegularConfirmation extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(height: 600),
-          Text("Ready to Chat!",
+          Text("Ready to chat!",
             style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
           RichText(
             text: TextSpan(
