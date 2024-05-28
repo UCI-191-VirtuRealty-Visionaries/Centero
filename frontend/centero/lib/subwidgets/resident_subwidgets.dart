@@ -1,7 +1,7 @@
 import 'package:centero/subwidgets/subwidget_factory_base.dart';
 import 'package:centero/widgets/background_red_buildings.dart';
 import 'package:centero/widgets/background_white_buildings.dart';
-import 'package:centero/widgets/regular_call_woman.dart';
+import 'package:centero/widgets/regular_call.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/escalated_call_woman.dart';
 import 'package:centero/widgets/logo_footer.dart';
@@ -30,7 +30,7 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
   Widget buildRegularCallBackground() {
     // Should take up full frame
 
-    return RegularCallWoman();
+    return RegularCall();
   }
 
   Widget buildEscalatedCallBackground() {

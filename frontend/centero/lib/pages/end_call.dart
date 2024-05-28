@@ -1,15 +1,8 @@
-import 'package:centero/pages/faceid_notice.dart';
-import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'welcome_home.dart';
 import 'package:centero/pages/feedback_bad.dart';
 import 'package:centero/pages/feedback_good.dart';
-import 'package:centero/widgets/page_frame.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class EndCall extends StatelessWidget {
   //Stack
@@ -40,7 +33,7 @@ class EndCall extends StatelessWidget {
 
     Widget subText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Did Mark Smith resolve your issue?",
+        Text("Did Marcus Bennett resolve your issue?",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'Josefin',
