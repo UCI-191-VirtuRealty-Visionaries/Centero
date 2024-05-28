@@ -1,3 +1,4 @@
+import 'package:centero/pages/end_call.dart';
 import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
@@ -77,6 +78,24 @@ class FaceScanFail extends StatelessWidget {
         ),
       );
     }
+    Widget btnEndCall() {
+      return ButtonSecondary(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EndCall()),
+          );
+        },
+        child: Text(
+          'Go to End Call Page (Delete Later)',
+          style: TextStyle(
+            fontSize: 80,
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontFamily: 'Josefin',
+          ),
+        ),
+      );
+    }
 
     return PageFrame(
       child: Stack(
@@ -102,6 +121,7 @@ class FaceScanFail extends StatelessWidget {
               btnRetry(),
               SizedBox(height: 100),
               btnExit(),
+              btnEndCall(),
             ],
           ),
         ],
