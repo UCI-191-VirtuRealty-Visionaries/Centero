@@ -9,7 +9,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   void residentFaceScan(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => FaceIDNotice()),
+      MaterialPageRoute(builder: (context) => FaceIDNotice(previousPage: 'role selection',)),
     );
   }
 

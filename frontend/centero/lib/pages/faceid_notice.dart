@@ -1,4 +1,5 @@
 import 'package:centero/pages/face_scan_fail.dart';
+import 'package:centero/pages/face_scan_nonresident.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +11,14 @@ import 'face_scan.dart';
 import 'welcome_home.dart';
 
 class FaceIDNotice extends StatelessWidget {
-  //Stack
+  final String? previousPage; 
+
+  // Constructor
+  const FaceIDNotice({Key? key, this.previousPage}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    //Widgets
+    // Widgets
     Widget faceScanner() {
       return SvgPicture.asset(
         'assets/face_scan_reticle.svg',
@@ -57,10 +62,16 @@ class FaceIDNotice extends StatelessWidget {
     Widget btnProceed() {
       return ButtonPrimary(
         onPressed: () {
-          Navigator.push(
+          if (previousPage == 'role selection') {
+            Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
-          );
+            MaterialPageRoute(builder: (context) => FaceScan()));
+          }
+          else {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PageFaceScanNonresident()));
+          }
         },
         child: Text(
           'Get Started',

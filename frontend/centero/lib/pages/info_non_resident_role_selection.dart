@@ -1,4 +1,3 @@
-import 'package:centero/pages/face_scan_nonresident.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ class PageInfoNonResidentRoleSelection extends StatelessWidget {
   void nonresidentFaceScan(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PageFaceScanNonresident()),
+      MaterialPageRoute(builder: (context) => FaceIDNotice()),
     );
   }
 
