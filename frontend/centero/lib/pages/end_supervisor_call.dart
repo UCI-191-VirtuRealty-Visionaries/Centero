@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'welcome_home.dart';
 
-class EndCall extends StatelessWidget {
+class EndSupervisorCall extends StatelessWidget {
   //Stack
   @override
   Widget build(BuildContext context) {
