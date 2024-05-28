@@ -5,13 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'welcome_home.dart';
-import 'package:centero/pages/feedback_bad.dart';
-import 'package:centero/pages/feedback_good.dart';
-import 'package:centero/widgets/page_frame.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class EndCall extends StatelessWidget {
+class EndSupervisorCall extends StatelessWidget {
   //Stack
   @override
   Widget build(BuildContext context) {
@@ -19,7 +14,7 @@ class EndCall extends StatelessWidget {
 
     Widget scanFailure() {
       return Image.asset(
-        'assets/propertymanagerguy.png',
+        'assets/cindykim.png',
         width: 500, // logical pixels
         height: 500, // logical pixels
       );
@@ -40,7 +35,7 @@ class EndCall extends StatelessWidget {
 
     Widget subText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Did Mark Smith resolve your issue?",
+        Text("Did Cindy Kim resolve your issue?",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'Josefin',
@@ -56,7 +51,7 @@ class EndCall extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageFeedbackGood()),
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
           style: ElevatedButton.styleFrom(
@@ -83,7 +78,7 @@ class EndCall extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageFeedbackBad()),
+            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
           );
         },
         style: ElevatedButton.styleFrom(

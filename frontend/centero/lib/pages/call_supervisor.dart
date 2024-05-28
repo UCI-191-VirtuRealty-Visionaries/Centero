@@ -5,7 +5,7 @@ import 'package:centero/widgets/button_mute.dart';
 import 'feedback_select.dart';
 import 'package:flutter/material.dart';
 
-class PageCallEscalated extends StatelessWidget {
+class PageCallSupervisor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void nextScreen(BuildContext context) {
