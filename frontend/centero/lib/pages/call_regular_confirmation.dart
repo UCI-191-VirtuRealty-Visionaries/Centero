@@ -1,6 +1,6 @@
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
-// import 'call_regular.dart';
+import 'call_regular.dart';
 import 'feedback_bad.dart'; // delete later
 
 class PageCallRegularConfirmation extends StatelessWidget {
@@ -8,7 +8,7 @@ class PageCallRegularConfirmation extends StatelessWidget {
   void nextScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PageFeedbackBad()),
+      MaterialPageRoute(builder: (context) => PageCallRegular()),
       // update to PageCallRegular() when complete
     );
   }
@@ -29,7 +29,7 @@ class PageCallRegularConfirmation extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PageFeedbackBad()),
+          MaterialPageRoute(builder: (context) => PageCallRegular()),
         );
       },
       child: Column(
