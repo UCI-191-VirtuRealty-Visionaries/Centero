@@ -1,4 +1,4 @@
-import 'package:centero/widgets/page_frame.dart';
+import 'package:centero/widgets/page_frame2.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:flutter/material.dart';
 import 'faceid_notice.dart';
