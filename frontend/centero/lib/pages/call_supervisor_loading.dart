@@ -34,7 +34,7 @@ class PageCallSupervisorLoading extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PageCallSupervisor()),
+          MaterialPageRoute(builder: (context) => PageCallEscalated()),
         );
       }, 
       child: Column(
