@@ -1,3 +1,4 @@
+import 'package:centero/pages/face_scan_nonresident.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +6,18 @@ import 'faceid_notice.dart';
 
 class PageInfoRoleSelection extends StatelessWidget {
   // Move to face id notice screen
-  void nextScreen(BuildContext context) {
+  void residentFaceScan(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => FaceIDNotice()),
+    );
+  }
+
+  // Move to nonresident flow
+  void nonresidentFaceScan(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PageFaceScanNonresident()),
     );
   }
 
@@ -16,7 +25,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   Widget residentButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
-      onPressed: () {nextScreen(context);}, 
+      onPressed: () {residentFaceScan(context);}, 
       child: Text('Resident', style: TextStyle(fontSize: 80)));
   }
 
@@ -24,7 +33,7 @@ class PageInfoRoleSelection extends StatelessWidget {
   Widget nonresidentButton(BuildContext context) {
     return ButtonPrimary(
       width: 1200,
-      onPressed: () {nextScreen(context);}, 
+      onPressed: () {nonresidentFaceScan(context);}, 
       child: Text('Non-Resident', style: TextStyle(fontSize: 80)));
   }
 

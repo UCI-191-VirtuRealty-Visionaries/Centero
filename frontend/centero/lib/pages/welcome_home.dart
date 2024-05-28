@@ -1,7 +1,6 @@
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'info_age.dart';
-import 'face_scan_nonresident.dart';
 
 class PageWelcomeHome extends StatefulWidget {
   @override
@@ -69,7 +68,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PageFaceScanNonresident()),
+          MaterialPageRoute(builder: (context) => PageInfoAge()),
         );
       },
       child: Stack(
