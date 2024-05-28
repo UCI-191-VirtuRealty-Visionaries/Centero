@@ -2,7 +2,7 @@ import 'package:centero/widgets/name_header.dart';
 import 'package:centero/widgets/page_frame_ecall.dart';
 import 'package:centero/widgets/button_end_call.dart';
 import 'package:centero/widgets/button_mute.dart';
-import 'feedback_select.dart';
+import 'end_supervisor_call.dart';
 import 'package:flutter/material.dart';
 
 class PageCallSupervisor extends StatelessWidget {
@@ -11,7 +11,7 @@ class PageCallSupervisor extends StatelessWidget {
     void nextScreen(BuildContext context) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PageFeedbackSelect()),
+        MaterialPageRoute(builder: (context) => EndSupervisorCall()),
       );
     }
 

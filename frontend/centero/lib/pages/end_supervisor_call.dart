@@ -1,10 +1,8 @@
-import 'package:centero/pages/faceid_notice.dart';
-import 'package:centero/widgets/button_secondary.dart';
+import 'package:centero/pages/feedback_bad_end.dart';
+import 'package:centero/pages/feedback_good.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'welcome_home.dart';
 
 class EndSupervisorCall extends StatelessWidget {
   //Stack
@@ -51,7 +49,7 @@ class EndSupervisorCall extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
+            MaterialPageRoute(builder: (context) => PageFeedbackGood()),
           );
         },
           style: ElevatedButton.styleFrom(
@@ -78,7 +76,7 @@ class EndSupervisorCall extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PageWelcomeHome()),
+            MaterialPageRoute(builder: (context) => PageFeedbackBadEnd()),
           );
         },
         style: ElevatedButton.styleFrom(
