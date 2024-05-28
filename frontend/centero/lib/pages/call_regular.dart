@@ -1,3 +1,4 @@
+import 'package:centero/pages/end_call.dart';
 import 'package:centero/widgets/name_header.dart';
 import 'package:centero/widgets/page_frame_rcall.dart';
 import 'package:centero/widgets/button_end_call.dart';
@@ -11,7 +12,7 @@ class PageCallRegular extends StatelessWidget {
     void nextScreen(BuildContext context) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PageFeedbackSelect()),
+        MaterialPageRoute(builder: (context) => EndCall()),
       );
     }
 
