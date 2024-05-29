@@ -34,7 +34,7 @@ class FaceIDNotice extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Josefin',
               fontWeight: FontWeight.normal,
-              fontSize: 60,
+              fontSize: 65,
               color: Colors.white,
             )),
       ]);
@@ -113,10 +113,10 @@ class FaceIDNotice extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 650, child: faceScanner()),
+          Positioned(top: 550, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 950),
+              SizedBox(height: 850),
               Container(
                 margin:
                     EdgeInsets.only(left: 750, right: 750), // Add margin around the Text widget
@@ -124,9 +124,9 @@ class FaceIDNotice extends StatelessWidget {
               ),
               SizedBox(height: 100),
               btnProceed(),
-              SizedBox(height: 300),
+              SizedBox(height: 250),
               btnAlternate(),
-              SizedBox(height: 100),
+              SizedBox(height: 70),
               btnReturn(),
             ],
           ),
