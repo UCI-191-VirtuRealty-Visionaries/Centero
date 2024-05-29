@@ -9,11 +9,13 @@ import 'package:logging/logging.dart';
 class PageFrame extends StatefulWidget {
   final Widget child;
   final Duration maxIdleTimeBeforeLogout;
+  final bool enableWatchdogTimer;
 
   const PageFrame({
     super.key,
     required this.child,
     this.maxIdleTimeBeforeLogout = GlobalConfig.standardIdleTimeout,
+    this.enableWatchdogTimer = true,
   });
 
   @override
@@ -31,7 +33,7 @@ class _PageFrameState extends State<PageFrame> {
     watchdogTimer = WatchdogTimer(logger: Logger('PageFrame.WatchdogTimer'));
 
     watchdogTimer.start(widget.maxIdleTimeBeforeLogout, () {
-      if (GlobalConfig.enableIdleLogout) {
+      if (GlobalConfig.enableIdleLogout && widget.enableWatchdogTimer) {
         Services.nav.resetToWelcome(context);
       } else {
         logger.fine('Idle timeout elapsed but suppressed with global config.');
@@ -77,7 +79,7 @@ class _PageFrameState extends State<PageFrame> {
       background: true,
       content: true,
       safeArea: overlayVisible,
-      btnToggleSafeArea: true,
+      btnToggleSafeArea: GlobalConfig.isDevMode,
       footer: true,
     };
 

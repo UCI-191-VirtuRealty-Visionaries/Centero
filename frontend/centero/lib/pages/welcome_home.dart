@@ -80,6 +80,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     );
 
     return PageFrame(
+      enableWatchdogTimer: false,
       child: content,
     );
   }

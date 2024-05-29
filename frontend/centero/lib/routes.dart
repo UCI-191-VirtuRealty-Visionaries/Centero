@@ -31,18 +31,9 @@ class PublicRouteConfig {
       path: '/',
       builder: (context, state) => PageWelcomeHome(),
     ),
-    GoRoute(
-      path: '/manager',
-      builder: (context, state) => PageManagerDashboard(),
-    ),
   ];
 
-  static final redirects = <RouteBase>[
-    GoRoute(
-      path: '/m',
-      redirect: (context, state) => '/manager',
-    ),
-  ];
+  static final redirects = <RouteBase>[];
 }
 
 // ==================================================
@@ -62,32 +53,57 @@ class DevRouteConfig {
     GoRoute(
       path: '/p/:name',
       builder: (context, state) => _getPage(state.pathParameters['name'] ?? ''),
-    )
+    ),
+    GoRoute(
+      path: '/manager',
+      builder: (context, state) => PageManagerDashboard(),
+    ),
   ];
 
   static Widget _getPage(String name) {
     switch (name) {
-      case 'WelcomeHome': return PageWelcomeHome();
-      case 'InfoAge': return PageInfoAge();
-      case 'InfoRoleSelection': return PageInfoRoleSelection();
-      case 'InfoNonResidentRoleSelection': return PageInfoNonResidentRoleSelection();
-      case 'AuthFaceScan': return PageAuthFaceScan();
-      case 'AuthGooglePin': return PageAuthGooglePin();
-      case 'AuthGoogleRegister': return PageAuthGoogleRegister();
-      case 'CallRegularLoading': return PageCallRegularLoading();
-      case 'CallRegular': return PageCallRegular();
-      case 'CallSupervisorLoading': return PageCallSupervisorLoading();
-      case 'CallSupervisor': return PageCallSupervisor();
-      case 'FeedbackSelect': return PageFeedbackSelect();
-      case 'FeedbackGood': return PageFeedbackGood();
-      case 'FeedbackBad': return PageFeedbackBad();
-      case 'ManagerLogin': return PageManagerLogin();
-      case 'ManagerDashboard': return PageManagerDashboard();
-      case 'SuperuserLogin': return PageSuperuserLogin();
-      case 'SuperuserDashboard': return PageSuperuserDashboard();
-      case 'DebugPortal': return PageDebugPortal();
-      case 'DebugWidgetPreview': return PageDebugWidgetPreviewPage();
-      default: return PageDebugPortal();
+      case 'WelcomeHome':
+        return PageWelcomeHome();
+      case 'InfoAge':
+        return PageInfoAge();
+      case 'InfoRoleSelection':
+        return PageInfoRoleSelection();
+      case 'InfoNonResidentRoleSelection':
+        return PageInfoNonResidentRoleSelection();
+      case 'AuthFaceScan':
+        return PageAuthFaceScan();
+      case 'AuthGooglePin':
+        return PageAuthGooglePin();
+      case 'AuthGoogleRegister':
+        return PageAuthGoogleRegister();
+      case 'CallRegularLoading':
+        return PageCallRegularLoading();
+      case 'CallRegular':
+        return PageCallRegular();
+      case 'CallSupervisorLoading':
+        return PageCallSupervisorLoading();
+      case 'CallSupervisor':
+        return PageCallSupervisor();
+      case 'FeedbackSelect':
+        return PageFeedbackSelect();
+      case 'FeedbackGood':
+        return PageFeedbackGood();
+      case 'FeedbackBad':
+        return PageFeedbackBad();
+      case 'ManagerLogin':
+        return PageManagerLogin();
+      case 'ManagerDashboard':
+        return PageManagerDashboard();
+      case 'SuperuserLogin':
+        return PageSuperuserLogin();
+      case 'SuperuserDashboard':
+        return PageSuperuserDashboard();
+      case 'DebugPortal':
+        return PageDebugPortal();
+      case 'DebugWidgetPreview':
+        return PageDebugWidgetPreviewPage();
+      default:
+        return PageDebugPortal();
     }
   }
 
@@ -99,6 +115,10 @@ class DevRouteConfig {
     GoRoute(
       path: '/sd',
       redirect: (context, state) => '/sudo',
+    ),
+    GoRoute(
+      path: '/m',
+      redirect: (context, state) => '/manager',
     ),
   ];
 }
