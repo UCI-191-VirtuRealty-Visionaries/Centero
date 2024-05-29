@@ -1,3 +1,4 @@
+import 'package:centero/pages/alternate_login.dart';
 import 'package:centero/pages/face_scan_fail.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
@@ -78,7 +79,7 @@ class FaceIDNotice extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScanFail()),
+            MaterialPageRoute(builder: (context) => AlternateLogin()),
           );
         },
         child: Text(
