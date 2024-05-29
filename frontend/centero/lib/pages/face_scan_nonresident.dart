@@ -51,12 +51,29 @@ class PageFaceScanNonresident extends StatelessWidget {
           MaterialPageRoute(builder: (context) => FaceScanSuccess(previousPage: 'nonresident',)),
         );
       },
-      child: Column(children: [
-        SizedBox(height: 650),
-        headerText(),
-        SizedBox(height: 100),
-        nonresidentBackground()
-      ])
+      child: Stack(
+        alignment: Alignment(0, -0.6),
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(
+            top: 80,
+          )),
+          Positioned(top: 450, child: nonresidentBackground()),
+          Positioned(top: 550, child: faceScanner()),
+          
+          Column(
+            children: <Widget>[
+              SizedBox(height: 1550),
+              Container(
+                margin:
+                    EdgeInsets.only(left: 550, right: 550), // Add margin around the Text widget
+                child: headerText(),
+              ),
+              SizedBox(height: 100),
+            ],
+          ),
+        ],
+      )
     );
 
     return PageFrame(

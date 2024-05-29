@@ -63,7 +63,6 @@ class FaceScan extends StatelessWidget {
             padding: EdgeInsets.only(
             top: 80,
           )),
-          //btnProceed(),
           Positioned(top: 450, child: lady()),
           Positioned(top: 550, child: faceScanner()),
           
@@ -76,18 +75,10 @@ class FaceScan extends StatelessWidget {
                 child: headerText(),
               ),
               SizedBox(height: 100),
-              
             ],
           ),
         ],
-      ),);/*
-        child: Column(children: [
-          SizedBox(height: 450),
-          headerText(),
-          Positioned(top: 0, child: lady()),
-          // residentBackground(),
-          SizedBox(height: 100),
-        ]));*/
+      ));
 
     return PageFrame(
       child: content,

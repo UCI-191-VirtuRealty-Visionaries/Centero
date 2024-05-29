@@ -1,5 +1,4 @@
 import 'package:centero/pages/alternate_login.dart';
-import 'package:centero/pages/face_scan_fail.dart';
 import 'package:centero/pages/face_scan_nonresident.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame2.dart';

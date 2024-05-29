@@ -4,7 +4,6 @@ import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'welcome_home.dart';
 
 class FaceScanFail extends StatelessWidget {
