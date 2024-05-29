@@ -1,9 +1,10 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'welcome_home.dart';
-import 'feedback_good.dart';
+import 'call_regular_confirmation.dart';
 
 class PageCallRegularLoading extends StatelessWidget {
   // Move to welcome screen
@@ -19,7 +20,7 @@ class PageCallRegularLoading extends StatelessWidget {
     return ButtonSecondary(
       width: 1500,
       onPressed: () {goToWelcomeScreen(context);}, 
-      child: Text('Cancel', style: TextStyle(fontSize: 80)));
+      child: Text('Cancel', style: MyTextStyle.btnTxt2));
   }
 
   // Loading Circle
@@ -34,14 +35,14 @@ class PageCallRegularLoading extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PageFeedbackGood()),
+          MaterialPageRoute(builder: (context) => PageCallRegularConfirmation()),
         );
       }, 
       child: Column(
         children: [
-          SizedBox(height: 600),
+          SizedBox(height: 550),
           Text("Connecting you now...", 
-            style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+            style: MyTextStyle.heading),
           SizedBox(height: 200),
           spinkit,
           SizedBox(height: 200),

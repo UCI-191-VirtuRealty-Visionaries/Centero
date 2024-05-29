@@ -1,7 +1,8 @@
 import 'package:centero/pages/alternate_login.dart';
 import 'package:centero/pages/face_scan_fail.dart';
+import 'package:centero/pages/face_scan_nonresident.dart';
 import 'package:centero/widgets/button_secondary.dart';
-import 'package:centero/widgets/page_frame.dart';
+import 'package:centero/widgets/page_frame2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,10 +12,14 @@ import 'face_scan.dart';
 import 'welcome_home.dart';
 
 class FaceIDNotice extends StatelessWidget {
-  //Stack
+  final String? previousPage; 
+
+  // Constructor
+  const FaceIDNotice({Key? key, this.previousPage}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    //Widgets
+    // Widgets
     Widget faceScanner() {
       return SvgPicture.asset(
         'assets/face_scan_reticle.svg',
@@ -30,7 +35,7 @@ class FaceIDNotice extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Josefin',
               fontWeight: FontWeight.normal,
-              fontSize: 60,
+              fontSize: 65,
               color: Colors.white,
             )),
       ]);
@@ -58,10 +63,16 @@ class FaceIDNotice extends StatelessWidget {
     Widget btnProceed() {
       return ButtonPrimary(
         onPressed: () {
-          Navigator.push(
+          if (previousPage == 'role selection') {
+            Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FaceScan()),
-          );
+            MaterialPageRoute(builder: (context) => FaceScan()));
+          }
+          else {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PageFaceScanNonresident()));
+          }
         },
         child: Text(
           'Get Started',
@@ -103,10 +114,10 @@ class FaceIDNotice extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 650, child: faceScanner()),
+          Positioned(top: 550, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 950),
+              SizedBox(height: 850),
               Container(
                 margin:
                     EdgeInsets.only(left: 750, right: 750), // Add margin around the Text widget
@@ -114,9 +125,9 @@ class FaceIDNotice extends StatelessWidget {
               ),
               SizedBox(height: 100),
               btnProceed(),
-              SizedBox(height: 300),
+              SizedBox(height: 250),
               btnAlternate(),
-              SizedBox(height: 100),
+              SizedBox(height: 70),
               btnReturn(),
             ],
           ),

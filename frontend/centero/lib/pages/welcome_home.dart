@@ -28,8 +28,8 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
   Widget buildCenteroLogo() {
     return Image.asset(
       'assets/centero_logo.png',
-      width: 500, // logical pixels
-      height: 500, // logical pixels
+      width: 420, // logical pixels
+      height: 420, // logical pixels
     );
   }
 
@@ -38,10 +38,20 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       buildCenteroLogo(),
       SizedBox(height: 20),
-      Text("CENTERO", style: TextStyle(fontFamily: 'Josefin', fontSize: 250, fontWeight: FontWeight.bold)),
-      Text("Would you like to chat?", style: TextStyle(fontFamily: 'Josefin', fontSize: 120, fontWeight: FontWeight.bold)),
-      SizedBox(height: 70),
-      Text("TOUCH SCREEN TO START", style: TextStyle(fontFamily: 'Josefin', fontSize: 75, fontWeight: FontWeight.bold))
+      Text("CENTERO",
+          style: TextStyle(
+              fontFamily: 'Josefin',
+              fontSize: 220,
+              fontWeight: FontWeight.bold)),
+      Text("Would you like to chat?",
+          style: TextStyle(
+              fontFamily: 'Josefin',
+              fontSize: 120,
+              fontWeight: FontWeight.normal)),
+      SizedBox(height: 55),
+      Text("TOUCH SCREEN TO START",
+          style: TextStyle(
+              fontFamily: 'Josefin', fontSize: 75, fontWeight: FontWeight.bold))
     ]);
   }
 
@@ -50,11 +60,11 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     return Column(children: [
       Padding(
         padding: EdgeInsets.only(
-          top: 600,
+          top: 500,
         ), // add padding above the Opacity widget
         child: Container(
           width: double.infinity, // card take up whole width
-          height: 1800,
+          height: 1600,
           color: Colors.white.withOpacity(0.6),
           child: buildCenteroCardContent(),
         ),
@@ -80,6 +90,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     );
 
     return PageFrame(
+      enableWatchdogTimer: false,
       child: content,
     );
   }

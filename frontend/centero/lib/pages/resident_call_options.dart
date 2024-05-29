@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:centero/widgets/button_secondary_small.dart';
