@@ -18,17 +18,13 @@ class PageCallSupervisor extends StatelessWidget {
     Widget muteButton() {
       return ButtonMute(
         onPressed: () {}, 
-        child: Text('Mute', 
-          style: TextStyle(fontSize: 80, fontFamily: 'Josefin'), 
-          textAlign: TextAlign.center));
+        child: Icon(Icons.mic_rounded, size: 190));
     }
 
     Widget endCallButton() {
       return ButtonEndCall(
         onPressed: () {nextScreen(context);},
-        child: Text('End Call', 
-          style: TextStyle(fontSize: 80, fontFamily: 'Josefin'), 
-          textAlign: TextAlign.center));
+        child: Icon(Icons.call_end_rounded, size: 190));
     }
 
     Widget escalatedCallHeader() {
