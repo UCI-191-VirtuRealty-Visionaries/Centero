@@ -8,7 +8,7 @@ class EscalatedCallWoman extends StatelessWidget {
    @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/escalated_call.png', // background image of woman
+      'assets/escalated_call.jpg', // background image of woman
       fit: BoxFit.cover, // cover whole screen
       width: double.infinity, // image take up whole width
       height: double.infinity, // image take up whole height
