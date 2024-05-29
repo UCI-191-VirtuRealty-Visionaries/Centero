@@ -4,6 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'face_scan_success.dart';
 
 class FaceScan extends StatelessWidget {
+    final String? previousPage; 
+
+  // Constructor
+    const FaceScan({Key? key, this.previousPage}) : super(key: key);
+
   Widget headerText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Ensure that your face is completely within frame.",
@@ -35,15 +40,6 @@ class FaceScan extends StatelessWidget {
           height: 1850,
           fit: BoxFit.cover,
         ),
-        // Container(
-        //   width: 1400,
-        //   height: 1850,
-        //   decoration: BoxDecoration(
-        //     border: Border.all(color: Colors.white, width: 3.0)),
-        //   // child: SvgPicture.asset(
-        //   //   'assets/confident_woman.svg',
-        //   //   fit: BoxFit.cover)
-        // ), 
         Positioned(
           top: 120,
           child: faceScanner())
@@ -57,7 +53,7 @@ class FaceScan extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FaceScanSuccess()),
+          MaterialPageRoute(builder: (context) => FaceScanSuccess(previousPage: previousPage,)),
         );
       },
       child: Column(children: [
