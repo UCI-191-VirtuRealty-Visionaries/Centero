@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'call_regular.dart';
@@ -14,11 +15,11 @@ class PageCallRegularConfirmation extends StatelessWidget {
   }
 
   // Green checkmark PNG
-  Widget callConnected () { 
+  Widget callConnected() {
     return Image.asset(
       'assets/call_confirmed.png',
-      width: 500,
-      height: 500,
+      width: 400,
+      height: 400,
     );
   }
 
@@ -34,27 +35,27 @@ class PageCallRegularConfirmation extends StatelessWidget {
       },
       child: Column(
         children: <Widget>[
-          SizedBox(height: 600),
+          SizedBox(height: 550),
           Text("Ready to chat!",
-            style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+              style: MyTextStyle.heading),
           RichText(
             text: TextSpan(
               text: 'Connecting you now to ',
-              style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold),
+              style: MyTextStyle.subheading,
               children: const <TextSpan>[
-                TextSpan(text: 'Marcus Bennett...', style: TextStyle(fontWeight: FontWeight.w800)),
+                TextSpan(
+                    text: 'Marcus Bennett...',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
           ),
-          //style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-          SizedBox(height: 200),
+          
+          SizedBox(height: 100),
           callConnected(),
         ],
       ),
     );
 
-    return PageFrame(
-      child: content
-    );
+    return PageFrame(child: content);
   }
 }

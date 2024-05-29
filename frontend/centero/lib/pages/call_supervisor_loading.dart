@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
@@ -39,16 +40,16 @@ class PageCallSupervisorLoading extends StatelessWidget {
       }, 
       child: Column(
         children: [
-          SizedBox(height: 600),
+          SizedBox(height: 550),
           Padding(
             padding: EdgeInsets.only(left: 100.0, right: 100.0),
               child: Text("Just a moment while I get someone for you!", 
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+              style: MyTextStyle.heading),
           ),
-          SizedBox(height: 200),
+          SizedBox(height: 70),
           spinkit,
-          SizedBox(height: 200),
+          SizedBox(height: 150),
           cancelButton(context)
         ]
       )

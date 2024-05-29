@@ -1,5 +1,6 @@
 import 'package:centero/pages/feedback_bad_end.dart';
 import 'package:centero/pages/feedback_good.dart';
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -22,12 +23,8 @@ class EndSupervisorCall extends StatelessWidget {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Thanks for chatting!",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.bold,
-              fontSize: 130,
-              color: Color.fromARGB(255, 255, 255, 255),
-            )),
+            style: MyTextStyle.heading
+            ),
       ]);
     }
 
@@ -35,12 +32,8 @@ class EndSupervisorCall extends StatelessWidget {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Did Cindy Kim resolve your issue?",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.normal,
-              fontSize: 65,
-              color: Color.fromARGB(255, 255, 255, 255),
-            )),
+            style: MyTextStyle.subheading
+            ),
       ]);
     }
 
@@ -110,7 +103,7 @@ class EndSupervisorCall extends StatelessWidget {
 
           Column(
             children: <Widget>[
-              SizedBox(height: 480),
+              SizedBox(height: 550),
               scanFailure(),
               SizedBox(height: 30),
               Container(

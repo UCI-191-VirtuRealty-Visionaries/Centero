@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/button_secondary.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class PageCallRegularLoading extends StatelessWidget {
     return ButtonSecondary(
       width: 1500,
       onPressed: () {goToWelcomeScreen(context);}, 
-      child: Text('Cancel', style: TextStyle(fontSize: 80)));
+      child: Text('Cancel', style: MyTextStyle.btnTxt2));
   }
 
   // Loading Circle
@@ -39,9 +40,9 @@ class PageCallRegularLoading extends StatelessWidget {
       }, 
       child: Column(
         children: [
-          SizedBox(height: 600),
+          SizedBox(height: 550),
           Text("Connecting you now...", 
-            style: TextStyle(fontSize: 140, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+            style: MyTextStyle.heading),
           SizedBox(height: 200),
           spinkit,
           SizedBox(height: 200),

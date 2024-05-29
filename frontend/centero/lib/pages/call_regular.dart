@@ -1,4 +1,5 @@
 import 'package:centero/pages/end_call.dart';
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/name_header.dart';
 import 'package:centero/widgets/page_frame_rcall.dart';
 import 'package:centero/widgets/button_end_call.dart';
@@ -30,7 +31,7 @@ class PageCallRegular extends StatelessWidget {
     Widget nameHeader() {
       return NameHeader(
         child: Text('You are speaking with: Marcus Bennett', 
-          style: TextStyle(fontSize: 80, fontFamily: 'Josefin', fontWeight: FontWeight.bold), 
+          style: MyTextStyle.subheading2, 
           textAlign: TextAlign.center));
     }
 

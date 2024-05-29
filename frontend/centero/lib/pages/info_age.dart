@@ -6,34 +6,43 @@ import 'package:flutter/material.dart';
 import 'welcome_home.dart';
 import 'info_role_selection.dart';
 
-
 class PageInfoAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ----- Widgets -----
 
     Widget headerText() {
-      return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("You must be at least 18",
-            style: TextStyle(
-              fontSize: 120,
-              color: Colors.white,
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.bold,
-            )),
-        Text("to proceed.",
-            style: TextStyle(
-              fontSize: 120,
-              color: Colors.white,
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.bold,
-            )),
-      ]);
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "You must be at least ",
+            style: MyTextStyle.heading,
+            textAlign: TextAlign.center,
+          ),
+          RichText(
+            text: TextSpan(
+              /*defining default style is optional */
+              children: <TextSpan>[
+                TextSpan(
+                    text: '18 to proceed.',
+                    style: TextStyle(
+                      color: const Color.fromRGBO(67, 176, 42, 1),
+                      fontFamily: 'Josefin',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 130,
+                    ),),
+               
+              ],
+            ),
+          ),
+        ],
+      );
     }
 
     Widget btnProceed() {
       return ButtonPrimary(
-        width: 1200,
+        width: 800,
         onPressed: () {
           Navigator.push(
             context,
@@ -41,7 +50,7 @@ class PageInfoAge extends StatelessWidget {
           );
         },
         child: Text(
-          'I am 18+',
+          'I Am 18+',
           style: MyTextStyle.btnTxt,
         ),
       );
@@ -49,7 +58,7 @@ class PageInfoAge extends StatelessWidget {
 
     Widget btnReturn() {
       return ButtonDanger(
-        width: 1200,
+        width: 1000,
         onPressed: () {
           Navigator.push(
             context,
@@ -57,7 +66,7 @@ class PageInfoAge extends StatelessWidget {
           );
         },
         child: Text(
-          'I am NOT 18+',
+          'I Am NOT 18+',
           style: MyTextStyle.btnTxt,
         ),
       );
@@ -71,23 +80,25 @@ class PageInfoAge extends StatelessWidget {
           children: [
             Padding(
                 padding: EdgeInsets.only(
-              top: 1000,
-            )
-            ),
+              top: 550,
+            )),
             // padding above header text
-            headerText(),
+            Container(
+              margin: EdgeInsets.only(
+                  left: 200, right: 200), // Add margin around the Text widget
+              child: headerText(),
+            ),
             Padding(
                 padding: EdgeInsets.only(
-              top: 100,
-            )
-            ),
-            // padding above first button
+              top: 120,
+            )),
+
+            // padding above first buttons
             btnProceed(),
             Padding(
                 padding: EdgeInsets.only(
               top: 75,
-            )
-            ),
+            )),
             // padding above second button
             btnReturn(),
           ],

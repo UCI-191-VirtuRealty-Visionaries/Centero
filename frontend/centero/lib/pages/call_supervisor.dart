@@ -36,7 +36,7 @@ class PageCallSupervisor extends StatelessWidget {
     Widget nameHeader() {
       return NameHeader(
         child: Text('You are speaking with: Cindy Kim', 
-          style: TextStyle(fontSize: 80, fontFamily: 'Josefin', fontWeight: FontWeight.bold), 
+          style: TextStyle(fontSize: 80, fontFamily: 'Josefin', fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 34, 34),), 
           textAlign: TextAlign.center));
     }
 

@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -35,12 +36,8 @@ class EndCall extends StatelessWidget {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Did Marcus Bennett resolve your issue?",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.normal,
-              fontSize: 65,
-              color: Color.fromARGB(255, 255, 255, 255),
-            )),
+            style: MyTextStyle.body,
+            ),
       ]);
     }
 
