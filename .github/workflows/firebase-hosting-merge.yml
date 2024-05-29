@@ -9,9 +9,15 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    defaults: 
+      run:
+        working-directory: ./frontend/centero
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - run: pwd
+      - run: ls
       
       - name: Set up Dart SDK
         uses: dart-lang/setup-dart@v1
@@ -38,9 +44,10 @@ jobs:
           PROD_APIKEY: ${{ secrets.FIREBASE_API_KEY }}
 
       - run: flutter build web
-      
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
+          entryPoint: frontend
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CENTEROBACKEND_14820 }}'
           channelId: live
