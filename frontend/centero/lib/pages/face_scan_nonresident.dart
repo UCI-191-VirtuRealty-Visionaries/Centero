@@ -35,15 +35,6 @@ class PageFaceScanNonresident extends StatelessWidget {
           height: 1850,
           fit: BoxFit.cover,
         ),
-        // Container(
-        //   width: 1400,
-        //   height: 1850,
-        //   decoration: BoxDecoration(
-        //     border: Border.all(color: Colors.white, width: 3.0)),
-        //   // child: SvgPicture.asset(
-        //   //   'assets/confident_woman.svg',
-        //   //   fit: BoxFit.cover)
-        // ), 
         Positioned(
           top: 120,
           child: faceScanner())
@@ -57,7 +48,7 @@ class PageFaceScanNonresident extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FaceScanSuccess()),
+          MaterialPageRoute(builder: (context) => FaceScanSuccess(previousPage: 'nonresident',)),
         );
       },
       child: Column(children: [
