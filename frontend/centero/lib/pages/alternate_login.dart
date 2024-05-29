@@ -28,25 +28,6 @@ class AlternateLogin extends StatelessWidget {
       );
     }
 
-    Widget btnAlternate() {
-      return ButtonSecondary(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AlternateLogin()),
-          );
-        },
-        child: Text(
-          'Back',
-          style: TextStyle(
-            fontSize: 45,
-            fontFamily: 'Josefin',
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-        ),
-      );
-    }
-
 // Exit Button
     Widget exitButton(BuildContext context) {
       return Container(
@@ -54,7 +35,6 @@ class AlternateLogin extends StatelessWidget {
           child: Row(children: [
             ButtonSecondarySmall(
                 width: 500,
-                
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -76,19 +56,12 @@ class AlternateLogin extends StatelessWidget {
           )),
           buildBackground(),
           SizedBox(height: 800),
-          Positioned(child: btnAlternate()),
           SizedBox(height: 900),
           Padding(
               padding: EdgeInsets.only(
             top: 200,
           )),
           exitButton(context),
-          /* Padding(
-            padding: EdgeInsets.only(
-            top: 80,
-          )), */
-          //btnProceed(),
-          //  Positioned(top: 0, child: buildBackground()),
           Column(
             children: <Widget>[],
           ),

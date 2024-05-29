@@ -88,7 +88,7 @@ class PageResidentCallOptions extends StatelessWidget {
               onPressed: () {
                 goToWelcomeScreen(context);
               },
-              child: Text('Exit', style: TextStyle(fontSize: 55))),
+              child: Text('Exit', style: TextStyle(fontSize: 45))),
           Expanded(child: Container())
         ]));
   }
@@ -113,12 +113,20 @@ class PageResidentCallOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = Column(children: [
-      SizedBox(height: 550),
+      SizedBox(height: 600),
       Text("Hello, Thatcher James!",
-          style: MyTextStyle.heading),
+          style: TextStyle(
+              fontSize: 200,
+              color: Colors.white,
+              fontFamily: 'Josefin',
+              fontWeight: FontWeight.bold)),
       Text("What would you like to chat about?",
-          style: MyTextStyle.subheading),
-      SizedBox(height: 70),
+          style: TextStyle(
+              fontSize: 80,
+              color: Colors.white,
+              fontFamily: 'Josefin',
+              fontWeight: FontWeight.bold)),
+      SizedBox(height: 150),
       buildButtonColumn(context)
     ]);
 

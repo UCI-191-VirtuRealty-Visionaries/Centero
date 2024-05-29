@@ -12,13 +12,14 @@ class FaceScanFail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Widgets
-    Widget faceScanner() {
-      return SvgPicture.asset(
-        'assets/face_scan_reticle.svg',
-        width: 1000,
-        height: 1000,
-      );
-    }
+    Widget buildBackground() {
+    return Image.asset(
+      'assets/altlogin.png', // background image of apartment buildings
+      fit: BoxFit.cover, // cover whole screen
+      width: double.infinity, // image take up whole width
+      height: double.infinity, // image take up whole height
+    );
+  }
 
     Widget headerText() {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -106,7 +107,7 @@ class FaceScanFail extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 650, child: faceScanner()),
+          Positioned(top: 650, child: buildBackground()),
           Column(
             children: <Widget>[
               SizedBox(height: 800),
