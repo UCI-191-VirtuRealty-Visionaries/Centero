@@ -6,7 +6,22 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'welcome_home.dart';
 import 'call_supervisor.dart';
 
-class PageCallSupervisorLoading extends StatelessWidget {
+class PageCallSupervisorLoading extends StatefulWidget {
+  @override
+  _PageCallSupervisorLoadingState createState() => _PageCallSupervisorLoadingState();
+}
+
+class _PageCallSupervisorLoadingState extends State<PageCallSupervisorLoading> {
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PageCallSupervisor()),
+      );
+    });
+  }
+
   // Move to welcome screen
     void goToWelcomeScreen(BuildContext context) {
     Navigator.push(
@@ -31,14 +46,7 @@ class PageCallSupervisorLoading extends StatelessWidget {
 
     @override
   Widget build(BuildContext context) {
-    final content = GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PageCallSupervisor()),
-        );
-      }, 
-      child: Column(
+    final content = Column(
         children: [
           SizedBox(height: 550),
           Padding(
@@ -52,8 +60,7 @@ class PageCallSupervisorLoading extends StatelessWidget {
           SizedBox(height: 150),
           cancelButton(context)
         ]
-      )
-    );
+      );
 
     return PageFrame(
       child: content
