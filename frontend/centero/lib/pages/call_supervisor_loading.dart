@@ -15,9 +15,9 @@ class _PageCallSupervisorLoadingState extends State<PageCallSupervisorLoading> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => PageCallSupervisor()),
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PageCallSupervisor())
       );
     });
   }
@@ -26,7 +26,7 @@ class _PageCallSupervisorLoadingState extends State<PageCallSupervisorLoading> {
     void goToWelcomeScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PageWelcomeHome()),
+      MaterialPageRoute(builder: (context) => PageWelcomeHome())
     );
   }
 
@@ -40,27 +40,27 @@ class _PageCallSupervisorLoadingState extends State<PageCallSupervisorLoading> {
 
   // Loading Circle
   final spinkit = const SpinKitFadingCircle(
-            color: Colors.green,
-            size: 500
-          );
+    color: Colors.green,
+    size: 500
+  );
 
-    @override
+  @override
   Widget build(BuildContext context) {
     final content = Column(
-        children: [
-          SizedBox(height: 550),
-          Padding(
-            padding: EdgeInsets.only(left: 100.0, right: 100.0),
-              child: Text("Just a moment while I get someone for you!", 
-              textAlign: TextAlign.center,
-              style: MyTextStyle.heading),
-          ),
-          SizedBox(height: 70),
-          spinkit,
-          SizedBox(height: 150),
-          cancelButton(context)
-        ]
-      );
+      children: [
+        SizedBox(height: 550),
+        Padding(
+          padding: EdgeInsets.only(left: 100.0, right: 100.0),
+            child: Text("Just a moment while I get someone for you!", 
+            textAlign: TextAlign.center,
+            style: MyTextStyle.heading),
+        ),
+        SizedBox(height: 70),
+        spinkit,
+        SizedBox(height: 150),
+        cancelButton(context)
+      ]
+    );
 
     return PageFrame(
       child: content

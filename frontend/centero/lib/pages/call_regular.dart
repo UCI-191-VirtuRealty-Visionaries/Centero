@@ -12,7 +12,7 @@ class PageCallRegular extends StatelessWidget {
     void nextScreen(BuildContext context) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EndCall()),
+        MaterialPageRoute(builder: (context) => EndCall())
       );
     }
 

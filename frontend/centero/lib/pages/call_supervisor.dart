@@ -11,7 +11,7 @@ class PageCallSupervisor extends StatelessWidget {
     void nextScreen(BuildContext context) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EndSupervisorCall()),
+        MaterialPageRoute(builder: (context) => EndSupervisorCall())
       );
     }
 

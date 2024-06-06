@@ -52,7 +52,8 @@ class _PageCallRegularConfirmationState extends State<PageCallRegularConfirmatio
               children: const <TextSpan>[
                 TextSpan(
                     text: 'Marcus Bennett...',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontWeight: FontWeight.bold)
+                ),
               ],
             ),
           ),

@@ -41,23 +41,23 @@ class _PageCallRegularLoadingState extends State<PageCallRegularLoading> {
 
   // Loading Circle
   final spinkit = const SpinKitFadingCircle(
-            color: Colors.green,
-            size: 500
-          );
+    color: Colors.green,
+    size: 500
+  );
 
   @override
   Widget build(BuildContext context) {
     final content =  Column(
-        children: [
-          SizedBox(height: 550),
-          Text("Connecting you now...", 
-            style: MyTextStyle.heading),
-          SizedBox(height: 200),
-          spinkit,
-          SizedBox(height: 200),
-          cancelButton(context)
-        ]
-      );
+      children: [
+        SizedBox(height: 550),
+        Text("Connecting you now...", 
+          style: MyTextStyle.heading),
+        SizedBox(height: 200),
+        spinkit,
+        SizedBox(height: 200),
+        cancelButton(context)
+      ]
+    );
 
     return PageFrame(
       child: content
