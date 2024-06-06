@@ -70,12 +70,6 @@ class DevRouteConfig {
         return PageInfoRoleSelection();
       case 'InfoNonResidentRoleSelection':
         return PageInfoNonResidentRoleSelection();
-      case 'AuthFaceScan':
-        return PageAuthFaceScan();
-      case 'AuthGooglePin':
-        return PageAuthGooglePin();
-      case 'AuthGoogleRegister':
-        return PageAuthGoogleRegister();
       case 'CallRegularLoading':
         return PageCallRegularLoading();
       case 'CallRegular':
