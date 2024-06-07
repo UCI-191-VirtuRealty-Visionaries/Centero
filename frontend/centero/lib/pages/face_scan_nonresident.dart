@@ -20,8 +20,8 @@ class PageFaceScanNonresident extends StatelessWidget {
   Widget faceScanner() {
       return SvgPicture.asset(
         'assets/face_scan_reticle.svg',
-        width: 900,
-        height: 900,
+        width: 1000,
+        height: 1000,
       );
   }
 
@@ -63,13 +63,14 @@ class PageFaceScanNonresident extends StatelessWidget {
           
           Column(
             children: <Widget>[
-              SizedBox(height: 1550),
+              SizedBox(height: 1650),
               Container(
                 margin:
                     EdgeInsets.only(left: 550, right: 550), // Add margin around the Text widget
+                
                 child: headerText(),
               ),
-              SizedBox(height: 100),
+              
             ],
           ),
         ],

@@ -115,17 +115,9 @@ class PageResidentCallOptions extends StatelessWidget {
     final content = Column(children: [
       SizedBox(height: 600),
       Text("Hello, Thatcher James!",
-          style: TextStyle(
-              fontSize: 200,
-              color: Colors.white,
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.bold)),
+          style: MyTextStyle.heading),
       Text("What would you like to chat about?",
-          style: TextStyle(
-              fontSize: 80,
-              color: Colors.white,
-              fontFamily: 'Josefin',
-              fontWeight: FontWeight.bold)),
+          style: MyTextStyle.subheading2),
       SizedBox(height: 150),
       buildButtonColumn(context)
     ]);

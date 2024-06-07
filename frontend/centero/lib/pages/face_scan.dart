@@ -21,8 +21,8 @@ class FaceScan extends StatelessWidget {
   Widget faceScanner() {
     return SvgPicture.asset(
       'assets/face_scan_reticle.svg',
-      width: 900,
-      height: 900,
+      width: 1000,
+      height: 1000,
     );
   }
 
