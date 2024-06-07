@@ -14,11 +14,19 @@ class MyTextStyle {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
+
   static const TextStyle subheading2 = TextStyle(
     fontFamily: 'Josefin',
     fontSize: 72,
     fontWeight: FontWeight.bold,
     color: Color.fromARGB(255, 34, 34, 34),
+  );
+
+  static const TextStyle subheading3 = TextStyle(
+    fontFamily: 'Josefin',
+    fontSize: 72,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
   );
 
   static const TextStyle body = TextStyle(

@@ -117,7 +117,7 @@ class PageResidentCallOptions extends StatelessWidget {
       Text("Hello, Thatcher James!",
           style: MyTextStyle.heading),
       Text("What would you like to chat about?",
-          style: MyTextStyle.subheading2),
+          style: MyTextStyle.subheading3),
       SizedBox(height: 150),
       buildButtonColumn(context)
     ]);
