@@ -9,34 +9,34 @@ class LogoFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final logo = SizedBox(
-      width: 64,
-      height: 64,
-      child: SvgPicture.asset('assets/centero_logo.svg'),
+      width: 3000,
+      height: 3000,
+      child: Image.asset('assets/centerologogreen.png'),
     );
 
-    const topTextStyle = TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w300,
-      fontSize: 16,
-      fontFamily: 'Montserrat',
-    );
+    // const topTextStyle = TextStyle(
+    //   color: Colors.white,
+    //   fontWeight: FontWeight.w300,
+    //   fontSize: 16,
+    //   fontFamily: 'Montserrat',
+    // );
 
-    const bottomTextStyle = TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w300,
-      fontSize: 30,
-      fontFamily: 'Montserrat',
-    );
+    // const bottomTextStyle = TextStyle(
+    //   color: Colors.white,
+    //   fontWeight: FontWeight.w300,
+    //   fontSize: 30,
+    //   fontFamily: 'Montserrat',
+    // );
 
-    final text = Column(
-      children: [
-        const Text('POWERED BY', style: topTextStyle),
-        const Text('CENTERO', style: bottomTextStyle),
-      ],
-    );
+    // final text = Column(
+    //   children: [
+    //     const Text('POWERED BY', style: topTextStyle),
+    //     const Text('CENTERO', style: bottomTextStyle),
+    //   ],
+    // );
 
     return Row(
-      children: [logo, SizedBox(width: 10), text],
+      children: [logo],
     );
   }
 }

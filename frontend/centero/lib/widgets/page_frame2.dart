@@ -69,7 +69,7 @@ class _PageFrameState extends State<PageFrame> {
 
     final safeArea = subwidgets.buildSafeAreaOverlay();
 
-    final footer = subwidgets.buildFooterLogo();
+    //final footer = subwidgets.buildFooterLogo();
 
     // ----- Structure -----
 
@@ -78,7 +78,7 @@ class _PageFrameState extends State<PageFrame> {
       content: true,
       safeArea: overlayVisible,
       btnToggleSafeArea: GlobalConfig.isDevMode,
-      footer: true,
+      //footer: true,
     };
 
     return Scaffold(
