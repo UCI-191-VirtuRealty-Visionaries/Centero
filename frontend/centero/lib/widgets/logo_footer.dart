@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LogoFooter extends StatelessWidget {
   LogoFooter({
@@ -9,34 +8,13 @@ class LogoFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final logo = SizedBox(
-      width: 64,
-      height: 64,
-      child: SvgPicture.asset('assets/centero_logo.svg'),
-    );
-
-    const topTextStyle = TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w300,
-      fontSize: 16,
-      fontFamily: 'Montserrat',
-    );
-
-    const bottomTextStyle = TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w300,
-      fontSize: 30,
-      fontFamily: 'Montserrat',
-    );
-
-    final text = Column(
-      children: [
-        const Text('POWERED BY', style: topTextStyle),
-        const Text('CENTERO', style: bottomTextStyle),
-      ],
+      width: 3000,
+      height: 3000,
+      child: Image.asset('assets/centerologogreen.png'),
     );
 
     return Row(
-      children: [logo, SizedBox(width: 10), text],
+      children: [logo],
     );
   }
 }
