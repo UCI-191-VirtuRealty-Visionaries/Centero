@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:centero/widgets/button_primary.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class PageInfoNonResidentRoleSelection extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nonresidentFaceScan(context);}, 
-      child: Text('Associate', style: TextStyle(fontSize: 80)));
+      child: Text('Associate', style: MyTextStyle.btnTxt2));
   }
 
   // Prospective Resident Button
@@ -25,7 +26,7 @@ class PageInfoNonResidentRoleSelection extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nonresidentFaceScan(context);}, 
-      child: Text('Prospective Resident', style: TextStyle(fontSize: 80), textAlign: TextAlign.center));
+      child: Text('Prospective Resident', style: MyTextStyle.btnTxtLong));
   }
 
   // Prospective Resident Button
@@ -33,7 +34,7 @@ class PageInfoNonResidentRoleSelection extends StatelessWidget {
     return ButtonPrimary(
       width: 1200,
       onPressed: () {nonresidentFaceScan(context);}, 
-      child: Text('Other', style: TextStyle(fontSize: 80)));
+      child: Text('Other', style: MyTextStyle.btnTxt2));
   }
 
   // Build column of buttons
@@ -47,15 +48,15 @@ class PageInfoNonResidentRoleSelection extends StatelessWidget {
     final content = Container(
       width: 1500,
       child: Column(children: [
-        SizedBox(height: 780),
+        SizedBox(height: 550),
         Text("Please tell us who we are talking with?",
           textAlign: TextAlign.center, 
-          style: TextStyle(fontSize: 150, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
-        SizedBox(height: 170),
+          style: MyTextStyle.heading),
+        SizedBox(height: 70),
         buildButtonColumn(context),
-        SizedBox(height: 170),
+        SizedBox(height: 70),
         Text("Have an emergency? Please call 911.", 
-          style: TextStyle(fontSize: 80, color: Colors.white, fontFamily: 'Josefin', fontWeight: FontWeight.bold)),
+          style: MyTextStyle.body),
       ])
     );
 
