@@ -1,3 +1,4 @@
+import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -19,18 +20,7 @@ class FaceScanSuccess extends StatelessWidget {
     );
   }
 
-  Widget headerText() {
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text("Scan Successful!",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontFamily: 'Josefin',
-          fontWeight: FontWeight.normal,
-          fontSize: 80,
-          color: Color.fromARGB(255, 59, 189, 15),
-        )),
-      ]);
-    }
+
 
   Widget scanSuccess() {
     return Image.asset(
@@ -40,16 +30,12 @@ class FaceScanSuccess extends StatelessWidget {
     );
   }
 
-  Widget bottomText() {
+  Widget headerText() {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text("We will connect you now!",
+      Text("Authentication Success! We will connect you now!",
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: 'Josefin',
-            fontWeight: FontWeight.normal,
-            fontSize: 70,
-            color: Colors.white,
-          )),
+          style: MyTextStyle.heading,
+          ),
     ]);
   }
 
@@ -75,10 +61,10 @@ class FaceScanSuccess extends StatelessWidget {
               padding: EdgeInsets.only(
             top: 80,
           )),
-          Positioned(top: 450, child: faceScanner()),
+          Positioned(top: 650, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 600),
+              SizedBox(height: 800),
               Container(
                 margin: EdgeInsets.only(
                     left: 750, right: 750), // Add margin around the Text widget
@@ -86,8 +72,7 @@ class FaceScanSuccess extends StatelessWidget {
               ),
               SizedBox(height: 50),
               scanSuccess(),
-              SizedBox(height: 300),
-              bottomText()
+             
             ],
           ),
         ],

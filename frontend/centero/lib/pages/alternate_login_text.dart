@@ -1,4 +1,3 @@
-import 'package:centero/pages/alternate_login_text.dart';
 import 'package:centero/pages/faceid_notice.dart';
 import 'package:centero/widgets/button_secondary_small.dart';
 import 'package:centero/widgets/page_frame.dart';
@@ -6,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'welcome_home.dart';
 
-class AlternateLogin extends StatelessWidget {
+class AlternateLoginText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Widgets
@@ -22,7 +21,7 @@ class AlternateLogin extends StatelessWidget {
     //Stack
     Widget buildBackground() {
       return Image.asset(
-        'assets/authenticator.png', // background image of apartment buildings
+        'assets/authenticatortext.png', // background image of apartment buildings
         fit: BoxFit.cover, // cover whole screen
         width: double.infinity, // image take up whole width
         height: double.infinity, // image take up whole height

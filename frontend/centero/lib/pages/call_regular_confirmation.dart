@@ -2,15 +2,29 @@ import 'package:centero/styles/text_styles.dart';
 import 'package:centero/widgets/page_frame.dart';
 import 'package:flutter/material.dart';
 import 'call_regular.dart';
-import 'feedback_bad.dart'; // delete later
 
-class PageCallRegularConfirmation extends StatelessWidget {
+class PageCallRegularConfirmation extends StatefulWidget {
+  @override
+  _PageCallRegularConfirmationState createState() => _PageCallRegularConfirmationState();
+}
+
+class _PageCallRegularConfirmationState extends State<PageCallRegularConfirmation> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PageCallRegular()),
+      );
+    });
+  }
+ 
   // Move to call regular screen
   void nextScreen(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => PageCallRegular()),
-      // update to PageCallRegular() when complete
     );
   }
 
@@ -26,14 +40,7 @@ class PageCallRegularConfirmation extends StatelessWidget {
   @override
   // Build column
   Widget build(BuildContext context) {
-    final content = GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PageCallRegular()),
-        );
-      },
-      child: Column(
+    final content = Column(
         children: <Widget>[
           SizedBox(height: 550),
           Text("Ready to chat!",
@@ -45,7 +52,8 @@ class PageCallRegularConfirmation extends StatelessWidget {
               children: const <TextSpan>[
                 TextSpan(
                     text: 'Marcus Bennett...',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontWeight: FontWeight.bold)
+                ),
               ],
             ),
           ),
@@ -53,9 +61,9 @@ class PageCallRegularConfirmation extends StatelessWidget {
           SizedBox(height: 100),
           callConnected(),
         ],
-      ),
-    );
+      );
 
     return PageFrame(child: content);
   }
 }
+

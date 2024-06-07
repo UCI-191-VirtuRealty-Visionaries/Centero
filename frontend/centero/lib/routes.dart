@@ -1,6 +1,3 @@
-import 'package:centero/pages/auth_face_scan.dart';
-import 'package:centero/pages/auth_google_pin.dart';
-import 'package:centero/pages/auth_google_register.dart';
 import 'package:centero/pages/call_regular.dart';
 import 'package:centero/pages/call_regular_loading.dart';
 import 'package:centero/pages/call_supervisor.dart';
@@ -70,12 +67,6 @@ class DevRouteConfig {
         return PageInfoRoleSelection();
       case 'InfoNonResidentRoleSelection':
         return PageInfoNonResidentRoleSelection();
-      case 'AuthFaceScan':
-        return PageAuthFaceScan();
-      case 'AuthGooglePin':
-        return PageAuthGooglePin();
-      case 'AuthGoogleRegister':
-        return PageAuthGoogleRegister();
       case 'CallRegularLoading':
         return PageCallRegularLoading();
       case 'CallRegular':

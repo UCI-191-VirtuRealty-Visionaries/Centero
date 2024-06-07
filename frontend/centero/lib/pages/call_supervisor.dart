@@ -11,7 +11,7 @@ class PageCallSupervisor extends StatelessWidget {
     void nextScreen(BuildContext context) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EndSupervisorCall()),
+        MaterialPageRoute(builder: (context) => EndSupervisorCall())
       );
     }
 
@@ -45,9 +45,23 @@ class PageCallSupervisor extends StatelessWidget {
       escalatedCallHeader(),
       SizedBox(height: 50),
       nameHeader(),
-      SizedBox(height: 2000),
-      Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [muteButton(), endCallButton()])
+      Column(
+        children: [
+          SizedBox(height: 750),
+          Container(
+            margin: EdgeInsets.only(
+                left: 1400), // Add margin around the Text widget
+            child: muteButton(),
+          ),
+          SizedBox(height: 100),
+          Container(
+            margin: EdgeInsets.only(
+                left: 1400), // Add margin around the Text widget
+            child: endCallButton(),
+          ),
+          
+        ],
+      ),
       ]);
   
     return PageFrame(

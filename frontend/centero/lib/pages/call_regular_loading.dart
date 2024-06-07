@@ -6,7 +6,23 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'welcome_home.dart';
 import 'call_regular_confirmation.dart';
 
-class PageCallRegularLoading extends StatelessWidget {
+class PageCallRegularLoading extends StatefulWidget {
+  @override
+  _PageCallRegularLoadingState createState() => _PageCallRegularLoadingState();
+}
+
+class _PageCallRegularLoadingState extends State<PageCallRegularLoading> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PageCallRegularConfirmation()),
+      );
+    });
+  }
+
   // Move to welcome screen
   void goToWelcomeScreen(BuildContext context) {
     Navigator.push(
@@ -25,30 +41,22 @@ class PageCallRegularLoading extends StatelessWidget {
 
   // Loading Circle
   final spinkit = const SpinKitFadingCircle(
-            color: Colors.green,
-            size: 500
-          );
+    color: Colors.green,
+    size: 500
+  );
 
   @override
   Widget build(BuildContext context) {
-    final content = GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PageCallRegularConfirmation()),
-        );
-      }, 
-      child: Column(
-        children: [
-          SizedBox(height: 550),
-          Text("Connecting you now...", 
-            style: MyTextStyle.heading),
-          SizedBox(height: 200),
-          spinkit,
-          SizedBox(height: 200),
-          cancelButton(context)
-        ]
-      )
+    final content =  Column(
+      children: [
+        SizedBox(height: 550),
+        Text("Connecting you now...", 
+          style: MyTextStyle.heading),
+        SizedBox(height: 200),
+        spinkit,
+        SizedBox(height: 200),
+        cancelButton(context)
+      ]
     );
 
     return PageFrame(
@@ -56,3 +64,4 @@ class PageCallRegularLoading extends StatelessWidget {
     );
   }
 }
+
