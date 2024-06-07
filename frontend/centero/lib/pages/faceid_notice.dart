@@ -113,10 +113,10 @@ class FaceIDNotice extends StatelessWidget {
             top: 80,
           )),
           //btnProceed(),
-          Positioned(top: 550, child: faceScanner()),
+          Positioned(top: 450, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 850),
+              SizedBox(height: 750),
               Container(
                 margin:
                     EdgeInsets.only(left: 750, right: 750), // Add margin around the Text widget

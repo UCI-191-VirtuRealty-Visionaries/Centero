@@ -113,10 +113,10 @@ class PageResidentCallOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = Column(children: [
-      SizedBox(height: 600),
+      SizedBox(height: 550),
       Text("Hello, Thatcher James!",
           style: TextStyle(
-              fontSize: 200,
+              fontSize: 130,
               color: Colors.white,
               fontFamily: 'Josefin',
               fontWeight: FontWeight.bold)),
@@ -126,7 +126,7 @@ class PageResidentCallOptions extends StatelessWidget {
               color: Colors.white,
               fontFamily: 'Josefin',
               fontWeight: FontWeight.bold)),
-      SizedBox(height: 150),
+      SizedBox(height: 100),
       buildButtonColumn(context)
     ]);
 

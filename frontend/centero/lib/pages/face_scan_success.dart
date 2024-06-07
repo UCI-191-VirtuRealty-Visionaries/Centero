@@ -47,7 +47,7 @@ class FaceScanSuccess extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'Josefin',
             fontWeight: FontWeight.normal,
-            fontSize: 60,
+            fontSize: 70,
             color: Colors.white,
           )),
     ]);
@@ -75,10 +75,10 @@ class FaceScanSuccess extends StatelessWidget {
               padding: EdgeInsets.only(
             top: 80,
           )),
-          Positioned(top: 650, child: faceScanner()),
+          Positioned(top: 450, child: faceScanner()),
           Column(
             children: <Widget>[
-              SizedBox(height: 800),
+              SizedBox(height: 600),
               Container(
                 margin: EdgeInsets.only(
                     left: 750, right: 750), // Add margin around the Text widget
