@@ -1,4 +1,4 @@
-import 'package:centero/widgets/page_frame.dart';
+import 'package:centero/widgets/page_frame2.dart';
 import 'package:flutter/material.dart';
 import 'info_age.dart';
 
@@ -90,7 +90,7 @@ class _PageWelcomeHomeState extends State<PageWelcomeHome> {
     );
 
     return PageFrame(
-      enableWatchdogTimer: false,
+      //enableWatchdogTimer: false,
       child: content,
     );
   }

@@ -63,8 +63,8 @@ class FaceScan extends StatelessWidget {
             padding: EdgeInsets.only(
             top: 80,
           )),
-          Positioned(top: 450, child: lady()),
-          Positioned(top: 550, child: faceScanner()),
+          Positioned(top: 350, child: lady()),
+          Positioned(top: 450, child: faceScanner()),
           
           Column(
             children: <Widget>[

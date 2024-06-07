@@ -86,13 +86,13 @@ class PageFrameSubwidgets extends SubwidgetFactory<PageFrame> {
     // Should take up full frame
 
     final footer = SizedBox(
-      height: 120,
+      height: 365,
       child: LogoFooter(),
     );
 
     return Positioned(
       bottom: 20,
-      height: 70,
+      //height: 70,
       child: footer,
     );
   }

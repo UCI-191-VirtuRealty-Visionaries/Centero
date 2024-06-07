@@ -69,7 +69,7 @@ class PageFeedbackBad extends StatelessWidget {
         Text("Do you want to record a message and share more about our conversation?",
           textAlign: TextAlign.center,
           style: MyTextStyle.subheading),
-        SizedBox(height: 170),
+        SizedBox(height: 120),
         buildButtonColumn(context),
       ])
     );
